@@ -143,273 +143,69 @@
         </section>
 
         <section id="servicos" class="py-20 md:py-32 bg-primary-light">
-            <div class="container mx-auto px-6">
-                <div id="service-list-container">
-                    <div class="text-center mb-16">
-                        <h2 class="text-3xl md:text-4xl font-bold text-primary-dark">Meus Serviços</h2>
-                        <p class="mt-2 text-gray-medium">Soluções completas para a sua saúde bucal e estética.</p>
-                    </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        <a href="#" class="service-card bg-white p-8 rounded-lg shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 block" data-service-id="estetica">
-                            <div class="text-4xl text-accent-color mb-4 text-center">✨</div>
-                            <h3 class="text-2xl font-bold text-primary-dark mb-3 text-center">Odontologia Estética</h3>
-                            <p class="text-gray-medium text-center">Transforme seu sorriso com clareamento dental, lentes de contato, facetas de porcelana e restaurações estéticas de alta qualidade.</p>
-                        </a>
-                        <a href="#" class="service-card bg-white p-8 rounded-lg shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 block" data-service-id="implantes">
-                            <div class="text-4xl text-accent-color mb-4 text-center">🦷</div>
-                            <h3 class="text-2xl font-bold text-primary-dark mb-3 text-center">Implantes Dentários</h3>
-                            <p class="text-gray-medium text-center">Recupere a função e a estética de dentes perdidos com implantes de titânio, a solução mais segura e duradoura para a reabilitação oral completa.</p>
-                        </a>
-                        <a href="#" class="service-card bg-white p-8 rounded-lg shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 block" data-service-id="clinica-geral">
-                            <div class="text-4xl text-accent-color mb-4 text-center">💉</div>
-                            <h3 class="text-2xl font-bold text-primary-dark mb-3 text-center">Clínica Geral</h3>
-                            <p class="text-gray-medium text-center">Realizo limpezas, restaurações, extrações e tratamentos de canal, garantindo a saúde e a prevenção de problemas bucais.</p>
-                        </a>
-                        <a href="#" class="service-card bg-white p-8 rounded-lg shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 block" data-service-id="periodontia">
-                            <div class="text-4xl text-accent-color mb-4 text-center">👤</div>
-                            <h3 class="text-2xl font-bold text-primary-dark mb-3 text-center">Periodontia</h3>
-                            <p class="text-gray-medium text-center">Tratamento de doenças da gengiva e tecidos de suporte dos dentes, essencial para a manutenção da saúde bucal a longo prazo.</p>
-                        </a>
-                        <a href="#" class="service-card bg-white p-8 rounded-lg shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 block" data-service-id="odontopediatria">
-                            <div class="text-4xl text-accent-color mb-4 text-center">👶</div>
-                            <h3 class="text-2xl font-bold text-primary-dark mb-3 text-center">Odontopediatria</h3>
-                            <p class="text-gray-medium text-center">Cuidado especializado para a saúde bucal de crianças, com foco em prevenção, educação e um ambiente acolhedor para os pequenos.</p>
-                        </a>
-                    </div>
-                </div>
-
-                <div id="service-detail-container" class="hidden pt-10">
-                    <button id="back-to-services" class="mb-8 bg-gray-medium text-white px-4 py-2 rounded-lg hover:bg-gray-dark transition-colors duration-300">
-                        ← Voltar aos Serviços
-                    </button>
-
-                    <div id="detail-estetica" class="service-detail hidden">
-                        <h3 class="text-3xl font-bold text-primary-dark mb-6 text-center md:text-left">Odontologia Estética</h3>
-                        <div class="space-y-6 text-gray-medium text-lg">
-                            <div>
-                                <h4 class="font-bold text-xl text-primary-dark mb-2">O que é o tratamento?</h4>
-                                <p>A Odontologia Estética é a área que busca aprimorar a beleza do seu sorriso, corrigindo imperfeições e realçando a harmonia facial. Não se trata apenas de estética, mas também de restaurar a função e a saúde dos dentes de forma natural e duradoura.</p>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-xl text-primary-dark mb-2">Para quem é indicado?</h4>
-                                <p>Indicado para pessoas que desejam melhorar a cor, forma, tamanho ou alinhamento dos dentes, fechar espaços, corrigir fraturas ou substituir restaurações antigas. Se você busca um sorriso mais branco, alinhado e confiante, a odontologia estética é para você.</p>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-xl text-primary-dark mb-2">Quais os benefícios?</h4>
-                                <ul class="list-disc list-inside space-y-1">
-                                    <li>Aumento significativo da autoestima e confiança.</li>
-                                    <li>Sorriso mais harmonioso e atraente.</li>
-                                    <li>Correção de imperfeições estéticas e funcionais.</li>
-                                    <li>Melhora na saúde bucal geral através de restaurações e tratamentos.</li>
-                                </ul>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-xl text-primary-dark mb-2">Como funciona (de forma simplificada)?</h4>
-                                <p>O processo começa com uma avaliação detalhada e um planejamento personalizado. Dependendo do seu objetivo, podemos realizar clareamento dental (para dentes mais brancos), aplicação de lentes de contato ou facetas de porcelana (para mudar forma e cor), ou restaurações estéticas para corrigir imperfeições.</p>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-xl text-primary-dark mb-2">Dúvidas Frequentes sobre Odontologia Estética:</h4>
-                                <div class="space-y-4 mt-4">
-                                    <div class="bg-white p-4 rounded-lg shadow-sm">
-                                        <button class="faq-toggle w-full flex justify-between items-center text-left text-lg font-semibold text-primary-dark">
-                                            <span>O clareamento dental dói?</span>
-                                            <span class="faq-icon text-accent-color text-xl">+</span>
-                                        </button>
-                                        <div class="faq-content mt-2 hidden text-gray-medium">
-                                            A maioria dos pacientes não sente dor durante o clareamento, mas pode haver sensibilidade temporária aos dentes. Utilizamos técnicas e produtos para minimizar qualquer desconforto.
-                                        </div>
-                                    </div>
-                                    <div class="bg-white p-4 rounded-lg shadow-sm">
-                                        <button class="faq-toggle w-full flex justify-between items-center text-left text-lg font-semibold text-primary-dark">
-                                            <span>Lentes de contato dental são permanentes?</span>
-                                            <span class="faq-icon text-accent-color text-xl">+</span>
-                                        </button>
-                                        <div class="faq-content mt-2 hidden text-gray-medium">
-                                            As lentes de contato dental são um tratamento duradouro, mas não são consideradas 100% permanentes. Com os devidos cuidados, podem durar muitos anos, mas podem precisar de manutenção ou substituição no futuro.
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div id="detail-implantes" class="service-detail hidden">
-                        <h3 class="text-3xl font-bold text-primary-dark mb-6 text-center md:text-left">Implantes Dentários</h3>
-                        <div class="space-y-6 text-gray-medium text-lg">
-                            <div>
-                                <h4 class="font-bold text-xl text-primary-dark mb-2">O que é o tratamento?</h4>
-                                <p>Implantes dentários são a solução mais moderna e eficaz para substituir dentes perdidos. Consistem em pequenos pinos de titânio, biocompatíveis, que são inseridos cirurgicamente no osso maxilar ou mandibular para funcionar como raízes artificiais. Sobre esses pinos, são fixadas próteses dentárias que se assemelham aos dentes naturais.</p>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-xl text-primary-dark mb-2">Para quem é indicado?</h4>
-                                <p>Indicado para qualquer pessoa que perdeu um ou mais dentes, seja por cárie, doença periodontal, trauma ou outras causas. É uma excelente opção para quem busca restaurar a função mastigatória, a estética do sorriso e prevenir a perda óssea que ocorre após a perda de dentes.</p>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-xl text-primary-dark mb-2">Quais os benefícios?</h4>
-                                <ul class="list-disc list-inside space-y-1">
-                                    <li>Restauração completa da função mastigatória e da fala.</li>
-                                    <li>Melhora significativa da estética do sorriso e da autoestima.</li>
-                                    <li>Prevenção da reabsorção óssea e do deslocamento dos dentes vizinhos.</li>
-                                    <li>Solução duradoura e com alta taxa de sucesso.</li>
-                                    <li>Conforto e segurança, sem a necessidade de próteses removíveis.</li>
-                                </ul>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-xl text-primary-dark mb-2">Como funciona (de forma simplificada)?</h4>
-                                <p>O tratamento geralmente envolve duas fases: a cirúrgica e a protética. Na fase cirúrgica, o implante de titânio é inserido no osso. Após um período de cicatrização (osseointegração), onde o implante se une ao osso, a prótese dentária é fixada sobre ele. Todo o processo é realizado com anestesia local e o máximo de conforto para o paciente.</p>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-xl text-primary-dark mb-2">Dúvidas Frequentes sobre Implantes Dentários:</h4>
-                                <div class="space-y-4 mt-4">
-                                    <div class="bg-white p-4 rounded-lg shadow-sm">
-                                        <button class="faq-toggle w-full flex justify-between items-center text-left text-lg font-semibold text-primary-dark">
-                                            <span>A cirurgia de implante é dolorosa?</span>
-                                            <span class="faq-icon text-accent-color text-xl">+</span>
-                                        </button>
-                                        <div class="faq-content mt-2 hidden text-gray-medium">
-                                            A cirurgia é realizada sob anestesia local, garantindo que o procedimento seja indolor. No pós-operatório, o desconforto é mínimo e pode ser controlado com medicação.
-                                        </div>
-                                    </div>
-                                    <div class="bg-white p-4 rounded-lg shadow-sm">
-                                        <button class="faq-toggle w-full flex justify-between items-center text-left text-lg font-semibold text-primary-dark">
-                                            <span>Quanto tempo dura um implante dentário?</span>
-                                            <span class="faq-icon text-accent-color text-xl">+</span>
-                                        </button>
-                                        <div class="faq-content mt-2 hidden text-gray-medium">
-                                            Com higiene bucal adequada e visitas regulares ao dentista, os implantes dentários podem durar por toda a vida, sendo uma solução de longo prazo.
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div id="detail-clinica-geral" class="service-detail hidden">
-                        <h3 class="text-3xl font-bold text-primary-dark mb-6 text-center md:text-left">Clínica Geral</h3>
-                        <div class="space-y-6 text-gray-medium text-lg">
-                            <div>
-                                <h4 class="font-bold text-xl text-primary-dark mb-2">O que é o tratamento?</h4>
-                                <p>A Clínica Geral é a base da odontologia, focada na prevenção, diagnóstico e tratamento de problemas bucais comuns. É o ponto de partida para a manutenção da sua saúde oral e o encaminhamento para especialidades, se necessário.</p>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-xl text-primary-dark mb-2">Para quem é indicado?</h4>
-                                <p>Indicado para todas as idades e para quem busca manter a saúde bucal em dia. Ideal para check-ups de rotina, limpezas, tratamento de cáries, restaurações, pequenas extrações e orientações sobre higiene bucal.</p>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-xl text-primary-dark mb-2">Quais os benefícios?</h4>
-                                <ul class="list-disc list-inside space-y-1">
-                                    <li>Prevenção de doenças bucais mais graves.</li>
-                                    <li>Diagnóstico precoce de problemas, facilitando o tratamento.</li>
-                                    <li>Manutenção de uma boca saudável e hálito fresco.</li>
-                                    <li>Orientação personalizada sobre higiene e cuidados diários.</li>
-                                </ul>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-xl text-primary-dark mb-2">Como funciona (de forma simplificada)?</h4>
-                                <p>As consultas de clínica geral envolvem um exame completo da boca, dentes e gengivas. Realizamos limpezas profissionais para remover tártaro e placa, tratamos cáries com restaurações e, se necessário, fazemos pequenas extrações. A prevenção é a palavra-chave, com foco na educação do paciente.</p>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-xl text-primary-dark mb-2">Dúvidas Frequentes sobre Clínica Geral:</h4>
-                                <div class="space-y-4 mt-4">
-                                    <div class="bg-white p-4 rounded-lg shadow-sm">
-                                        <button class="faq-toggle w-full flex justify-between items-center text-left text-lg font-semibold text-primary-dark">
-                                            <span>Qual a frequência ideal para a limpeza dental?</span>
-                                            <span class="faq-icon text-accent-color text-xl">+</span>
-                                        </button>
-                                        <div class="faq-content mt-2 hidden text-gray-medium">
-                                            Para a maioria das pessoas, uma limpeza profissional a cada 6 meses é o ideal. No entanto, em casos específicos, pode ser recomendado um intervalo menor ou maior.
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div id="detail-periodontia" class="service-detail hidden">
-                        <h3 class="text-3xl font-bold text-primary-dark mb-6 text-center md:text-left">Periodontia</h3>
-                        <div class="space-y-6 text-gray-medium text-lg">
-                            <div>
-                                <h4 class="font-bold text-xl text-primary-dark mb-2">O que é o tratamento?</h4>
-                                <p>A Periodontia é a especialidade que cuida da saúde da gengiva e dos tecidos que dão suporte aos dentes (osso e ligamentos). Ela trata e previne doenças periodontais como a gengivite (inflamação da gengiva) e a periodontite (infecção que afeta o osso).</p>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-xl text-primary-dark mb-2">Para quem é indicado?</h4>
-                                <p>Indicado para pacientes que apresentam sangramento na gengiva, inchaço, vermelhidão, mau hálito persistente, retração gengival ou mobilidade dos dentes. É crucial para quem busca manter os dentes firmes e saudáveis por mais tempo.</p>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-xl text-primary-dark mb-2">Quais os benefícios?</h4>
-                                <ul class="list-disc list-inside space-y-1">
-                                    <li>Eliminação de inflamações e infecções na gengiva.</li>
-                                    <li>Prevenção da perda ósea e, consequentemente, da perda dentária.</li>
-                                    <li>Melhora do hálito e da estética gengival.</li>
-                                    <li>Manutenção da saúde geral, já que doenças periodontais podem afetar o corpo todo.</li>
-                                </ul>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-xl text-primary-dark mb-2">Como funciona (de forma simplificada)?</h4>
-                                <p>O tratamento periodontal geralmente envolve a raspagem e alisamento radicular, que removem a placa bacteriana e o tártaro acumulados acima e abaixo da linha da gengiva. Em casos mais avançados, podem ser necessárias pequenas cirurgias para limpar profundamente as raízes e corrigir defeitos ósseos.</p>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-xl text-primary-dark mb-2">Dúvidas Frequentes sobre Periodontia:</h4>
-                                <div class="space-y-4 mt-4">
-                                    <div class="bg-white p-4 rounded-lg shadow-sm">
-                                        <button class="faq-toggle w-full flex justify-between items-center text-left text-lg font-semibold text-primary-dark">
-                                            <span>Gengiva sangrando é normal?</span>
-                                            <span class="faq-icon text-accent-color text-xl">+</span>
-                                        </button>
-                                        <div class="faq-content mt-2 hidden text-gray-medium">
-                                            Não, sangramento na gengiva não é normal e é um sinal de inflamação (gengivite). É importante procurar um dentista para diagnóstico e tratamento.
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div id="detail-odontopediatria" class="service-detail hidden">
-                        <h3 class="text-3xl font-bold text-primary-dark mb-6 text-center md:text-left">Odontopediatria</h3>
-                        <div class="space-y-6 text-gray-medium text-lg">
-                            <div>
-                                <h4 class="font-bold text-xl text-primary-dark mb-2">O que é o tratamento?</h4>
-                                <p>A Odontopediatria é a especialidade dedicada à saúde bucal de bebês, crianças e adolescentes. O foco é na prevenção, diagnóstico e tratamento de problemas dentários nessa faixa etária, sempre com uma abordagem lúdica e acolhedora para que a criança se sinta segura e confortável.</p>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-xl text-primary-dark mb-2">Para quem é indicado?</h4>
-                                <p>Indicado para todos os pais que desejam garantir um desenvolvimento bucal saudável para seus filhos. Desde a erupção dos primeiros dentes até a adolescência, a odontopediatria é essencial para prevenir cáries, orientar sobre higiene e acompanhar o crescimento da face e dos dentes.</p>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-xl text-primary-dark mb-2">Quais os benefícios?</h4>
-                                <ul class="list-disc list-inside space-y-1">
-                                    <li>Prevenção eficaz de cáries e outros problemas bucais.</li>
-                                    <li>Desenvolvimento de hábitos de higiene bucal corretos desde cedo.</li>
-                                    <li>Criação de uma relação positiva da criança com o dentista, sem medo.</li>
-                                    <li>Acompanhamento do crescimento e desenvolvimento da arcada dentária.</li>
-                                    <li>Intervenção precoce em problemas que podem se agravar no futuro.</li>
-                                </ul>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-xl text-primary-dark mb-2">Como funciona (de forma simplificada)?</h4>
-                                <p>As consultas de odontopediatria são adaptadas para cada idade, com uma linguagem e ambiente que a criança entenda e goste. Incluem exames, limpezas, aplicação de flúor e selantes, e tratamento de cáries. O foco principal é na educação dos pais e das crianças sobre a importância da higiene e da alimentação.</p>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-xl text-primary-dark mb-2">Dúvidas Frequentes sobre Odontopediatria:</h4>
-                                <div class="space-y-4 mt-4">
-                                    <div class="bg-white p-4 rounded-lg shadow-sm">
-                                        <button class="faq-toggle w-full flex justify-between items-center text-left text-lg font-semibold text-primary-dark">
-                                            <span>Quando devo levar meu filho ao odontopediatra pela primeira vez?</span>
-                                            <span class="faq-icon text-accent-color text-xl">+</span>
-                                        </button>
-                                        <div class="faq-content mt-2 hidden text-gray-medium">
-                                            A primeira consulta deve ocorrer logo após o surgimento do primeiro dente de leite ou, no máximo, até o primeiro ano de vida. Isso permite orientações preventivas e um acompanhamento saudável.
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <div class="container mx-auto px-6">
+        <div id="service-list-container">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary-dark">Meus Serviços</h2>
+                <p class="mt-2 text-gray-medium">Soluções completas para a sua saúde bucal e estética.</p>
             </div>
-        </section>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <a href="#" class="service-card bg-white p-8 rounded-lg shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 block" data-service-id="estetica">
+                    <div class="text-4xl text-accent-color mb-4 text-center">✨</div>
+                    <h3 class="text-2xl font-bold text-primary-dark mb-3 text-center">Odontologia Estética</h3>
+                    <p class="text-gray-medium text-center">Transforme seu sorriso com clareamento dental, lentes de contato, facetas de porcelana e restaurações estéticas de alta qualidade.</p>
+                </a>
+                
+                <a href="#" class="service-card bg-white p-8 rounded-lg shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 block" data-service-id="implantes">
+                    <div class="text-4xl text-accent-color mb-4 text-center">🦷</div>
+                    <h3 class="text-2xl font-bold text-primary-dark mb-3 text-center">Implantes Dentários</h3>
+                    <p class="text-gray-medium text-center">Recupere a função e a estética de dentes perdidos com implantes de titânio, a solução mais segura e duradoura para a reabilitação oral completa.</p>
+                </a>
+                
+                <a href="#" class="service-card bg-white p-8 rounded-lg shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 block" data-service-id="clinica-geral">
+                    <div class="text-4xl text-accent-color mb-4 text-center">💉</div>
+                    <h3 class="text-2xl font-bold text-primary-dark mb-3 text-center">Clínica Geral</h3>
+                    <p class="text-gray-medium text-center">Realizo limpezas, restaurações, extrações e tratamentos de canal, garantindo a saúde e a prevenção de problemas bucais.</p>
+                </a>
+                
+                <a href="#" class="service-card bg-white p-8 rounded-lg shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 block" data-service-id="periodontia">
+                    <div class="text-4xl text-accent-color mb-4 text-center">👤</div>
+                    <h3 class="text-2xl font-bold text-primary-dark mb-3 text-center">Periodontia</h3>
+                    <p class="text-gray-medium text-center">Tratamento de doenças da gengiva e tecidos de suporte dos dentes, essencial para a manutenção da saúde bucal a longo prazo.</p>
+                </a>
+                
+                <a href="#" class="service-card bg-white p-8 rounded-lg shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 block" data-service-id="odontopediatria">
+                    
+                    <img src="https://i.imgur.com/dJVpY2V.png" alt="Ícone de Odontopediatria" class="w-12 h-12 mx-auto mb-4">
+                    
+                    <h3 class="text-2xl font-bold text-primary-dark mb-3 text-center">Odontopediatria</h3>
+                    <p class="text-gray-medium text-center">Cuidado especializado para a saúde bucal de crianças, com foco em prevenção, educação e um ambiente acolhedor para os pequenos.</p>
+                </a>
+                </div>
+        </div>
+
+        <div id="service-detail-container" class="hidden pt-10">
+            <button id="back-to-services" class="mb-8 bg-gray-medium text-white px-4 py-2 rounded-lg hover:bg-gray-dark transition-colors duration-300">
+                ← Voltar aos Serviços
+            </button>
+
+            <div id="detail-estetica" class="service-detail hidden">
+                </div>
+
+            <div id="detail-implantes" class="service-detail hidden">
+                </div>
+
+            <div id="detail-clinica-geral" class="service-detail hidden">
+                </div>
+
+            <div id="detail-periodontia" class="service-detail hidden">
+                </div>
+
+            <div id="detail-odontopediatria" class="service-detail hidden">
+                </div>
+        </div>
+    </div>
+</section>
 
         <section id="depoimentos" class="py-20 md:py-32 bg-primary-light">
             <div class="container mx-auto px-6">
