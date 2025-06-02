@@ -92,19 +92,21 @@
     </header>
 
     <main>
-        <section id="home" class="min-h-screen flex items-center bg-primary-light pt-20">
-            <div class="container mx-auto px-6 text-center">
-                <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-primary-dark leading-tight">O requinte está no que se preserva.</h1>
-                <p class="mt-4 text-lg md:text-xl text-primary-dark max-w-3xl mx-auto">
-                    Sua naturalidade, nossa herança.
-                </p>
-                <div class="mt-8 space-x-4">
-                    <button id="open-modal-button-hero" class="bg-accent-color text-text-light font-bold text-lg px-8 py-4 rounded-lg shadow-lg hover:bg-purple-700 transition-transform duration-300 inline-block transform hover:scale-105">
-                        Agende Sua Consulta
-                    </button>
-                    <a href="#servicos" class="bg-white text-primary-dark font-bold text-lg px-8 py-4 rounded-lg shadow-lg hover:bg-gray-medium hover:text-primary-dark transition-transform duration-300 inline-block transform hover:scale-105 border border-primary-dark">
-                        Conheça Meus Serviços
-                    </a>
+        <section id="home" class="min-h-screen flex items-center bg-cover bg-center bg-no-repeat pt-20" style="background-image: url('https://i.imgur.com/1T2rcF8.png');">
+            <div class="absolute inset-0 bg-primary-dark/50 flex items-center justify-center">
+                <div class="container mx-auto px-6 text-center">
+                    <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-text-light leading-tight">O requinte está no que se preserva.</h1>
+                    <p class="mt-4 text-lg md:text-xl text-text-light max-w-3xl mx-auto">
+                        Sua naturalidade, nossa herança.
+                    </p>
+                    <div class="mt-8 space-x-4">
+                        <button id="open-modal-button-hero" class="bg-accent-color text-text-light font-bold text-lg px-8 py-4 rounded-lg shadow-lg hover:bg-purple-700 transition-transform duration-300 inline-block transform hover:scale-105">
+                            Agende Sua Consulta
+                        </button>
+                        <a href="#servicos" class="bg-white text-primary-dark font-bold text-lg px-8 py-4 rounded-lg shadow-lg hover:bg-gray-medium hover:text-primary-dark transition-transform duration-300 inline-block transform hover:scale-105 border border-primary-dark">
+                            Conheça Meus Serviços
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -374,7 +376,6 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // Mobile Menu Toggle
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
 
@@ -382,21 +383,19 @@
                 mobileMenu.classList.toggle('hidden');
             });
 
-            // Close mobile menu when a link is clicked
             mobileMenu.addEventListener('click', function(e) {
                 if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON') {
                     mobileMenu.classList.add('hidden');
                 }
             });
 
-            // Active Nav Link on Scroll
             const sections = document.querySelectorAll('section');
             const navLinks = document.querySelectorAll('.nav-link');
             
             const observerOptions = {
                 root: null,
                 rootMargin: '0px',
-                threshold: 0.4 // Adjust threshold as needed for better active state detection
+                threshold: 0.4
             };
 
             const observer = new IntersectionObserver((entries, observer) => {
@@ -416,7 +415,6 @@
                 observer.observe(section);
             });
 
-            // Shrink header on scroll
             const header = document.getElementById('header');
             window.addEventListener('scroll', () => {
                 if (window.scrollY > 50) {
@@ -428,7 +426,6 @@
                 }
             });
 
-            // FAQ Accordion
             const faqToggles = document.querySelectorAll('.faq-toggle');
             faqToggles.forEach(toggle => {
                 toggle.addEventListener('click', function() {
@@ -437,14 +434,13 @@
 
                     content.classList.toggle('hidden');
                     if (content.classList.contains('hidden')) {
-                        icon.innerHTML = '&#43;'; // Plus icon
+                        icon.innerHTML = '&#43;';
                     } else {
-                        icon.innerHTML = '&#8722;'; // Minus icon
+                        icon.innerHTML = '&#8722;';
                     }
                 });
             });
 
-            // Appointment Modal Logic
             const appointmentModal = document.getElementById('appointment-modal');
             const openModalButtons = document.querySelectorAll('#open-modal-button, #open-modal-button-mobile, #open-modal-button-hero, #open-modal-button-contact');
             const closeModalButton = document.getElementById('close-modal-button');
@@ -459,22 +455,18 @@
                 appointmentModal.classList.add('hidden');
             });
 
-            // Close modal when clicking outside
             appointmentModal.addEventListener('click', function(e) {
                 if (e.target === appointmentModal) {
                     appointmentModal.classList.add('hidden');
                 }
             });
 
-            // Handle form submission (simulated)
             const appointmentForm = appointmentModal.querySelector('form');
             appointmentForm.addEventListener('submit', function(e) {
                 e.preventDefault();
-                // In a real application, you would send this data to a backend server.
-                // For this static site, we'll just simulate success.
-                alert('Sua solicitação de agendamento foi enviada! Entraremos em contato em breve.'); // Using alert for simulation as per instructions, but would use custom modal in production.
+                alert('Sua solicitação de agendamento foi enviada! Entraremos em contato em breve.');
                 appointmentModal.classList.add('hidden');
-                appointmentForm.reset(); // Clear the form
+                appointmentForm.reset();
             });
         });
     </script>
