@@ -10,7 +10,7 @@
     - Serviços: Goal: Inform, Organize, Educate. Presentation: Clickable cards leading to dynamically displayed detailed sections for each service. Each detail section includes descriptive text, benefits, how it works, and specific FAQs. Interaction: Click to show/hide detail, smooth scroll, 'back' button. Justification: Provides in-depth information without leaving the page, enhancing user understanding and engagement. Method: HTML/Tailwind, Vanilla JS.
     - Depoimentos: Goal: Social Proof. Presentation: Grid of testimonial cards. Interaction: Static display. Justification: Builds credibility. Method: HTML/Tailwind.
     - FAQ: Goal: Inform, Address Concerns. Presentation: Accordion-style expandable questions/answers. Interaction: Click to expand/collapse. Justification: Efficiently answers common questions. Method: HTML/Tailwind, Vanilla JS.
-    - Contato: Goal: Convert. Presentation: List of contact methods, embedded Google Map, simulated appointment modal. Interaction: Clickable links, modal open/close, interactive map. Justification: Provides all necessary contact points and a direct scheduling path, enhancing location clarity with an interactive map. Method: HTML/Tailwind, Vanilla JS.
+    - Contato: Goal: Convert. Presentation: List of contact methods, embedded Google Map, direct WhatsApp scheduling link. Interaction: Clickable links, interactive map, direct WhatsApp chat. Justification: Provides all necessary contact points and a direct scheduling path, enhancing location clarity with an interactive map and simplifying appointment booking. Method: HTML/Tailwind, Vanilla JS.
     No complex quantitative data from a "Source Report" is provided or implied for a typical dentist website; therefore, Chart.js and Plotly.js are not used as they would not naturally fit the content and purpose of this application. -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -86,9 +86,9 @@
                 <a href="#faq" class="nav-link text-gray-medium hover:text-accent-color duration-300">FAQ</a>
                 <a href="#contato" class="nav-link text-gray-medium hover:text-accent-color duration-300">Contato</a>
             </nav>
-            <button id="open-modal-button" class="hidden md:inline-block bg-accent-color text-text-light font-semibold px-5 py-2 rounded-lg shadow-md hover:bg-accent-hover transition-colors duration-300">
+            <a href="https://wa.me/5519998291133?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta%21" target="_blank" class="hidden md:inline-block bg-accent-color text-text-light font-semibold px-5 py-2 rounded-lg shadow-md hover:bg-accent-hover transition-colors duration-300">
                 Agendar Consulta
-            </button>
+            </a>
             <button id="mobile-menu-button" class="md:hidden text-primary-dark text-2xl">
                 ☰
             </button>
@@ -100,9 +100,9 @@
             <a href="#depoimentos" class="block py-2 text-gray-medium hover:text-accent-color">Depoimentos</a>
             <a href="#faq" class="block py-2 text-gray-medium hover:text-accent-color">FAQ</a>
             <a href="#contato" class="block py-2 text-gray-medium hover:text-accent-color">Contato</a>
-            <button id="open-modal-button-mobile" class="mt-4 inline-block w-full text-center bg-accent-color text-text-light font-semibold px-5 py-2 rounded-lg shadow-md hover:bg-accent-hover transition-colors duration-300">
+            <a href="https://wa.me/5519998291133?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta%21" target="_blank" class="mt-4 inline-block w-full text-center bg-accent-color text-text-light font-semibold px-5 py-2 rounded-lg shadow-md hover:bg-accent-hover transition-colors duration-300">
                 Agendar Consulta
-            </button>
+            </a>
         </div>
     </header>
 
@@ -115,9 +115,9 @@
                         Sua naturalidade, nossa herança.
                     </p>
                     <div class="mt-8 space-x-4">
-                        <button id="open-modal-button-hero" class="bg-accent-color text-text-light font-bold text-lg px-8 py-4 rounded-lg shadow-lg hover:bg-accent-hover transition-transform duration-300 inline-block transform hover:scale-105">
+                        <a href="https://wa.me/5519998291133?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta%21" target="_blank" class="bg-accent-color text-text-light font-bold text-lg px-8 py-4 rounded-lg shadow-lg hover:bg-accent-hover transition-transform duration-300 inline-block transform hover:scale-105">
                             Agende Sua Consulta
-                        </button>
+                        </a>
                         <a href="#servicos" class="bg-white text-primary-dark font-bold text-lg px-8 py-4 rounded-lg shadow-lg hover:bg-gray-medium hover:text-primary-dark transition-transform duration-300 inline-block transform hover:scale-105 border border-primary-dark">
                             Conheça Meus Serviços
                         </a>
@@ -512,7 +512,7 @@
                          <div class="flex items-start space-x-4">
                            <span class="text-accent-color text-2xl mt-1">📱</span> <div>
                                 <h4 class="font-bold text-lg text-primary-dark">WhatsApp</h4>
-                                <a href="https://wa.me/5519912345678" target="_blank" class="text-gray-medium hover:text-accent-color">(19) 91234-5678</a>
+                                <a href="https://wa.me/5519998291133?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta%21" target="_blank" class="text-gray-medium hover:text-accent-color">(19) 91234-5678</a>
                             </div>
                         </div>
                         <div class="flex items-start space-x-4">
@@ -521,9 +521,9 @@
                                 <a href="mailto:contato@draamandaferreira.com.br" class="text-gray-medium hover:text-accent-color">contato@draamandaferreira.com.br</a>
                             </div>
                         </div>
-                        <button id="open-modal-button-contact" class="mt-8 w-full bg-accent-color text-text-light font-bold text-lg px-8 py-4 rounded-lg shadow-lg hover:bg-accent-hover transition-transform duration-300 transform hover:scale-105">
+                        <a href="https://wa.me/5519998291133?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta%21" target="_blank" class="mt-8 w-full bg-accent-color text-text-light font-bold text-lg px-8 py-4 rounded-lg shadow-lg hover:bg-accent-hover transition-transform duration-300 transform hover:scale-105">
                             Agendar Minha Consulta Agora
-                        </button>
+                        </a>
                     </div>
                     <div>
                         <div class="rounded-lg shadow-lg overflow-hidden h-full min-h-[300px] md:min-h-[400px]">
@@ -541,47 +541,6 @@
             <p class="text-sm mt-2">Desenvolvido com carinho para construir sorrisos.</p>
         </div>
     </footer>
-
-    <div id="appointment-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[100] hidden modal-overlay">
-        <div class="bg-white p-8 rounded-lg shadow-2xl max-w-md w-full mx-4 relative">
-            <button id="close-modal-button" class="absolute top-4 right-4 text-gray-medium hover:text-primary-dark text-2xl">×</button>
-            <h3 class="text-2xl font-bold text-primary-dark mb-6 text-center">Agende Sua Consulta</h3>
-            <form class="space-y-4">
-                <div>
-                    <label for="name" class="block text-primary-dark text-sm font-semibold mb-2">Seu Nome Completo</label>
-                    <input type="text" id="name" name="name" class="w-full p-3 border border-gray-medium rounded-lg focus:ring-2 focus:ring-accent-color focus:border-transparent" placeholder="Seu nome" required>
-                </div>
-                <div>
-                    <label for="phone" class="block text-primary-dark text-sm font-semibold mb-2">Telefone com DDD</label>
-                    <input type="tel" id="phone" name="phone" class="w-full p-3 border border-gray-medium rounded-lg focus:ring-2 focus:ring-accent-color focus:border-transparent" placeholder="(XX) XXXXX-XXXX" required>
-                </div>
-                <div>
-                    <label for="email" class="block text-primary-dark text-sm font-semibold mb-2">Seu Melhor E-mail</label>
-                    <input type="email" id="email" name="email" class="w-full p-3 border border-gray-medium rounded-lg focus:ring-2 focus:ring-accent-color focus:border-transparent" placeholder="seu.email@exemplo.com" required>
-                </div>
-                <div>
-                    <label for="service" class="block text-primary-dark text-sm font-semibold mb-2">Serviço de Interesse</label>
-                    <select id="service" name="service" class="w-full p-3 border border-gray-medium rounded-lg focus:ring-2 focus:ring-accent-color focus:border-transparent" required>
-                        <option value="">Selecione um serviço</option>
-                        <option value="estetica">Odontologia Estética</option>
-                        <option value="implantes">Implantes Dentários</option>
-                        <option value="clinica-geral">Clínica Geral</option>
-                        <option value="periodontia">Periodontia</option>
-                        <option value="odontopediatria">Odontopediatria</option>
-                        <option value="outros">Outros</option>
-                    </select>
-                </div>
-                <div>
-                    <label for="message" class="block text-primary-dark text-sm font-semibold mb-2">Mensagem (Opcional)</label>
-                    <textarea id="message" name="message" rows="3" class="w-full p-3 border border-gray-medium rounded-lg focus:ring-2 focus:ring-accent-color focus:border-transparent" placeholder="Descreva brevemente sua necessidade..."></textarea>
-                </div>
-                <button type="submit" class="w-full bg-accent-color text-text-light font-bold py-3 rounded-lg shadow-md hover:bg-accent-hover transition-colors duration-300">
-                    Enviar Solicitação
-                </button>
-                <p class="text-xs text-gray-medium text-center mt-4">Entraremos em contato em breve para confirmar seu agendamento.</p>
-            </form>
-        </div>
-    </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -650,34 +609,9 @@
                 });
             });
 
-            const appointmentModal = document.getElementById('appointment-modal');
-            const openModalButtons = document.querySelectorAll('#open-modal-button, #open-modal-button-mobile, #open-modal-button-hero, #open-modal-button-contact');
-            const closeModalButton = document.getElementById('close-modal-button');
+            // Removed appointment modal and its related logic
+            // The buttons now directly link to WhatsApp
 
-            openModalButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    appointmentModal.classList.remove('hidden');
-                });
-            });
-
-            closeModalButton.addEventListener('click', function() {
-                appointmentModal.classList.add('hidden');
-            });
-
-            appointmentModal.addEventListener('click', function(e) {
-                if (e.target === appointmentModal) {
-                    appointmentModal.classList.add('hidden');
-                }
-            });
-
-            // Reverted form submission logic to simple alert
-            const appointmentForm = appointmentModal.querySelector('form');
-            appointmentForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                alert('Sua solicitação de agendamento foi enviada! Entraremos em contato em breve.');
-                appointmentModal.classList.add('hidden');
-                appointmentForm.reset();
-            });
 
             // Intersection Observer for fade-in image
             const sobreImage = document.querySelector('#sobre img');
