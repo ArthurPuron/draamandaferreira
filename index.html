@@ -527,7 +527,7 @@
                     </div>
                     <div>
                         <div class="rounded-lg shadow-lg overflow-hidden h-full min-h-[300px] md:min-h-[400px]">
-                             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3675.250596377823!2d-47.0506307!3d-22.9067568!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c8c7283626786b%3A0x6b8d8c2e7b8c2e7b!2sR.%20Mogi%20Gua%C3%A7u%2C%20403%20-%20Ch%C3%A1cara%20da%20Barra%2C%20Campinas%20-%20SP%2C%2013090-605!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Localização da Clínica no Google Maps"></iframe>
+                             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3675.297479709873!2d-47.05436662446736!3d-22.90563457920336!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c8c704f7e2c949%3A0x7d2b0e8c7c1b2c1!2sR.%20Mogi%20Gua%C3%A7u%2C%20403%20-%20Ch%C3%A1cara%20da%20Barra%2C%20Campinas%20-%20SP%2C%2013090-605!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Localização da Clínica no Google Maps"></iframe>
                         </div>
                     </div>
                 </div>
@@ -546,29 +546,29 @@
         <div class="bg-white p-8 rounded-lg shadow-2xl max-w-md w-full mx-4 relative">
             <button id="close-modal-button" class="absolute top-4 right-4 text-gray-medium hover:text-primary-dark text-2xl">×</button>
             <h3 class="text-2xl font-bold text-primary-dark mb-6 text-center">Agende Sua Consulta</h3>
-            <form class="space-y-4">
+            <form action="https://formsubmit.co/arthurpuron@gmail.com" method="POST" class="space-y-4">
+                <input type="hidden" name="_subject" value="Nova Solicitação de Agendamento - Site Dra. Amanda Ferreira">
                 <div>
                     <label for="name" class="block text-primary-dark text-sm font-semibold mb-2">Seu Nome Completo</label>
-                    <input type="text" id="name" name="name" class="w-full p-3 border border-gray-medium rounded-lg focus:ring-2 focus:ring-accent-color focus:border-transparent" placeholder="Seu nome">
+                    <input type="text" id="name" name="name" class="w-full p-3 border border-gray-medium rounded-lg focus:ring-2 focus:ring-accent-color focus:border-transparent" placeholder="Seu nome" required>
                 </div>
                 <div>
                     <label for="phone" class="block text-primary-dark text-sm font-semibold mb-2">Telefone com DDD</label>
-                    <input type="tel" id="phone" name="phone" class="w-full p-3 border border-gray-medium rounded-lg focus:ring-2 focus:ring-accent-color focus:border-transparent" placeholder="(XX) XXXXX-XXXX">
+                    <input type="tel" id="phone" name="phone" class="w-full p-3 border border-gray-medium rounded-lg focus:ring-2 focus:ring-accent-color focus:border-transparent" placeholder="(XX) XXXXX-XXXX" required>
                 </div>
                 <div>
                     <label for="email" class="block text-primary-dark text-sm font-semibold mb-2">Seu Melhor E-mail</label>
-                    <input type="email" id="email" name="email" class="w-full p-3 border border-gray-medium rounded-lg focus:ring-2 focus:ring-accent-color focus:border-transparent" placeholder="seu.email@exemplo.com">
+                    <input type="email" id="email" name="email" class="w-full p-3 border border-gray-medium rounded-lg focus:ring-2 focus:ring-accent-color focus:border-transparent" placeholder="seu.email@exemplo.com" required>
                 </div>
                 <div>
                     <label for="service" class="block text-primary-dark text-sm font-semibold mb-2">Serviço de Interesse</label>
-                    <select id="service" name="service" class="w-full p-3 border border-gray-medium rounded-lg focus:ring-2 focus:ring-accent-color focus:border-transparent">
+                    <select id="service" name="service" class="w-full p-3 border border-gray-medium rounded-lg focus:ring-2 focus:ring-accent-color focus:border-transparent" required>
                         <option value="">Selecione um serviço</option>
                         <option value="estetica">Odontologia Estética</option>
                         <option value="implantes">Implantes Dentários</option>
-                        <option value="ortodontia">Ortodontia</option>
-                        <option value="geral">Clínica Geral</option>
+                        <option value="clinica-geral">Clínica Geral</option>
                         <option value="periodontia">Periodontia</option>
-                        <option value="odontogeriatria">Odontogeriatria</option>
+                        <option value="odontopediatria">Odontopediatria</option>
                         <option value="outros">Outros</option>
                     </select>
                 </div>
@@ -670,30 +670,6 @@
                     appointmentModal.classList.add('hidden');
                 }
             });
-
-            const appointmentForm = appointmentModal.querySelector('form');
-            appointmentForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                alert('Sua solicitação de agendamento foi enviada! Entraremos em contato em breve.');
-                appointmentModal.classList.add('hidden');
-                appointmentForm.reset();
-            });
-
-            // Intersection Observer for fade-in image
-            const sobreImage = document.querySelector('#sobre img');
-            const imageObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
-                        observer.unobserve(entry.target); // Stop observing once visible
-                    }
-                });
-            }, { threshold: 0.5 }); // Trigger when 50% of image is visible
-
-            if (sobreImage) {
-                sobreImage.classList.add('fade-in-image'); // Add initial hidden state
-                imageObserver.observe(sobreImage);
-            }
 
             // Service Detail Logic
             const serviceListContainer = document.getElementById('service-list-container');
