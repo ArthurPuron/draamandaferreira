@@ -4,6 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dra. Amanda Ferreira - O requinte está no que se preserva.</title>
+    <!-- Visualization & Content Choices:
+    - Home/Hero: Goal: Inform, Engage. Presentation: Large, engaging text, prominent call-to-action buttons. Interaction: Smooth scroll navigation. Justification: Immediate value proposition. Method: HTML/Tailwind.
+    - Sobre Nós: Goal: Build Trust, Inform. Presentation: Textual description of clinic philosophy, team members (placeholder images). Interaction: Static content. Justification: Personalizes the clinic. Method: HTML/Tailwind.
+    - Serviços: Goal: Inform, Organize. Presentation: Card-based layout for each service, with clear titles and descriptions. Interaction: Hover effects on cards. Justification: Easy to scan and understand offerings. Method: HTML/Tailwind.
+    - Galeria: Goal: Engage, Showcase. Presentation: Grid of placeholder images (clinic facilities, before/after examples). Interaction: Static display. Justification: Visual evidence of quality. Method: HTML/Tailwind.
+    - Depoimentos: Goal: Social Proof. Presentation: Grid of testimonial cards. Interaction: Static display. Justification: Builds credibility. Method: HTML/Tailwind.
+    - FAQ: Goal: Inform, Address Concerns. Presentation: Accordion-style expandable questions/answers. Interaction: Click to expand/collapse. Justification: Efficiently answers common questions. Method: HTML/Tailwind, Vanilla JS.
+    - Contato: Goal: Convert. Presentation: List of contact methods, embedded Google Map, simulated appointment modal. Interaction: Clickable links, modal open/close, interactive map. Justification: Provides all necessary contact points and a direct scheduling path, enhancing location clarity with an interactive map. Method: HTML/Tailwind, Vanilla JS.
+    No complex quantitative data from a "Source Report" is provided or implied for a typical dentist website; therefore, Chart.js and Plotly.js are not used as they would not naturally fit the content and purpose of this application. -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,7 +27,7 @@
             font-family: 'Playfair Display', serif;
         }
         .active-nav {
-            color: #8B5CF6; /* Purple-500, new accent */
+            color: #122947; /* New accent blue */
             font-weight: 600;
         }
         .modal-overlay {
@@ -54,7 +63,8 @@
                     colors: {
                         'primary-dark': '#06031b', /* Very dark blue/almost black */
                         'primary-light': '#f6f1ef', /* Off-white/cream */
-                        'accent-color': '#8B5CF6', /* A modern purple/lavender for highlights - adjusted from teal */
+                        'accent-color': '#122947', /* New accent blue */
+                        'accent-hover': '#0A1C30', /* Slightly darker shade of new accent blue for hover */
                         'text-dark': '#06031b',
                         'text-light': '#f6f1ef',
                         'gray-medium': '#64748B' /* Original Slate-500 for secondary text */
@@ -78,7 +88,7 @@
                 <a href="#faq" class="nav-link text-gray-medium hover:text-accent-color duration-300">FAQ</a>
                 <a href="#contato" class="nav-link text-gray-medium hover:text-accent-color duration-300">Contato</a>
             </nav>
-            <button id="open-modal-button" class="hidden md:inline-block bg-primary-dark text-text-light font-semibold px-5 py-2 rounded-lg shadow-md hover:bg-black transition-colors duration-300">
+            <button id="open-modal-button" class="hidden md:inline-block bg-accent-color text-text-light font-semibold px-5 py-2 rounded-lg shadow-md hover:bg-accent-hover transition-colors duration-300">
                 Agendar Consulta
             </button>
             <button id="mobile-menu-button" class="md:hidden text-primary-dark text-2xl">
@@ -93,7 +103,7 @@
             <a href="#depoimentos" class="block py-2 text-gray-medium hover:text-accent-color">Depoimentos</a>
             <a href="#faq" class="block py-2 text-gray-medium hover:text-accent-color">FAQ</a>
             <a href="#contato" class="block py-2 text-gray-medium hover:text-accent-color">Contato</a>
-            <button id="open-modal-button-mobile" class="mt-4 inline-block w-full text-center bg-primary-dark text-text-light font-semibold px-5 py-2 rounded-lg shadow-md hover:bg-black transition-colors duration-300">
+            <button id="open-modal-button-mobile" class="mt-4 inline-block w-full text-center bg-accent-color text-text-light font-semibold px-5 py-2 rounded-lg shadow-md hover:bg-accent-hover transition-colors duration-300">
                 Agendar Consulta
             </button>
         </div>
@@ -108,7 +118,7 @@
                         Sua naturalidade, nossa herança.
                     </p>
                     <div class="mt-8 space-x-4">
-                        <button id="open-modal-button-hero" class="bg-primary-dark text-text-light font-bold text-lg px-8 py-4 rounded-lg shadow-lg hover:bg-black transition-transform duration-300 inline-block transform hover:scale-105">
+                        <button id="open-modal-button-hero" class="bg-accent-color text-text-light font-bold text-lg px-8 py-4 rounded-lg shadow-lg hover:bg-accent-hover transition-transform duration-300 inline-block transform hover:scale-105">
                             Agende Sua Consulta
                         </button>
                         <a href="#servicos" class="bg-white text-primary-dark font-bold text-lg px-8 py-4 rounded-lg shadow-lg hover:bg-gray-medium hover:text-primary-dark transition-transform duration-300 inline-block transform hover:scale-105 border border-primary-dark">
@@ -159,10 +169,6 @@
                         <p class="text-gray-medium text-center">Recupere a função e a estética de dentes perdidos com implantes de titânio, a solução mais segura e duradoura para a reabilitação oral completa.</p>
                     </div>
                     <div class="bg-white p-8 rounded-lg shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
-                        <div class="text-4xl text-accent-color mb-4 text-center">🦶</div> <h3 class="text-2xl font-bold text-primary-dark mb-3 text-center">Ortodontia</h3>
-                        <p class="text-gray-medium text-center">Alinhe seu sorriso e melhore sua mordida com aparelhos ortodônticos modernos, incluindo opções discretas como os alinhadores invisíveis.</p>
-                    </div>
-                    <div class="bg-white p-8 rounded-lg shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
                         <div class="text-4xl text-accent-color mb-4 text-center">💉</div> <h3 class="text-2xl font-bold text-primary-dark mb-3 text-center">Clínica Geral</h3>
                         <p class="text-gray-medium text-center">Realizo limpezas, restaurações, extrações e tratamentos de canal, garantindo a saúde e a prevenção de problemas bucais.</p>
                     </div>
@@ -171,8 +177,8 @@
                         <p class="text-gray-medium text-center">Tratamento de doenças da gengiva e tecidos de suporte dos dentes, essencial para a manutenção da saúde bucal a longo prazo.</p>
                     </div>
                     <div class="bg-white p-8 rounded-lg shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
-                        <div class="text-4xl text-accent-color mb-4 text-center">👶</div> <h3 class="text-2xl font-bold text-primary-dark mb-3 text-center">Odontogeriatria</h3>
-                        <p class="text-gray-medium text-center">Cuidado especializado para a saúde bucal de idosos, considerando suas necessidades específicas e promovendo qualidade de vida.</p>
+                        <div class="text-4xl text-accent-color mb-4 text-center">👶</div> <h3 class="text-2xl font-bold text-primary-dark mb-3 text-center">Odontopediatria</h3>
+                        <p class="text-gray-medium text-center">Cuidado especializado para a saúde bucal de crianças, com foco em prevenção, educação e um ambiente acolhedor para os pequenos.</p>
                     </div>
                 </div>
             </div>
@@ -324,13 +330,13 @@
                                 <p class="text-gray-medium">Sábados: 09:00 - 13:00 (com agendamento)</p>
                             </div>
                         </div>
-                        <button id="open-modal-button-contact" class="mt-8 w-full bg-accent-color text-text-light font-bold text-lg px-8 py-4 rounded-lg shadow-lg hover:bg-purple-700 transition-transform duration-300 transform hover:scale-105">
+                        <button id="open-modal-button-contact" class="mt-8 w-full bg-accent-color text-text-light font-bold text-lg px-8 py-4 rounded-lg shadow-lg hover:bg-accent-hover transition-transform duration-300 transform hover:scale-105">
                             Agendar Minha Consulta Agora
                         </button>
                     </div>
                     <div>
                         <div class="rounded-lg shadow-lg overflow-hidden h-full min-h-[300px] md:min-h-[400px]">
-                             <iframe src="https://www.google.com/maps/embed?q=Rua+Mogi+Gua%C3%A7u,+403+-+sala+2+-+Ch%C3%A1cara+da+Barra,+Campinas+-+SP,+13090-605" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Localização da Clínica no Google Maps"></iframe>
+                             <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d940972.3820662372!2d-48.2603583!3d-22.8885214!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c8cf1cfa69d739%3A0x8f5549d7e32a109d!2sDra.%20Amanda%20Ferreira%20-%20Cirurgi%C3%A3%20Dentista!5e0!3m2!1spt-BR!2sbr!4v1748889848766!5m2!1spt-BR!2sbr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Localização da Clínica no Google Maps"></iframe>
                         </div>
                     </div>
                 </div>
@@ -379,7 +385,7 @@
                     <label for="message" class="block text-primary-dark text-sm font-semibold mb-2">Mensagem (Opcional)</label>
                     <textarea id="message" name="message" rows="3" class="w-full p-3 border border-gray-medium rounded-lg focus:ring-2 focus:ring-accent-color focus:border-transparent" placeholder="Descreva brevemente sua necessidade..."></textarea>
                 </div>
-                <button type="submit" class="w-full bg-accent-color text-text-light font-bold py-3 rounded-lg shadow-md hover:bg-purple-700 transition-colors duration-300">
+                <button type="submit" class="w-full bg-accent-color text-text-light font-bold py-3 rounded-lg shadow-md hover:bg-accent-hover transition-colors duration-300">
                     Enviar Solicitação
                 </button>
                 <p class="text-xs text-gray-medium text-center mt-4">Entraremos em contato em breve para confirmar seu agendamento.</p>
