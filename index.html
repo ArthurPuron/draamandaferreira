@@ -348,7 +348,7 @@
                                 <h4 class="font-bold text-xl text-primary-dark mb-2">Quais os benefícios?</h4>
                                 <ul class="list-disc list-inside space-y-1">
                                     <li>Eliminação de inflamações e infecções na gengiva.</li>
-                                    <li>Prevenção da perda óssea e, consequentemente, da perda dentária.</li>
+                                    <li>Prevenção da perda ósea e, consequentemente, da perda dentária.</li>
                                     <li>Melhora do hálito e da estética gengival.</li>
                                     <li>Manutenção da saúde geral, já que doenças periodontais podem afetar o corpo todo.</li>
                                 </ul>
@@ -546,8 +546,7 @@
         <div class="bg-white p-8 rounded-lg shadow-2xl max-w-md w-full mx-4 relative">
             <button id="close-modal-button" class="absolute top-4 right-4 text-gray-medium hover:text-primary-dark text-2xl">×</button>
             <h3 class="text-2xl font-bold text-primary-dark mb-6 text-center">Agende Sua Consulta</h3>
-            <form action="https://api.staticforms.xyz/submit/YOUR_ACCESS_KEY" method="POST" class="space-y-4">
-                <input type="hidden" name="_subject" value="Nova Solicitação de Agendamento - Site Dra. Amanda Ferreira">
+            <form class="space-y-4">
                 <div>
                     <label for="name" class="block text-primary-dark text-sm font-semibold mb-2">Seu Nome Completo</label>
                     <input type="text" id="name" name="name" class="w-full p-3 border border-gray-medium rounded-lg focus:ring-2 focus:ring-accent-color focus:border-transparent" placeholder="Seu nome" required>
@@ -670,6 +669,31 @@
                     appointmentModal.classList.add('hidden');
                 }
             });
+
+            // Reverted form submission logic to simple alert
+            const appointmentForm = appointmentModal.querySelector('form');
+            appointmentForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Sua solicitação de agendamento foi enviada! Entraremos em contato em breve.');
+                appointmentModal.classList.add('hidden');
+                appointmentForm.reset();
+            });
+
+            // Intersection Observer for fade-in image
+            const sobreImage = document.querySelector('#sobre img');
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target); // Stop observing once visible
+                    }
+                });
+            }, { threshold: 0.5 }); // Trigger when 50% of image is visible
+
+            if (sobreImage) {
+                sobreImage.classList.add('fade-in-image'); // Add initial hidden state
+                imageObserver.observe(sobreImage);
+            }
 
             // Service Detail Logic
             const serviceListContainer = document.getElementById('service-list-container');
