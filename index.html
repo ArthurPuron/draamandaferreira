@@ -46,6 +46,20 @@
         .fade-in-image.is-visible {
             opacity: 1;
         }
+        
+        /* Media Queries para a imagem de fundo da seção Home */
+        /* Estilo para mobile (largura até 767px) */
+        @media (max-width: 767px) {
+            #home {
+                background-image: url('https://i.imgur.com/LCTDpAZ.jpeg');
+            }
+        }
+        /* Estilo para desktop (largura a partir de 768px) */
+        @media (min-width: 768px) {
+            #home {
+                background-image: url('https://i.imgur.com/dlxaA1t.png');
+            }
+        }
     </style>
     <script>
         tailwind.config = {
@@ -67,41 +81,41 @@
 </head>
 <body class="bg-primary-light text-text-dark">
 
-   <header id="header" class="bg-primary-light/90 backdrop-blur-sm fixed top-0 left-0 right-0 z-50 shadow-md transition-all duration-300 py-2">
-    <div class="container mx-auto px-6 h-12 flex justify-between items-center">
+    <header id="header" class="bg-primary-light/90 backdrop-blur-sm fixed top-0 left-0 right-0 z-50 shadow-md transition-all duration-300 py-2">
+        <div class="container mx-auto px-6 h-12 flex justify-between items-center">
+            <a href="#home">
+                <img src="./imagem/logo.png" alt="Logo Dra. Amanda Ferreira" class="w-40 h-auto">
+            </a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#home" class="nav-link text-gray-medium hover:text-accent-color duration-300">Início</a>
+                <a href="#sobre" class="nav-link text-gray-medium hover:text-accent-color duration-300">Sobre Mim</a>
+                <a href="#servicos" class="nav-link text-gray-medium hover:text-accent-color duration-300">Serviços</a>
+                <a href="#depoimentos" class="nav-link text-gray-medium hover:text-accent-color duration-300">Depoimentos</a>
+                <a href="#faq" class="nav-link text-gray-medium hover:text-accent-color duration-300">FAQ</a>
+                <a href="#contato" class="nav-link text-gray-medium hover:text-accent-color duration-300">Contato</a>
+            </nav>
+            <a href="https://wa.me/5519998291133?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta%21" target="_blank" class="hidden md:inline-block bg-accent-color text-text-light font-semibold px-5 py-2 rounded-lg shadow-md hover:bg-accent-hover transition-colors duration-300">
+                Agendar Consulta
+            </a>
+            <button id="mobile-menu-button" class="md:hidden text-primary-dark text-2xl">
+                ☰
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-2 bg-primary-light">
+            <a href="#home" class="block py-2 text-gray-medium hover:text-accent-color">Início</a>
+            <a href="#sobre" class="block py-2 text-gray-medium hover:text-accent-color">Sobre Mim</a>
+            <a href="#servicos" class="block py-2 text-gray-medium hover:text-accent-color">Serviços</a>
+            <a href="#depoimentos" class="block py-2 text-gray-medium hover:text-accent-color">Depoimentos</a>
+            <a href="#faq" class="block py-2 text-gray-medium hover:text-accent-color">FAQ</a>
+            <a href="#contato" class="block py-2 text-gray-medium hover:text-accent-color">Contato</a>
+            <a href="https://wa.me/5519998291133?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta%21" target="_blank" class="mt-4 inline-block w-full text-center bg-accent-color text-text-light font-semibold px-5 py-2 rounded-lg shadow-md hover:bg-accent-hover transition-colors duration-300">
+                Agendar Consulta
+            </a>
+        </div>
+    </header>
 
-        <a href="#home">
-            <img src="./imagem/logo.png" alt="Logo Dra. Amanda Ferreira" class="w-40 h-auto">
-        </a>
-        <nav class="hidden md:flex space-x-8">
-            <a href="#home" class="nav-link text-gray-medium hover:text-accent-color duration-300">Início</a>
-            <a href="#sobre" class="nav-link text-gray-medium hover:text-accent-color duration-300">Sobre Mim</a>
-            <a href="#servicos" class="nav-link text-gray-medium hover:text-accent-color duration-300">Serviços</a>
-            <a href="#depoimentos" class="nav-link text-gray-medium hover:text-accent-color duration-300">Depoimentos</a>
-            <a href="#faq" class="nav-link text-gray-medium hover:text-accent-color duration-300">FAQ</a>
-            <a href="#contato" class="nav-link text-gray-medium hover:text-accent-color duration-300">Contato</a>
-        </nav>
-        <a href="https://wa.me/5519998291133?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta%21" target="_blank" class="hidden md:inline-block bg-accent-color text-text-light font-semibold px-5 py-2 rounded-lg shadow-md hover:bg-accent-hover transition-colors duration-300">
-            Agendar Consulta
-        </a>
-        <button id="mobile-menu-button" class="md:hidden text-primary-dark text-2xl">
-            ☰
-        </button>
-    </div>
-    <div id="mobile-menu" class="hidden md:hidden px-6 pb-2 bg-primary-light">
-        <a href="#home" class="block py-2 text-gray-medium hover:text-accent-color">Início</a>
-        <a href="#sobre" class="block py-2 text-gray-medium hover:text-accent-color">Sobre Mim</a>
-        <a href="#servicos" class="block py-2 text-gray-medium hover:text-accent-color">Serviços</a>
-        <a href="#depoimentos" class="block py-2 text-gray-medium hover:text-accent-color">Depoimentos</a>
-        <a href="#faq" class="block py-2 text-gray-medium hover:text-accent-color">FAQ</a>
-        <a href="#contato" class="block py-2 text-gray-medium hover:text-accent-color">Contato</a>
-        <a href="https://wa.me/5519998291133?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta%21" target="_blank" class="mt-4 inline-block w-full text-center bg-accent-color text-text-light font-semibold px-5 py-2 rounded-lg shadow-md hover:bg-accent-hover transition-colors duration-300">
-            Agendar Consulta
-        </a>
-    </div>
-</header>
     <main>
-        <section id="home" class="relative min-h-screen flex items-center bg-cover bg-center bg-no-repeat pt-20" style="background-image: url('https://i.imgur.com/dlxaA1t.png');">
+        <section id="home" class="relative min-h-screen flex items-center bg-cover bg-center bg-no-repeat pt-20">
             <div class="absolute inset-0 bg-primary-dark/50 flex items-center justify-center">
                 <div class="container mx-auto px-6 text-center">
                     <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-text-light leading-tight">O requinte está no que se preserva.</h1>
@@ -121,439 +135,133 @@
         </section>
 
         <section id="sobre" class="py-20 md:py-32 bg-primary-light">
-    <div class="container mx-auto px-6">
-        <div class="text-center mb-16">
-            <h2 class="text-3xl md:text-4xl font-bold text-primary-dark">Sobre a Dra. Amanda Ferreira</h2>
-            <p class="mt-2 text-gray-medium">Dedicação, inovação e excelência em cada atendimento.</p>
-        </div>
-        <div class="flex flex-col md:flex-row items-center gap-12 md:gap-16">
-            <div class="md:w-1/2">
-                <img src="https://i.imgur.com/HRQfKix.jpeg" alt="[Image of Dra. Amanda Ferreira]" class="rounded-lg shadow-2xl w-full h-auto object-cover fade-in-image is-visible">
-            </div>
-            <div class="md:w-1/2 text-gray-medium text-base md:text-lg">
-                <p class="mb-4">
-                    Com uma paixão pela odontologia que vai além da técnica, a Dra. Amanda Ferreira se dedica a oferecer tratamentos personalizados que unem estética e funcionalidade. Formada pela Universidade de São Paulo (USP), busca constantemente o aperfeiçoamento em cursos e congressos para trazer as mais modernas soluções para seus pacientes.
-                </p>
-                <p class="mb-4">
-                    Em meu consultório, que faz parte de uma clínica moderna e bem equipada, você encontrará um ambiente acolhedor e tecnologia de ponta para garantir tratamentos eficazes, seguros e confortáveis. Minha filosofia é baseada na confiança e no cuidado individualizado, visando sempre o seu bem-estar.
-                </p>
-
-                <div class="mt-6">
-                    <div class="flex items-center">
-                        <img src="https://i.imgur.com/25hUpwf.png" alt="Ícone de dente" class="h-5 w-5 mr-2">
-                        <p class="font-semibold text-primary-dark">Atuo como Clínica Geral e nas seguintes áreas:</p>
-                    </div>
-                    <ul class="list-disc list-inside mt-2 space-y-1 text-gray-medium pl-7">
-                        <li>Tratamento de estomatites (aftas, herpes, etc.)</li>
-                        <li>Periodontia (Tratamento de inflamações gengivais)</li>
-                        <li>DTM (Disfunção Temporomandibular e dor facial)</li>
-                        <li>Laserterapia</li>
-                        <li>Odontopediatria</li>
-                        <li>Próteses dentárias</li>
-                        <li>Estética dental</li>
-                        <li>Cirurgias odontológicas</li>
-                    </ul>
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-primary-dark">Sobre a Dra. Amanda Ferreira</h2>
+                    <p class="mt-2 text-gray-medium">Dedicação, inovação e excelência em cada atendimento.</p>
                 </div>
-                
-                <p class="font-semibold text-primary-dark mt-6">CRO-SP: 170758</p>
+                <div class="flex flex-col md:flex-row items-center gap-12 md:gap-16">
+                    <div class="md:w-1/2">
+                        <img src="https://i.imgur.com/LCTDpAZ.jpeg" alt="" class="rounded-lg shadow-2xl w-full h-auto object-cover fade-in-image is-visible">
+                    </div>
+                    <div class="md:w-1/2 text-gray-medium text-base md:text-lg">
+                        <p class="mb-4">
+                            Com uma paixão pela odontologia que vai além da técnica, a Dra. Amanda Ferreira se dedica a oferecer tratamentos personalizados que unem estética e funcionalidade. Formada pela Universidade de São Paulo (USP), busca constantemente o aperfeiçoamento em cursos e congressos para trazer as mais modernas soluções para seus pacientes.
+                        </p>
+                        <p class="mb-4">
+                            Em meu consultório, que faz parte de uma clínica moderna e bem equipada, você encontrará um ambiente acolhedor e tecnologia de ponta para garantir tratamentos eficazes, seguros e confortáveis. Minha filosofia é baseada na confiança e no cuidado individualizado, visando sempre o seu bem-estar.
+                        </p>
+                        <p class="font-semibold text-primary-dark">Minha missão: Transformar sorrisos e vidas.</p>
+                        <p class="font-semibold text-primary-dark mt-2">CRO-SP: 123.456</p>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-</section>
+        </section>
 
         <section id="servicos" class="py-20 md:py-32 bg-primary-light">
-    <div class="container mx-auto px-6">
-        <div id="service-list-container">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-primary-dark">Meus Serviços</h2>
-                <p class="mt-2 text-gray-medium">Soluções completas para a sua saúde bucal e estética.</p>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                
-                <a href="#" class="service-card bg-white p-8 rounded-lg shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 block" data-service-id="estetica">
-                    <img src="https://i.imgur.com/73VtQmQ.png" alt="Ícone de Odontologia Estética" class="w-12 h-12 mx-auto mb-4">
-                    <h3 class="text-2xl font-bold text-primary-dark mb-3 text-center">Odontologia Estética</h3>
-                    <p class="text-gray-medium text-center">Transforme seu sorriso com clareamento dental, lentes de contato, facetas de porcelana e restaurações estéticas de alta qualidade.</p>
-                </a>
-                
-                <a href="#" class="service-card bg-white p-8 rounded-lg shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 block" data-service-id="implantes">
-                    <img src="https://i.imgur.com/6ZdN6cI.png" alt="Ícone de Implantes Dentários" class="w-12 h-12 mx-auto mb-4">
-                    <h3 class="text-2xl font-bold text-primary-dark mb-3 text-center">Implantes Dentários</h3>
-                    <p class="text-gray-medium text-center">Recupere a função e a estética de dentes perdidos com implantes de titânio, a solução mais segura e duradoura para a reabilitação oral.</p>
-                </a>
-                
-                <a href="#" class="service-card bg-white p-8 rounded-lg shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 block" data-service-id="clinica-geral">
-                    <img src="https://i.imgur.com/3chMweu.png" alt="Ícone de Clínica Geral" class="w-12 h-12 mx-auto mb-4">
-                    <h3 class="text-2xl font-bold text-primary-dark mb-3 text-center">Clínica Geral</h3>
-                    <p class="text-gray-medium text-center">Realizo limpezas, restaurações, extrações e tratamentos de canal, garantindo a saúde e a prevenção de problemas bucais.</p>
-                </a>
-                
-                <a href="#" class="service-card bg-white p-8 rounded-lg shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 block" data-service-id="periodontia">
-                    <img src="https://i.imgur.com/F3UAqMM.png" alt="Ícone de Periodontia" class="w-12 h-12 mx-auto mb-4">
-                    <h3 class="text-2xl font-bold text-primary-dark mb-3 text-center">Periodontia</h3>
-                    <p class="text-gray-medium text-center">Tratamento de doenças da gengiva e tecidos de suporte dos dentes, essencial para a manutenção da saúde bucal a longo prazo.</p>
-                </a>
-                
-                <a href="#" class="service-card bg-white p-8 rounded-lg shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 block" data-service-id="odontopediatria">
-                    <img src="https://i.imgur.com/dJVpY2V.png" alt="Ícone de Odontopediatria" class="w-12 h-12 mx-auto mb-4">
-                    <h3 class="text-2xl font-bold text-primary-dark mb-3 text-center">Odontopediatria</h3>
-                    <p class="text-gray-medium text-center">Cuidado especializado para a saúde bucal de crianças, com foco em prevenção, educação e um ambiente acolhedor para os pequenos.</p>
-                </a>
+            <div class="container mx-auto px-6">
+                <div id="service-list-container">
+                    <div class="text-center mb-16">
+                        <h2 class="text-3xl md:text-4xl font-bold text-primary-dark">Meus Serviços</h2>
+                        <p class="mt-2 text-gray-medium">Soluções completas para a sua saúde bucal e estética.</p>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <a href="#" class="service-card bg-white p-8 rounded-lg shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 block" data-service-id="estetica">
+                            <img src="https://i.imgur.com/73VtQmQ.png" alt="Ícone de Odontologia Estética" class="w-12 h-12 mx-auto mb-4">
+                            <h3 class="text-2xl font-bold text-primary-dark mb-3 text-center">Odontologia Estética</h3>
+                            <p class="text-gray-medium text-center">Transforme seu sorriso com clareamento dental, lentes de contato, facetas de porcelana e restaurações estéticas de alta qualidade.</p>
+                        </a>
+                        <a href="#" class="service-card bg-white p-8 rounded-lg shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 block" data-service-id="implantes">
+                            <img src="https://i.imgur.com/6ZdN6cI.png" alt="Ícone de Implantes Dentários" class="w-12 h-12 mx-auto mb-4">
+                            <h3 class="text-2xl font-bold text-primary-dark mb-3 text-center">Implantes Dentários</h3>
+                            <p class="text-gray-medium text-center">Recupere a função e a estética de dentes perdidos com implantes de titânio, a solução mais segura e duradoura para a reabilitação oral.</p>
+                        </a>
+                        <a href="#" class="service-card bg-white p-8 rounded-lg shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 block" data-service-id="clinica-geral">
+                            <img src="https://i.imgur.com/3chMweu.png" alt="Ícone de Clínica Geral" class="w-12 h-12 mx-auto mb-4">
+                            <h3 class="text-2xl font-bold text-primary-dark mb-3 text-center">Clínica Geral</h3>
+                            <p class="text-gray-medium text-center">Realizo limpezas, restaurações, extrações e tratamentos de canal, garantindo a saúde e a prevenção de problemas bucais.</p>
+                        </a>
+                        <a href="#" class="service-card bg-white p-8 rounded-lg shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 block" data-service-id="periodontia">
+                            <img src="https://i.imgur.com/F3UAqMM.png" alt="Ícone de Periodontia" class="w-12 h-12 mx-auto mb-4">
+                            <h3 class="text-2xl font-bold text-primary-dark mb-3 text-center">Periodontia</h3>
+                            <p class="text-gray-medium text-center">Tratamento de doenças da gengiva e tecidos de suporte dos dentes, essencial para a manutenção da saúde bucal a longo prazo.</p>
+                        </a>
+                        <a href="#" class="service-card bg-white p-8 rounded-lg shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 block" data-service-id="odontopediatria">
+                            <img src="https://i.imgur.com/dJVpY2V.png" alt="Ícone de Odontopediatria" class="w-12 h-12 mx-auto mb-4">
+                            <h3 class="text-2xl font-bold text-primary-dark mb-3 text-center">Odontopediatria</h3>
+                            <p class="text-gray-medium text-center">Cuidado especializado para a saúde bucal de crianças, com foco em prevenção, educação e um ambiente acolhedor para os pequenos.</p>
+                        </a>
+                        <a href="#" class="service-card bg-white p-8 rounded-lg shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 block" data-service-id="laserterapia">
+                            <img src="https://i.imgur.com/Ysp23yR.png" alt="Ícone de Laserterapia" class="w-12 h-12 mx-auto mb-4">
+                            <h3 class="text-2xl font-bold text-primary-dark mb-3 text-center">Laserterapia</h3>
+                            <p class="text-gray-medium text-center">Alívio da dor, aceleração da cicatrização e tratamento de aftas e herpes com tecnologia a laser. Rápido, indolor e não invasivo.</p>
+                        </a>
+                    </div>
+                </div>
 
-                <a href="#" class="service-card bg-white p-8 rounded-lg shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 block" data-service-id="laserterapia">
-                    <img src="https://i.imgur.com/Ysp23yR.png" alt="Ícone de Laserterapia" class="w-12 h-12 mx-auto mb-4">
-                    <h3 class="text-2xl font-bold text-primary-dark mb-3 text-center">Laserterapia</h3>
-                    <p class="text-gray-medium text-center">Alívio da dor, aceleração da cicatrização e tratamento de aftas e herpes com tecnologia a laser. Rápido, indolor e não invasivo.</p>
-                </a>
-                
-            </div>
-        </div>
-
-        <div id="service-detail-container" class="hidden pt-10">
-            <button id="back-to-services" class="mb-8 bg-gray-medium text-white px-4 py-2 rounded-lg hover:bg-gray-dark transition-colors duration-300">
-                ← Voltar aos Serviços
-            </button>
-
-<!-- Implantes Dentários Detail -->
-<div id="detail-implantes" class="service-detail hidden">
-    <h3 class="text-3xl font-bold text-primary-dark mb-6 text-center md:text-left">Implantes Dentários</h3>
-    <div class="space-y-6 text-gray-medium text-lg">
-        <div>
-            <h4 class="font-bold text-xl text-primary-dark mb-2">O que é o tratamento?</h4>
-            <p>Implantes dentários são a solução mais moderna e eficaz para substituir dentes perdidos. Consistem em pequenos pinos de titânio, biocompatíveis, que são inseridos cirurgicamente no osso maxilar ou mandibular para funcionar como raízes artificiais. Sobre esses pinos, são fixadas próteses dentárias que se assemelham aos dentes naturais.</p>
-        </div>
-        <div>
-            <h4 class="font-bold text-xl text-primary-dark mb-2">Para quem é indicado?</h4>
-            <p>Indicado para qualquer pessoa que perdeu um ou mais dentes, seja por cárie, doença periodontal, trauma ou outras causas. É uma excelente opção para quem busca restaurar a função mastigatória, a estética do sorriso e prevenir a perda óssea que ocorre após a perda de dentes.</p>
-        </div>
-        <div>
-            <h4 class="font-bold text-xl text-primary-dark mb-2">Quais os benefícios?</h4>
-            <ul class="list-disc list-inside space-y-1">
-                <li>Restauração completa da função mastigatória e da fala.</li>
-                <li>Melhora significativa da estética do sorriso e da autoestima.</li>
-                <li>Prevenção da reabsorção óssea e do deslocamento dos dentes vizinhos.</li>
-                <li>Solução duradoura e com alta taxa de sucesso.</li>
-                <li>Conforto e segurança, sem a necessidade de próteses removíveis.</li>
-            </ul>
-        </div>
-        <div>
-            <h4 class="font-bold text-xl text-primary-dark mb-2">Como funciona (de forma simplificada)?</h4>
-            <p>O tratamento geralmente envolve duas fases: a cirúrgica e a protética. Na fase cirúrgica, o implante de titânio é inserido no osso. Após um período de cicatrização (osseointegração), onde o implante se une ao osso, a prótese dentária é fixada sobre ele. Todo o processo é realizado com anestesia local e o máximo de conforto para o paciente.</p>
-        </div>
-        <div>
-            <h4 class="font-bold text-xl text-primary-dark mb-2">Dúvidas Frequentes sobre Implantes Dentários:</h4>
-            <div class="space-y-4 mt-4">
-                <div class="bg-white p-4 rounded-lg shadow-sm">
-                    <button class="faq-toggle w-full flex justify-between items-center text-left text-lg font-semibold text-primary-dark">
-                        <span>A cirurgia de implante é dolorosa?</span>
-                        <span class="faq-icon text-accent-color text-xl">+</span>
+                <div id="service-detail-container" class="hidden pt-10">
+                    <button id="back-to-services" class="mb-8 bg-gray-medium text-white px-4 py-2 rounded-lg hover:bg-gray-dark transition-colors duration-300">
+                        ← Voltar aos Serviços
                     </button>
-                    <div class="faq-content mt-2 hidden text-gray-medium">
-                        A cirurgia é realizada sob anestesia local, garantindo que o procedimento seja indolor. No pós-operatório, o desconforto é mínimo e pode ser controlado com medicação.
-                    </div>
-                </div>
-                <div class="bg-white p-4 rounded-lg shadow-sm">
-                    <button class="faq-toggle w-full flex justify-between items-center text-left text-lg font-semibold text-primary-dark">
-                        <span>Quanto tempo dura um implante dentário?</span>
-                        <span class="faq-icon text-accent-color text-xl">+</span>
-                    </button>
-                    <div class="faq-content mt-2 hidden text-gray-medium">
-                        Com higiene bucal adequada e visitas regulares ao dentista, os implantes dentários podem durar por toda a vida, sendo uma solução de longo prazo.
-                    </div>
+
+                    <div id="detail-estetica" class="service-detail hidden"></div>
+                    <div id="detail-implantes" class="service-detail hidden"></div>
+                    <div id="detail-clinica-geral" class="service-detail hidden"></div>
+                    <div id="detail-periodontia" class="service-detail hidden"></div>
+                    <div id="detail-odontopediatria" class="service-detail hidden"></div>
+                    <div id="detail-laserterapia" class="service-detail hidden"></div>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
+        </section>
 
-
-<!-- Clínica Geral Detail -->
-<div id="detail-clinica-geral" class="service-detail hidden">
-    <h3 class="text-3xl font-bold text-primary-dark mb-6 text-center md:text-left">Clínica Geral</h3>
-    <div class="space-y-6 text-gray-medium text-lg">
-        <div>
-            <h4 class="font-bold text-xl text-primary-dark mb-2">O que é o tratamento?</h4>
-            <p>A Clínica Geral é a base da odontologia, focada na prevenção, diagnóstico e tratamento de problemas bucais comuns. É o ponto de partida para a manutenção da sua saúde oral e o encaminhamento para especialidades, se necessário.</p>
-        </div>
-        <div>
-            <h4 class="font-bold text-xl text-primary-dark mb-2">Para quem é indicado?</h4>
-            <p>Indicado para todas as idades e para quem busca manter a saúde bucal em dia. Ideal para check-ups de rotina, limpezas, tratamento de cáries, restaurações, pequenas extrações e orientações sobre higiene bucal.</p>
-        </div>
-        <div>
-            <h4 class="font-bold text-xl text-primary-dark mb-2">Quais os benefícios?</h4>
-            <ul class="list-disc list-inside space-y-1">
-                <li>Prevenção de doenças bucais mais graves.</li>
-                <li>Diagnóstico precoce de problemas, facilitando o tratamento.</li>
-                <li>Manutenção de uma boca saudável e hálito fresco.</li>
-                <li>Orientação personalizada sobre higiene e cuidados diários.</li>
-            </ul>
-        </div>
-        <div>
-            <h4 class="font-bold text-xl text-primary-dark mb-2">Como funciona (de forma simplificada)?</h4>
-            <p>As consultas de clínica geral envolvem um exame completo da boca, dentes e gengivas. Realizamos limpezas profissionais para remover tártaro e placa, tratamos cáries com restaurações e, se necessário, fazemos pequenas extrações. A prevenção é a palavra-chave, com foco na educação do paciente.</p>
-        </div>
-        <div>
-            <h4 class="font-bold text-xl text-primary-dark mb-2">Dúvidas Frequentes sobre Clínica Geral:</h4>
-            <div class="space-y-4 mt-4">
-                <div class="bg-white p-4 rounded-lg shadow-sm">
-                    <button class="faq-toggle w-full flex justify-between items-center text-left text-lg font-semibold text-primary-dark">
-                        <span>Qual a frequência ideal para a limpeza dental?</span>
-                        <span class="faq-icon text-accent-color text-xl">+</span>
-                    </button>
-                    <div class="faq-content mt-2 hidden text-gray-medium">
-                        Para a maioria das pessoas, uma limpeza profissional a cada 6 meses é o ideal. No entanto, em casos específicos, pode ser recomendado um intervalo menor ou maior.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Periodontia Detail -->
-<div id="detail-periodontia" class="service-detail hidden">
-    <h3 class="text-3xl font-bold text-primary-dark mb-6 text-center md:text-left">Periodontia</h3>
-    <div class="space-y-6 text-gray-medium text-lg">
-        <div>
-            <h4 class="font-bold text-xl text-primary-dark mb-2">O que é o tratamento?</h4>
-            <p>A Periodontia é a especialidade que cuida da saúde da gengiva e dos tecidos que dão suporte aos dentes (osso e ligamentos). Ela trata e previne doenças periodontais como a gengivite (inflamação da gengiva) e a periodontite (infecção que afeta o osso).</p>
-        </div>
-        <div>
-            <h4 class="font-bold text-xl text-primary-dark mb-2">Para quem é indicado?</h4>
-            <p>Indicado para pacientes que apresentam sangramento na gengiva, inchaço, vermelhidão, mau hálito persistente, retração gengival ou mobilidade dos dentes. É crucial para quem busca manter os dentes firmes e saudáveis por mais tempo.</p>
-        </div>
-        <div>
-            <h4 class="font-bold text-xl text-primary-dark mb-2">Quais os benefícios?</h4>
-            <ul class="list-disc list-inside space-y-1">
-                <li>Eliminação de inflamações e infecções na gengiva.</li>
-                <li>Prevenção da perda ósea e, consequentemente, da perda dentária.</li>
-                <li>Melhora do hálito e da estética gengival.</li>
-                <li>Manutenção da saúde geral, já que doenças periodontais podem afetar o corpo todo.</li>
-            </ul>
-        </div>
-        <div>
-            <h4 class="font-bold text-xl text-primary-dark mb-2">Como funciona (de forma simplificada)?</h4>
-            <p>O tratamento periodontal geralmente envolve a raspagem e alisamento radicular, que removem a placa bacteriana e o tártaro acumulados acima e abaixo da linha da gengiva. Em casos mais avançados, podem ser necessárias pequenas cirurgias para limpar profundamente as raízes e corrigir defeitos ósseos.</p>
-        </div>
-        <div>
-            <h4 class="font-bold text-xl text-primary-dark mb-2">Dúvidas Frequentes sobre Periodontia:</h4>
-            <div class="space-y-4 mt-4">
-                <div class="bg-white p-4 rounded-lg shadow-sm">
-                    <button class="faq-toggle w-full flex justify-between items-center text-left text-lg font-semibold text-primary-dark">
-                        <span>Gengiva sangrando é normal?</span>
-                        <span class="faq-icon text-accent-color text-xl">+</span>
-                    </button>
-                    <div class="faq-content mt-2 hidden text-gray-medium">
-                        Não, sangramento na gengiva não é normal e é um sinal de inflamação (gengivite). É importante procurar um dentista para diagnóstico e tratamento.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<!-- Odontopediatria Detail -->
-<div id="detail-odontopediatria" class="service-detail hidden">
-    <h3 class="text-3xl font-bold text-primary-dark mb-6 text-center md:text-left">Odontopediatria</h3>
-    <div class="space-y-6 text-gray-medium text-lg">
-        <div>
-            <h4 class="font-bold text-xl text-primary-dark mb-2">O que é o tratamento?</h4>
-            <p>A Odontopediatria é a especialidade dedicada à saúde bucal de bebês, crianças e adolescentes. O foco é na prevenção, diagnóstico e tratamento de problemas dentários nessa faixa etária, sempre com uma abordagem lúdica e acolhedora para que a criança se sinta segura e confortável.</p>
-        </div>
-        <div>
-            <h4 class="font-bold text-xl text-primary-dark mb-2">Para quem é indicado?</h4>
-            <p>Indicado para todos os pais que desejam garantir um desenvolvimento bucal saudável para seus filhos. Desde a erupção dos primeiros dentes até a adolescência, a odontopediatria é essencial para prevenir cáries, orientar sobre higiene e acompanhar o crescimento da face e dos dentes.</p>
-        </div>
-        <div>
-            <h4 class="font-bold text-xl text-primary-dark mb-2">Quais os benefícios?</h4>
-            <ul class="list-disc list-inside space-y-1">
-                <li>Prevenção eficaz de cáries e outros problemas bucais.</li>
-                <li>Desenvolvimento de hábitos de higiene bucal corretos desde cedo.</li>
-                <li>Criação de uma relação positiva da criança com o dentista, sem medo.</li>
-                <li>Acompanhamento do crescimento e desenvolvimento da arcada dentária.</li>
-                <li>Intervenção precoce em problemas que podem se agravar no futuro.</li>
-            </ul>
-        </div>
-        <div>
-            <h4 class="font-bold text-xl text-primary-dark mb-2">Como funciona (de forma simplificada)?</h4>
-            <p>As consultas de odontopediatria são adaptadas para cada idade, com uma linguagem e ambiente que a criança entenda e goste. Incluem exames, limpezas, aplicação de flúor e selantes, e tratamento de cáries. O foco principal é na educação dos pais e das crianças sobre a importância da higiene e da alimentação.</p>
-        </div>
-        <div>
-            <h4 class="font-bold text-xl text-primary-dark mb-2">Dúvidas Frequentes sobre Odontopediatria:</h4>
-            <div class="space-y-4 mt-4">
-                <div class="bg-white p-4 rounded-lg shadow-sm">
-                    <button class="faq-toggle w-full flex justify-between items-center text-left text-lg font-semibold text-primary-dark">
-                        <span>Quando devo levar meu filho ao odontopediatra pela primeira vez?</span>
-                        <span class="faq-icon text-accent-color text-xl">+</span>
-                    </button>
-                    <div class="faq-content mt-2 hidden text-gray-medium">
-                        A primeira consulta deve ocorrer logo após o surgimento do primeiro dente de leite ou, no máximo, até o primeiro ano de vida. Isso permite orientações preventivas e um acompanhamento saudável.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<!-- Odontologia Estética Detail -->
-<div id="detail-estetica" class="service-detail hidden">
-    <h3 class="text-3xl font-bold text-primary-dark mb-6 text-center md:text-left">Odontologia Estética</h3>
-    <div class="space-y-6 text-gray-medium text-lg">
-        <div>
-            <h4 class="font-bold text-xl text-primary-dark mb-2">O que é o tratamento?</h4>
-            <p>A Odontologia Estética é a área que busca aprimorar a beleza do seu sorriso, corrigindo imperfeições e realçando a harmonia facial. Não se trata apenas de estética, mas também de restaurar a função e a saúde dos dentes de forma natural e duradoura.</p>
-        </div>
-        <div>
-            <h4 class="font-bold text-xl text-primary-dark mb-2">Para quem é indicado?</h4>
-            <p>Indicado para pessoas que desejam melhorar a cor, forma, tamanho ou alinhamento dos dentes, fechar espaços, corrigir fraturas ou substituir restaurações antigas. Se você busca um sorriso mais branco, alinhado e confiante, a odontologia estética é para você.</p>
-        </div>
-        <div>
-            <h4 class="font-bold text-xl text-primary-dark mb-2">Quais os benefícios?</h4>
-            <ul class="list-disc list-inside space-y-1">
-                <li>Aumento significativo da autoestima e confiança.</li>
-                <li>Sorriso mais harmonioso e atraente.</li>
-                <li>Correção de imperfeições estéticas e funcionais.</li>
-                <li>Melhora na saúde bucal geral através de restaurações e tratamentos.</li>
-            </ul>
-        </div>
-        <div>
-            <h4 class="font-bold text-xl text-primary-dark mb-2">Como funciona (de forma simplificada)?</h4>
-            <p>O processo começa com uma avaliação detalhada e um planejamento personalizado. Dependendo do seu objetivo, podemos realizar clareamento dental (para dentes mais brancos), aplicação de lentes de contato ou facetas de porcelana (para mudar forma e cor), ou restaurações estéticas para corrigir imperfeições.</p>
-        </div>
-        <div>
-            <h4 class="font-bold text-xl text-primary-dark mb-2">Dúvidas Frequentes sobre Odontologia Estética:</h4>
-            <div class="space-y-4 mt-4">
-                <div class="bg-white p-4 rounded-lg shadow-sm">
-                    <button class="faq-toggle w-full flex justify-between items-center text-left text-lg font-semibold text-primary-dark">
-                        <span>O clareamento dental dói?</span>
-                        <span class="faq-icon text-accent-color text-xl">+</span>
-                    </button>
-                    <div class="faq-content mt-2 hidden text-gray-medium">
-                        A maioria dos pacientes não sente dor durante o clareamento, mas pode haver sensibilidade temporária aos dentes. Utilizamos técnicas e produtos para minimizar qualquer desconforto.
-                    </div>
-                </div>
-                <div class="bg-white p-4 rounded-lg shadow-sm">
-                    <button class="faq-toggle w-full flex justify-between items-center text-left text-lg font-semibold text-primary-dark">
-                        <span>Lentes de contato dental são permanentes?</span>
-                        <span class="faq-icon text-accent-color text-xl">+</span>
-                    </button>
-                    <div class="faq-content mt-2 hidden text-gray-medium">
-                        As lentes de contato dental são um tratamento duradouro, mas não são consideradas 100% permanentes. Com os devidos cuidados, podem durar muitos anos, mas podem precisar de manutenção ou substituição no futuro.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-            <div id="detail-estetica" class="service-detail hidden"></div>
-            <div id="detail-implantes" class="service-detail hidden"></div>
-            <div id="detail-clinica-geral" class="service-detail hidden"></div>
-            <div id="detail-periodontia" class="service-detail hidden"></div>
-            <div id="detail-odontopediatria" class="service-detail hidden"></div>
-
-            <div id="detail-laserterapia" class="service-detail hidden">
-                <h3 class="text-3xl font-bold text-primary-dark mb-6 text-center md:text-left">Laserterapia</h3>
-                <div class="space-y-6 text-gray-medium text-lg">
-                    <div>
-                        <h4 class="font-bold text-xl text-primary-dark mb-2">O que é o tratamento?</h4>
-                        <p>A Laserterapia é um tratamento moderno e não invasivo que utiliza um laser de baixa intensidade para estimular processos biológicos no corpo. Essa luz especial acelera a cicatrização, reduz inflamações e alivia dores de forma segura e indolor, promovendo a recuperação dos tecidos.</p>
-                    </div>
-                    <div>
-                        <h4 class="font-bold text-xl text-primary-dark mb-2">Para quem é indicado?</h4>
-                        <p>É indicado para uma ampla gama de pacientes, especialmente aqueles que sofrem com aftas e herpes, dores na articulação da mandíbula (DTM), sensibilidade nos dentes, ou que buscam uma recuperação mais rápida e confortável após cirurgias, extrações ou implantes.</p>
-                    </div>
-                    <div>
-                        <h4 class="font-bold text-xl text-primary-dark mb-2">Quais os benefícios?</h4>
-                        <ul class="list-disc list-inside space-y-1">
-                            <li>Tratamento rápido, seguro e totalmente indolor.</li>
-                            <li>Acelera significativamente a cicatrização de feridas, aftas e herpes.</li>
-                            <li>Efeito analgésico, aliviando dores de forma eficaz.</li>
-                            <li>Ação anti-inflamatória, reduzindo inchaços e desconfortos.</li>
-                            <li>Diminui a necessidade de medicamentos para dor e inflamação.</li>
-                            <li>Melhora a microcirculação e a reparação dos tecidos.</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h4 class="font-bold text-xl text-primary-dark mb-2">Como funciona (de forma simplificada)?</h4>
-                        <p>O feixe de laser de baixa potência é aplicado diretamente sobre a área a ser tratada por alguns minutos. A luz é absorvida pelas células, que "ganham energia" para trabalhar de forma mais eficiente, acelerando a regeneração, controlando a inflamação e bloqueando os estímulos de dor. O paciente não sente dor, apenas, em alguns casos, um leve calor no local.</p>
-                    </div>
-                    <div>
-                        <h4 class="font-bold text-xl text-primary-dark mb-2">Dúvidas Frequentes sobre Laserterapia:</h4>
-                        <div class="space-y-4 mt-4">
-                            <div class="bg-white p-4 rounded-lg shadow-sm">
-                                <button class="faq-toggle w-full flex justify-between items-center text-left text-lg font-semibold text-primary-dark">
-                                    <span>O tratamento com laser dói?</span>
-                                    <span class="faq-icon text-accent-color text-xl">+</span>
-                                </button>
-                                <div class="faq-content mt-2 hidden text-gray-medium">
-                                    Não. A laserterapia é completamente indolor. A maioria dos pacientes não sente nada durante a aplicação, o que torna o tratamento muito confortável.
-                                </div>
-                            </div>
-                            <div class="bg-white p-4 rounded-lg shadow-sm">
-                                <button class="faq-toggle w-full flex justify-between items-center text-left text-lg font-semibold text-primary-dark">
-                                    <span>Quantas sessões são necessárias?</span>
-                                    <span class="faq-icon text-accent-color text-xl">+</span>
-                                </button>
-                                <div class="faq-content mt-2 hidden text-gray-medium">
-                                    O número de sessões varia conforme a condição tratada. Para casos agudos, como uma afta, 1 ou 2 sessões podem trazer grande alívio. Para condições crônicas, como DTM, pode ser necessário um plano de tratamento com mais sessões.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            </div>
-    </div>
-</section>
         <section id="depoimentos" class="py-20 md:py-32 bg-primary-light">
-<div class="container mx-auto px-6">
+            <div class="container mx-auto px-6">
                 <div class="text-center mb-16">
                     <h2 class="text-3xl md:text-4xl font-bold text-primary-dark">O Que Meus Pacientes Dizem</h2>
                     <p class="mt-2 text-gray-medium">Histórias de sorrisos transformados.</p>
                 </div>
 
-       <!-- Bloco de depoimentos para o site -->
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-    
-    <div class="bg-white p-8 rounded-lg shadow-lg flex flex-col items-center text-center">
-        <img src="https://placehold.co/80x80/06031b/f6f1ef?text=M.C.A." alt="" class="rounded-full w-20 h-20 mb-4 object-cover border-2 border-accent-color">
-        <p class="italic text-gray-medium mb-4">"Doutora muito experiente e cuidadosa! Me passou muita confiança, além de ter um consultório muito arrumado, higiene nota 10! Mãos de fada! Amei!"</p>
-        <p class="font-semibold text-primary-dark">- Mariana Corradini Antunes</p>
-    </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <div class="bg-white p-8 rounded-lg shadow-lg flex flex-col items-center text-center">
+                        <img src="https://placehold.co/80x80/06031b/f6f1ef?text=M.C.A." alt="" class="rounded-full w-20 h-20 mb-4 object-cover border-2 border-accent-color">
+                        <p class="italic text-gray-medium mb-4">"Doutora muito experiente e cuidadosa! Me passou muita confiança, além de ter um consultório muito arrumado, higiene nota 10! Mãos de fada! Amei!"</p>
+                        <p class="font-semibold text-primary-dark">- Mariana Corradini Antunes</p>
+                    </div>
 
-    <div class="bg-white p-8 rounded-lg shadow-lg flex flex-col items-center text-center">
-        <img src="https://placehold.co/80x80/06031b/f6f1ef?text=A.E.R." alt="" class="rounded-full w-20 h-20 mb-4 object-cover border-2 border-accent-color">
-        <p class="italic text-gray-medium mb-4">"A Dra Amanda é uma profissional excelente, muito acima da média. Entre tantos profissionais que já fiz profilaxia (limpeza nos dentes), com ela foi uma experiência muito melhor, resultado muito satisfatório. Além de entregar um serviço de qualidade, ela ainda tem uma mão muito leve, ela faz tudo com muita delicadeza, o que deixa o procedimento muito confortável. Ela também tratou meus pais, sendo o caso do meu pai muito complicado, por ser um paciente com diabetes, o que dificulta a cicatrização e ele precisava fazer cirurgias para extração de dentes, pois ele estava com muita inflamação nas gengivas o que deixava os dentes moles e estava prejudicando a saúde bucal e geral dele. Ela resolveu tudo, com muito estudo do caso e um atendimento com todo cuidado possível, conseguiu restaurar a saúde bucal dele, fazendo um bem imenso pra saúde geral dele. Pra mim é a melhor, sem dúvidas."</p>
-        <p class="font-semibold text-primary-dark">- Ana Eloise Reis</p>
-    </div>
+                    <div class="bg-white p-8 rounded-lg shadow-lg flex flex-col items-center text-center">
+                        <img src="https://placehold.co/80x80/06031b/f6f1ef?text=A.E.R." alt="" class="rounded-full w-20 h-20 mb-4 object-cover border-2 border-accent-color">
+                        <p class="italic text-gray-medium mb-4">"A Dra Amanda é uma profissional excelente, muito acima da média. Entre tantos profissionais que já fiz profilaxia (limpeza nos dentes), com ela foi uma experiência muito melhor, resultado muito satisfatório. Além de entregar um serviço de qualidade, ela ainda tem uma mão muito leve, ela faz tudo com muita delicadeza, o que deixa o procedimento muito confortável. Ela também tratou meus pais, sendo o caso do meu pai muito complicado, por ser um paciente com diabetes, o que dificulta a cicatrização e ele precisava fazer cirurgias para extração de dentes, pois ele estava com muita inflamação nas gengivas o que deixava os dentes moles e estava prejudicando a saúde bucal e geral dele. Ela resolveu tudo, com muito estudo do caso e um atendimento com todo cuidado possível, conseguiu restaurar a saúde bucal dele, fazendo um bem imenso pra saúde geral dele. Pra mim é a melhor, sem dúvidas."</p>
+                        <p class="font-semibold text-primary-dark">- Ana Eloise Reis</p>
+                    </div>
 
-    <div class="bg-white p-8 rounded-lg shadow-lg flex flex-col items-center text-center">
-        <img src="https://placehold.co/80x80/06031b/f6f1ef?text=H.B." alt="" class="rounded-full w-20 h-20 mb-4 object-cover border-2 border-accent-color">
-        <p class="italic text-gray-medium mb-4">"O atendimento e profissionalismo da Dra são impecáveis! Ambiente muito organizado, agradável e relaxante! Trabalho incrível! Recomento muito"</p>
-        <p class="font-semibold text-primary-dark">- hela belezaria</p>
-    </div>
+                    <div class="bg-white p-8 rounded-lg shadow-lg flex flex-col items-center text-center">
+                        <img src="https://placehold.co/80x80/06031b/f6f1ef?text=H.B." alt="" class="rounded-full w-20 h-20 mb-4 object-cover border-2 border-accent-color">
+                        <p class="italic text-gray-medium mb-4">"O atendimento e profissionalismo da Dra são impecáveis! Ambiente muito organizado, agradável e relaxante! Trabalho incrível! Recomento muito"</p>
+                        <p class="font-semibold text-primary-dark">- hela belezaria</p>
+                    </div>
 
-    <div class="bg-white p-8 rounded-lg shadow-lg flex flex-col items-center text-center">
-        <img src="https://placehold.co/80x80/06031b/f6f1ef?text=F.G." alt="" class="rounded-full w-20 h-20 mb-4 object-cover border-2 border-accent-color">
-        <p class="italic text-gray-medium mb-4">"Uma excelente profissional,muito atenciosa e dedicada aos seus pacientes. Já me atendeu algumas vezes e em todas as consultas sempre me tranquilizou e me passou muita confiança. Uma pessoa extremamente gentil e educada. Que Deus abençoe e ilumine grandemente sua carreira profissional,e seja repleta de aprendizado, oportunidade e crescimento🙏 Índico de olhos fechados🌷"</p>
-        <p class="font-semibold text-primary-dark">- fabiola gomes</p>
-    </div>
-    
-    <div class="bg-white p-8 rounded-lg shadow-lg flex flex-col items-center text-center">
-        <img src="https://placehold.co/80x80/06031b/f6f1ef?text=A.C." alt="" class="rounded-full w-20 h-20 mb-4 object-cover border-2 border-accent-color">
-        <p class="italic text-gray-medium mb-4">"O atendimento com a Dra. Amanda foi excelente. Muito simpática! Tem todo um cuidado em nós deixar tranquilo na consulta. Super indico!"</p>
-        <p class="font-semibold text-primary-dark">- Aline Costa</p>
-    </div>
+                    <div class="bg-white p-8 rounded-lg shadow-lg flex flex-col items-center text-center">
+                        <img src="https://placehold.co/80x80/06031b/f6f1ef?text=F.G." alt="" class="rounded-full w-20 h-20 mb-4 object-cover border-2 border-accent-color">
+                        <p class="italic text-gray-medium mb-4">"Uma excelente profissional,muito atenciosa e dedicada aos seus pacientes. Já me atendeu algumas vezes e em todas as consultas sempre me tranquilizou e me passou muita confiança. Uma pessoa extremamente gentil e educada. Que Deus abençoe e ilumine grandemente sua carreira profissional,e seja repleta de aprendizado, oportunidade e crescimento🙏 Índico de olhos fechados🌷"</p>
+                        <p class="font-semibold text-primary-dark">- fabiola gomes</p>
+                    </div>
+                    
+                    <div class="bg-white p-8 rounded-lg shadow-lg flex flex-col items-center text-center">
+                        <img src="https://placehold.co/80x80/06031b/f6f1ef?text=A.C." alt="" class="rounded-full w-20 h-20 mb-4 object-cover border-2 border-accent-color">
+                        <p class="italic text-gray-medium mb-4">"O atendimento com a Dra. Amanda foi excelente. Muito simpática! Tem todo um cuidado em nós deixar tranquilo na consulta. Super indico!"</p>
+                        <p class="font-semibold text-primary-dark">- Aline Costa</p>
+                    </div>
 
-    <div class="bg-white p-8 rounded-lg shadow-lg flex flex-col items-center text-center">
-        <img src="https://placehold.co/80x80/06031b/f6f1ef?text=R.P." alt="" class="rounded-full w-20 h-20 mb-4 object-cover border-2 border-accent-color">
-        <p class="italic text-gray-medium mb-4">"Minha experiência foi simplesmente incrível! Sou daquelas pessoas que costumam ficar apreensivas com dentistas, mas aqui foi totalmente diferente. A delicadeza e o cuidado da Dra. Amanda fizeram com que me sentisse muito confortável. Amei tudo, desde o ambiente até o atendimento. Tenho certeza de que o sucesso é garantido e estarei de volta em breve!"</p>
-        <p class="font-semibold text-primary-dark">- Rachel Puron</p>
-    </div>
+                    <div class="bg-white p-8 rounded-lg shadow-lg flex flex-col items-center text-center">
+                        <img src="https://placehold.co/80x80/06031b/f6f1ef?text=R.P." alt="" class="rounded-full w-20 h-20 mb-4 object-cover border-2 border-accent-color">
+                        <p class="italic text-gray-medium mb-4">"Minha experiência foi simplesmente incrível! Sou daquelas pessoas que costumam ficar apreensivas com dentistas, mas aqui foi totalmente diferente. A delicadeza e o cuidado da Dra. Amanda fizeram com que me sentisse muito confortável. Amei tudo, desde o ambiente até o atendimento. Tenho certeza de que o sucesso é garantido e estarei de volta em breve!"</p>
+                        <p class="font-semibold text-primary-dark">- Rachel Puron</p>
+                    </div>
 
-</div>
-</section>
+                </div>
+            </div>
+        </section>
 
         <section id="faq" class="py-20 md:py-32 bg-primary-light">
             <div class="container mx-auto px-6">
@@ -593,46 +301,50 @@
             </div>
         </section>
 
-       <section id="contato" class="py-20 md:py-32 bg-primary-light">
-    <div class="container mx-auto px-6">
-        <div class="text-center mb-16">
-            <h2 class="text-3xl md:text-4xl font-bold text-primary-dark">Entre em Contato</h2>
-            <p class="mt-2 text-gray-medium">Agende sua consulta e vamos cuidar do seu sorriso!</p>
-            <p class="mt-4 text-lg text-gray-medium max-w-3xl mx-auto">
-                Estou à disposição para recebê-lo(a) e oferecer um cuidado exclusivo para você e seu sorriso! ✨
-            </p>
-        </div>
-        <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div class="space-y-6">
-                <div class="flex items-start space-x-4">
-                    <span class="text-accent-color text-2xl mt-1">📍</span> 
+        <section id="contato" class="py-20 md:py-32 bg-primary-light">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-primary-dark">Entre em Contato com a Dra. Amanda Ferreira</h2>
+                    <p class="mt-2 text-gray-medium">Estou pronta para cuidar do seu sorriso. Agende sua consulta!</p>
+                </div>
+                <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-12">
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <span class="text-accent-color text-2xl mt-1">📍</span> <div>
+                                <h4 class="font-bold text-lg text-primary-dark">Endereço</h4>
+                                <p class="text-gray-medium">R. Mogi Guaçu, 403 - sala 2<br>Chácara da Barra, Campinas - SP, 13090-605</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                           <span class="text-accent-color text-2xl mt-1">📞</span> <div>
+                                <h4 class="font-bold text-lg text-primary-dark">Telefone</h4>
+                                <a href="tel:+551938741234" class="text-gray-medium hover:text-accent-color">(19) 3874-1234</a>
+                            </div>
+                        </div>
+                         <div class="flex items-start space-x-4">
+                           <span class="text-accent-color text-2xl mt-1">📱</span> <div>
+                                <h4 class="font-bold text-lg text-primary-dark">WhatsApp</h4>
+                                <a href="https://wa.me/5519998291133?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta%21" target="_blank" class="text-gray-medium hover:text-accent-color">(19) 99829-1133</a>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <span class="text-accent-color text-2xl mt-1">✉</span> <div>
+                                <h4 class="font-bold text-lg text-primary-dark">E-mail</h4>
+                                <a href="mailto:contato@draamandaferreira.com.br" class="text-gray-medium hover:text-accent-color">contato@draamandaferreira.com.br</a>
+                            </div>
+                        </div>
+                        <a href="https://wa.me/5519998291133?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta%21" target="_blank" class="mt-8 w-full bg-accent-color text-text-light font-bold text-lg px-8 py-4 rounded-lg shadow-lg hover:bg-accent-hover transition-transform duration-300 transform hover:scale-105">
+                            Agendar Minha Consulta Agora
+                        </a>
+                    </div>
                     <div>
-                        <h4 class="font-bold text-lg text-primary-dark">Endereço</h4>
-                        <p class="font-semibold text-primary-dark">Clínica Unity</p>
-                        <p class="text-gray-medium">R. Mogi Guaçu, 403 - sala 2<br>Chácara da Barra, Campinas - SP, 13090-605</p>
-                    </div>
-                </div>
-                <div class="flex items-start space-x-4">
-                   <span class="text-accent-color text-2xl mt-1">📱</span> <div>
-                        <h4 class="font-bold text-lg text-primary-dark">WhatsApp</h4>
-                        <a href="https://wa.me/5519998291133?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta%21" target="_blank" class="text-gray-medium hover:text-accent-color">(19) 99829-1133</a>
-                    </div>
-                </div>
-                <div class="flex items-start space-x-4">
-                    <span class="text-accent-color text-2xl mt-1">✉️</span> <div>
-                        <h4 class="font-bold text-lg text-primary-dark">E-mail</h4>
-                        <a href="mailto:contato@draamandaferreira.com.br" class="text-gray-medium hover:text-accent-color">contato@draamandaferreira.com.br</a>
+                        <div class="rounded-lg shadow-lg overflow-hidden h-full min-h-[300px] md:min-h-[400px]">
+                             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3675.297479709873!2d-47.05436662446736!3d-22.90563457920336!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c8c704f7e2c949%3A0x7d2b0e8c7c1b2c1!2sR.%20Mogi%20Gua%C3%A7u%2C%20403%20-%20Ch%C3%A1cara%20da%20Barra%2C%20Campinas%20-%20SP%2C%2013090-605!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Localização da Clínica no Google Maps"></iframe>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div>
-                <div class="rounded-lg shadow-lg overflow-hidden h-full min-h-[300px] md:min-h-[400px]">
-                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3675.297479709873!2d-47.05436662446736!3d-22.90563457920336!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c8c704f7e2c949%3A0x7d2b0e8c7c1b2c1!2sR.%20Mogi%20Gua%C3%A7u%2C%20403%20-%20Ch%C3%A1cara%20da%20Barra%2C%20Campinas%20-%20SP%2C%2013090-605!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Localização da Clínica no Google Maps"></iframe>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+        </section>
     </main>
 
     <footer class="bg-primary-dark text-text-light py-8">
@@ -708,6 +420,10 @@
                     }
                 });
             });
+
+            // Removed appointment modal and its related logic
+            // The buttons now directly link to WhatsApp
+
 
             // Intersection Observer for fade-in image
             const sobreImage = document.querySelector('#sobre img');
