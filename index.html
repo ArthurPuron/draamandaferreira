@@ -515,7 +515,7 @@
             <p class="mt-2 text-gray-medium">Histórias de sorrisos transformados.</p>
         </div>
 
-        <div class="carousel-container relative w-full overflow-hidden">
+        <div class="carousel-container relative w-full">
             <button id="prevBtn" class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-white text-gray-dark p-2 rounded-full shadow-lg z-20 hover:bg-gray-200 transition-all">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
@@ -631,7 +631,10 @@
             // Ajusta a altura do contêiner do carrossel para a altura do card ativo
             const activeCard = document.querySelector('.carousel-card.active');
             if (activeCard) {
-                carouselContainer.style.height = `${activeCard.offsetHeight}px`;
+                // Usa requestAnimationFrame para garantir que a altura seja calculada após o DOM ser renderizado
+                requestAnimationFrame(() => {
+                    carouselContainer.style.height = `${activeCard.offsetHeight}px`;
+                });
             }
         }
 
@@ -645,7 +648,7 @@
             updateCarousel();
         });
         
-        // A funcionalidade de "Ler Mais" precisa ajustar a altura também
+        // A funcionalidade de "Ler Mais" agora ajusta a altura de forma mais confiável
         const toggleReadMore = (button) => {
             const textElement = button.closest('.testimonial-text');
             const fullText = textElement.dataset.fullText;
@@ -675,12 +678,11 @@
                 newButton.classList.add('text-accent-color', 'font-bold', 'hover:underline', 'inline-block');
                 textElement.appendChild(newButton);
             }
-
-            // Atualiza a altura do carrossel após a mudança de texto
-            // Adiciona um pequeno delay para a transição ser suave
-            setTimeout(() => {
+            
+            // Força a atualização da altura do carrossel no próximo frame de renderização
+            requestAnimationFrame(() => {
                 carouselContainer.style.height = `${parentCard.offsetHeight}px`;
-            }, 100);
+            });
         };
 
 
@@ -715,6 +717,7 @@
         updateCarousel();
     });
 </script>
+
 <section id="faq" class="py-20 md:py-32 bg-primary-light">
     <div class="container mx-auto px-6">
         <div class="text-center mb-16">
