@@ -516,7 +516,7 @@
         </div>
 
         <div class="relative max-w-4xl mx-auto">
-            <div id="carousel-container" class="flex overflow-hidden relative transition-transform duration-500">
+            <div id="carousel-container" class="flex relative transition-transform duration-500">
                 
                 <!-- Depoimento 1 - Mariana Corradini Antunes -->
                 <div class="carousel-item flex-shrink-0 w-full md:w-1/2 p-4">
@@ -602,8 +602,6 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        // ... (resto do seu JavaScript original)
-
         // Lógica para o botão "Ler mais..."
         const readMoreButtons = document.querySelectorAll('.read-more-btn');
         readMoreButtons.forEach(btn => {
@@ -629,11 +627,17 @@
         const nextBtn = document.getElementById('next-button');
         
         let currentIndex = 0;
-        const itemsPerPage = window.innerWidth >= 768 ? 2 : 1;
-        const totalItems = document.querySelectorAll('.carousel-item').length;
-
+        const items = document.querySelectorAll('.carousel-item');
+        const totalItems = items.length;
+        
         function updateCarousel() {
-            const itemWidth = document.querySelector('.carousel-item').offsetWidth;
+            const screenWidth = window.innerWidth;
+            let itemsPerPage = 1;
+            if (screenWidth >= 768) {
+                itemsPerPage = 2; // Mostra 2 itens no desktop
+            }
+
+            const itemWidth = carousel.querySelector('.carousel-item').offsetWidth;
             const offset = -currentIndex * itemWidth;
             carousel.style.transform = `translateX(${offset}px)`;
 
@@ -643,6 +647,11 @@
         }
 
         function nextSlide() {
+            const screenWidth = window.innerWidth;
+            let itemsPerPage = 1;
+            if (screenWidth >= 768) {
+                itemsPerPage = 2;
+            }
             if (currentIndex < totalItems - itemsPerPage) {
                 currentIndex++;
             }
@@ -666,6 +675,7 @@
         updateCarousel(); // Chamada inicial para posicionar o carrossel
     });
 </script>
+
 
 
 <section id="faq" class="py-20 md:py-32 bg-primary-light">
