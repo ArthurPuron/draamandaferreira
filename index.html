@@ -516,7 +516,7 @@
         </div>
 
         <div class="relative max-w-4xl mx-auto">
-            <div id="carousel-container" class="flex overflow-hidden relative">
+            <div id="carousel-container" class="flex overflow-hidden relative transition-transform duration-500">
                 
                 <!-- Depoimento 1 - Mariana Corradini Antunes -->
                 <div class="carousel-item flex-shrink-0 w-full md:w-1/2 p-4">
@@ -558,7 +558,7 @@
                     <div class="bg-white h-full p-8 rounded-lg shadow-lg flex flex-col items-center text-center">
                         <img src="https://placehold.co/80x80/06031b/f6f1ef?text=F.G." alt="" class="rounded-full w-20 h-20 mb-4 object-cover border-2 border-accent-color">
                         <p class="italic text-gray-medium mb-4">
-                            <span class="short-text">"Uma excelente profissional,muito atenciosa e dedicada aos seus pacientes. Já me atendeu algumas vezes e em todas as consultas sempre me tranquilizou e me passou muita confiança. Uma pessoa extremamente gentil e educada..."</span>
+                            <span class="short-text">"Uma excelente profissional,muito atenciosa e dedicada aos seus pacientes. Já me atendeu algumas vezes e em todas as consultas sempre me tranquilizou e me passou muita confiança..."</span>
                             <span class="full-text hidden">"Uma excelente profissional,muito atenciosa e dedicada aos seus pacientes. Já me atendeu algumas vezes e em todas as consultas sempre me tranquilizou e me passou muita confiança. Uma pessoa extremamente gentil e educada. Que Deus abençoe e ilumine grandemente sua carreira profissional,e seja repleta de aprendizado, oportunidade e crescimento🙏 Índico de olhos fechados🌷"</span>
                             <button class="read-more-btn font-semibold text-accent-color hover:underline focus:outline-none">Ler mais...</button>
                         </p>
@@ -587,83 +587,22 @@
                         <p class="font-semibold text-primary-dark">- Rachel Puron</p>
                     </div>
                 </div>
-
             </div>
             
             <!-- Botões de navegação do carrossel -->
-            <button id="prev-button" class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-white/50 hover:bg-white/80 transition-colors duration-300 p-2 rounded-full shadow-md z-10 hidden md:block">
+            <button id="prev-button" class="absolute top-1/2 -left-12 transform -translate-y-1/2 bg-white/50 hover:bg-white/80 transition-colors duration-300 p-2 rounded-full shadow-md z-10 hidden md:block">
                 <span class="text-primary-dark text-xl">←</span>
             </button>
-            <button id="next-button" class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-white/50 hover:bg-white/80 transition-colors duration-300 p-2 rounded-full shadow-md z-10 hidden md:block">
+            <button id="next-button" class="absolute top-1/2 -right-12 transform -translate-y-1/2 bg-white/50 hover:bg-white/80 transition-colors duration-300 p-2 rounded-full shadow-md z-10 hidden md:block">
                 <span class="text-primary-dark text-xl">→</span>
             </button>
         </div>
-
     </div>
 </section>
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         // ... (resto do seu JavaScript original)
-        
-        // Novo JavaScript para o carrossel de depoimentos
-        const carousel = document.getElementById('carousel-container');
-        const prevBtn = document.getElementById('prev-button');
-        const nextBtn = document.getElementById('next-button');
-        const items = document.querySelectorAll('.carousel-item');
-        const itemWidth = items[0].offsetWidth;
-        const totalItems = items.length;
-        let currentIndex = 0;
-
-        function updateCarousel() {
-            const screenWidth = window.innerWidth;
-            let itemsPerPage = 1;
-            if (screenWidth >= 768) {
-                itemsPerPage = 2; // Mostra 2 itens no desktop
-            }
-
-            const offset = -currentIndex * (itemWidth * (1 / itemsPerPage)) * (screenWidth < 768 ? 2 : 1);
-            carousel.style.transform = `translateX(${offset}px)`;
-
-            prevBtn.disabled = currentIndex === 0;
-            nextBtn.disabled = currentIndex >= totalItems - itemsPerPage;
-        }
-
-        function nextSlide() {
-            const screenWidth = window.innerWidth;
-            let itemsPerPage = 1;
-            if (screenWidth >= 768) {
-                itemsPerPage = 2;
-            }
-
-            if (currentIndex < totalItems - itemsPerPage) {
-                currentIndex += 1;
-            } else {
-                currentIndex = 0; // Volta para o início do carrossel
-            }
-            updateCarousel();
-        }
-
-        function prevSlide() {
-            if (currentIndex > 0) {
-                currentIndex -= 1;
-            } else {
-                const screenWidth = window.innerWidth;
-                let itemsPerPage = 1;
-                if (screenWidth >= 768) {
-                    itemsPerPage = 2;
-                }
-                currentIndex = totalItems - itemsPerPage; // Vai para o final do carrossel
-            }
-            updateCarousel();
-        }
-
-        nextBtn.addEventListener('click', nextSlide);
-        prevBtn.addEventListener('click', prevSlide);
-
-        window.addEventListener('resize', () => {
-            updateCarousel();
-        });
 
         // Lógica para o botão "Ler mais..."
         const readMoreButtons = document.querySelectorAll('.read-more-btn');
@@ -682,6 +621,46 @@
                     btn.textContent = 'Ler menos';
                 }
             });
+        });
+
+        // JavaScript para o carrossel de depoimentos
+        const carousel = document.getElementById('carousel-container');
+        const prevBtn = document.getElementById('prev-button');
+        const nextBtn = document.getElementById('next-button');
+        
+        let currentIndex = 0;
+        const itemsPerPage = window.innerWidth >= 768 ? 2 : 1;
+        const totalItems = document.querySelectorAll('.carousel-item').length;
+
+        function updateCarousel() {
+            const itemWidth = document.querySelector('.carousel-item').offsetWidth;
+            const offset = -currentIndex * itemWidth;
+            carousel.style.transform = `translateX(${offset}px)`;
+
+            // Oculta/exibe os botões de navegação dependendo da posição
+            if (prevBtn) prevBtn.style.display = currentIndex === 0 ? 'none' : 'block';
+            if (nextBtn) nextBtn.style.display = currentIndex >= totalItems - itemsPerPage ? 'none' : 'block';
+        }
+
+        function nextSlide() {
+            if (currentIndex < totalItems - itemsPerPage) {
+                currentIndex++;
+            }
+            updateCarousel();
+        }
+
+        function prevSlide() {
+            if (currentIndex > 0) {
+                currentIndex--;
+            }
+            updateCarousel();
+        }
+
+        if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+        if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+
+        window.addEventListener('resize', () => {
+            updateCarousel();
         });
 
         updateCarousel(); // Chamada inicial para posicionar o carrossel
