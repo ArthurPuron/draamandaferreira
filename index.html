@@ -636,9 +636,13 @@
             if (screenWidth >= 768) {
                 itemsPerPage = 2; // Mostra 2 itens no desktop
             }
+            
+            const carouselWidth = carousel.parentElement.offsetWidth;
+            const itemMargin = 32; // Gap-8 no Tailwind = 32px
+            const visibleItemsWidth = itemsPerPage * (items[0].offsetWidth + itemMargin);
+            const totalItemsWidth = totalItems * items[0].offsetWidth + (totalItems - 1) * itemMargin;
 
-            const itemWidth = carousel.querySelector('.carousel-item').offsetWidth;
-            const offset = -currentIndex * itemWidth;
+            const offset = -currentIndex * (itemWidth);
             carousel.style.transform = `translateX(${offset}px)`;
 
             // Oculta/exibe os botões de navegação dependendo da posição
@@ -675,6 +679,7 @@
         updateCarousel(); // Chamada inicial para posicionar o carrossel
     });
 </script>
+
 
 
 
