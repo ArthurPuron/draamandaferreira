@@ -528,10 +528,10 @@
                 </svg>
             </button>
             
-            <div id="carousel-cards" class="flex items-center justify-center relative w-full h-[600px] md:h-[500px]">
+            <div id="carousel-cards" class="flex items-center justify-center relative w-full transition-all duration-500 ease-in-out">
                 
                 <div class="carousel-card absolute w-11/12 md:w-1/2 lg:w-1/3 transition-all duration-500 ease-in-out">
-                    <div class="bg-white p-8 rounded-lg shadow-lg flex flex-col items-center text-center h-full">
+                    <div class="bg-white p-8 rounded-lg shadow-lg flex flex-col items-center text-center">
                         <img src="https://i.imgur.com/BmFrzDD.png" alt="" class="rounded-full w-20 h-20 mb-4 object-cover border-2 border-accent-color">
                         <div class="testimonial-content">
                             <p class="italic text-gray-medium mb-4 testimonial-text">"Doutora muito experiente e cuidadosa! Me passou muita confiança, além de ter um consultório muito arrumado, higiene nota 10! Mãos de fada! Amei!"</p>
@@ -541,7 +541,7 @@
                 </div>
 
                 <div class="carousel-card absolute w-11/12 md:w-1/2 lg:w-1/3 transition-all duration-500 ease-in-out">
-                    <div class="bg-white p-8 rounded-lg shadow-lg flex flex-col items-center text-center h-full">
+                    <div class="bg-white p-8 rounded-lg shadow-lg flex flex-col items-center text-center">
                         <img src="https://placehold.co/80x80/06031b/f6f1ef?text=A.E.R." alt="" class="rounded-full w-20 h-20 mb-4 object-cover border-2 border-accent-color">
                         <div class="testimonial-content">
                             <p class="italic text-gray-medium mb-4 testimonial-text">"A Dra Amanda é uma profissional excelente, muito acima da média. Entre tantos profissionais que já fiz profilaxia (limpeza nos dentes), com ela foi uma experiência muito melhor, resultado muito satisfatório. Além de entregar um serviço de qualidade, ela ainda tem uma mão muito leve, ela faz tudo com muita delicadeza, o que deixa o procedimento muito confortável. Ela também tratou meus pais, sendo o caso do meu pai muito complicado, por ser um paciente com diabetes, o que dificulta a cicatrização e ele precisava fazer cirurgias para extração de dentes, pois ele estava com muita inflamação nas gengivas o que deixava os dentes moles e estava prejudicando a saúde bucal e geral dele. Ela resolveu tudo, com muito estudo do caso e um atendimento com todo cuidado possível, conseguiu restaurar a saúde bucal dele, fazendo um bem imenso pra saúde geral dele. Pra mim é a melhor, sem dúvidas."</p>
@@ -551,7 +551,7 @@
                 </div>
 
                 <div class="carousel-card absolute w-11/12 md:w-1/2 lg:w-1/3 transition-all duration-500 ease-in-out">
-                    <div class="bg-white p-8 rounded-lg shadow-lg flex flex-col items-center text-center h-full">
+                    <div class="bg-white p-8 rounded-lg shadow-lg flex flex-col items-center text-center">
                         <img src="https://placehold.co/80x80/06031b/f6f1ef?text=H.B." alt="" class="rounded-full w-20 h-20 mb-4 object-cover border-2 border-accent-color">
                         <div class="testimonial-content">
                             <p class="italic text-gray-medium mb-4 testimonial-text">"O atendimento e profissionalismo da Dra são impecáveis! Ambiente muito organizado, agradável e relaxante! Trabalho incrível! Recomento muito"</p>
@@ -561,7 +561,7 @@
                 </div>
 
                 <div class="carousel-card absolute w-11/12 md:w-1/2 lg:w-1/3 transition-all duration-500 ease-in-out">
-                    <div class="bg-white p-8 rounded-lg shadow-lg flex flex-col items-center text-center h-full">
+                    <div class="bg-white p-8 rounded-lg shadow-lg flex flex-col items-center text-center">
                         <img src="https://placehold.co/80x80/06031b/f6f1ef?text=F.G." alt="" class="rounded-full w-20 h-20 mb-4 object-cover border-2 border-accent-color">
                         <div class="testimonial-content">
                             <p class="italic text-gray-medium mb-4 testimonial-text">"Uma excelente profissional,muito atenciosa e dedicada aos seus pacientes. Já me atendeu algumas vezes e em todas as consultas sempre me tranquilizou e me passou muita confiança. Uma pessoa extremamente gentil e educada. Que Deus abençoe e ilumine grandemente sua carreira profissional,e seja repleta de aprendizado, oportunidade e crescimento🙏 Índico de olhos fechados🌷"</p>
@@ -571,7 +571,7 @@
                 </div>
 
                 <div class="carousel-card absolute w-11/12 md:w-1/2 lg:w-1/3 transition-all duration-500 ease-in-out">
-                    <div class="bg-white p-8 rounded-lg shadow-lg flex flex-col items-center text-center h-full">
+                    <div class="bg-white p-8 rounded-lg shadow-lg flex flex-col items-center text-center">
                         <img src="https://i.imgur.com/plad7i6.png" alt="" class="rounded-full w-20 h-20 mb-4 object-cover border-2 border-accent-color">
                         <div class="testimonial-content">
                             <p class="italic text-gray-medium mb-4 testimonial-text">"O atendimento com a Dra. Amanda foi excelente. Muito simpática! Tem todo um cuidado em nós deixar tranquilo na consulta. Super indico!"</p>
@@ -587,6 +587,7 @@
 <script>
     document.addEventListener('DOMContentLoaded', () => {
         const carouselCards = document.querySelectorAll('.carousel-card');
+        const carouselContainer = document.getElementById('carousel-cards');
         const prevBtn = document.getElementById('prevBtn');
         const nextBtn = document.getElementById('nextBtn');
         let currentIndex = 0;
@@ -626,6 +627,12 @@
                     card.style.zIndex = '10';
                 }
             });
+
+            // Ajusta a altura do contêiner do carrossel para a altura do card ativo
+            const activeCard = document.querySelector('.carousel-card.active');
+            if (activeCard) {
+                carouselContainer.style.height = `${activeCard.offsetHeight}px`;
+            }
         }
 
         prevBtn.addEventListener('click', () => {
@@ -637,11 +644,47 @@
             currentIndex = (currentIndex + 1) % carouselCards.length;
             updateCarousel();
         });
-
-        // Inicializa o carrossel
-        updateCarousel();
         
-        // Mantém a funcionalidade de "Ler Mais" para depoimentos longos
+        // A funcionalidade de "Ler Mais" precisa ajustar a altura também
+        const toggleReadMore = (button) => {
+            const textElement = button.closest('.testimonial-text');
+            const fullText = textElement.dataset.fullText;
+            const parentCard = button.closest('.carousel-card');
+
+            if (button.textContent === 'Ler Mais') {
+                textElement.textContent = fullText;
+                const newButton = document.createElement('button');
+                newButton.textContent = 'Ver Menos';
+                newButton.onclick = (e) => {
+                    e.stopPropagation();
+                    toggleReadMore(newButton);
+                };
+                newButton.classList.add('text-accent-color', 'font-bold', 'hover:underline', 'ml-1');
+                textElement.appendChild(newButton);
+            } else {
+                const limit = 150;
+                const truncatedText = fullText.substring(0, limit) + '... ';
+                textElement.textContent = truncatedText;
+
+                const newButton = document.createElement('button');
+                newButton.textContent = 'Ler Mais';
+                newButton.onclick = (e) => {
+                    e.stopPropagation();
+                    toggleReadMore(newButton);
+                };
+                newButton.classList.add('text-accent-color', 'font-bold', 'hover:underline', 'inline-block');
+                textElement.appendChild(newButton);
+            }
+
+            // Atualiza a altura do carrossel após a mudança de texto
+            // Adiciona um pequeno delay para a transição ser suave
+            setTimeout(() => {
+                carouselContainer.style.height = `${parentCard.offsetHeight}px`;
+            }, 100);
+        };
+
+
+        // Incialização da funcionalidade de "Ler Mais"
         const testimonials = document.querySelectorAll('.testimonial-content');
         const limit = 150;
 
@@ -667,40 +710,11 @@
                 textElement.appendChild(button);
             }
         });
+
+        // Inicializa o carrossel com a altura correta
+        updateCarousel();
     });
-
-    function toggleReadMore(button) {
-        const textElement = button.closest('.testimonial-text');
-        const fullText = textElement.dataset.fullText;
-
-        // Verifica se o texto atual está truncado
-        if (button.textContent === 'Ler Mais') {
-            textElement.textContent = fullText;
-            const newButton = document.createElement('button');
-            newButton.textContent = 'Ver Menos';
-            newButton.onclick = (e) => {
-                e.stopPropagation();
-                toggleReadMore(newButton);
-            };
-            newButton.classList.add('text-accent-color', 'font-bold', 'hover:underline', 'ml-1');
-            textElement.appendChild(newButton);
-        } else {
-            const limit = 150;
-            const truncatedText = fullText.substring(0, limit) + '... ';
-            textElement.textContent = truncatedText;
-
-            const newButton = document.createElement('button');
-            newButton.textContent = 'Ler Mais';
-            newButton.onclick = (e) => {
-                e.stopPropagation();
-                toggleReadMore(newButton);
-            };
-            newButton.classList.add('text-accent-color', 'font-bold', 'hover:underline', 'inline-block');
-            textElement.appendChild(newButton);
-        }
-    }
 </script>
-
 <section id="faq" class="py-20 md:py-32 bg-primary-light">
     <div class="container mx-auto px-6">
         <div class="text-center mb-16">
