@@ -601,7 +601,6 @@
         let touchendX = 0;
 
         function updateCarousel() {
-            // Remove a classe de altura fixa para ajuste dinâmico
             carouselContainer.style.height = 'auto';
 
             carouselCards.forEach((card, index) => {
@@ -614,7 +613,8 @@
                 card.style.zIndex = '';
                 card.style.opacity = '';
                 card.style.pointerEvents = '';
-                
+                card.style.left = '50%'; // Centraliza a origem da transformação
+
                 // Lógica para desktop (3 cards visíveis)
                 if (window.innerWidth >= 768) { // md breakpoint do Tailwind
                     const zIndex = 10 - Math.abs(index - currentIndex);
@@ -622,53 +622,51 @@
 
                     if (isCurrent) {
                         card.classList.add('active');
-                        card.style.transform = 'translateX(0) scale(1)';
+                        card.style.transform = 'translateX(-50%) scale(1)';
                         card.style.opacity = '1';
                         card.style.zIndex = '30';
                     } else if (isPrev) {
                         card.classList.add('prev-card');
-                        card.style.transform = 'translateX(-80%) scale(0.85)';
+                        card.style.transform = 'translateX(-130%) scale(0.85)';
                         card.style.opacity = '0.5';
                         card.style.zIndex = '20';
                     } else if (isNext) {
                         card.classList.add('next-card');
-                        card.style.transform = 'translateX(80%) scale(0.85)';
+                        card.style.transform = 'translateX(30%) scale(0.85)';
                         card.style.opacity = '0.5';
                         card.style.zIndex = '20';
                     } else {
-                        card.style.transform = 'translateX(0) scale(0.8)';
+                        card.style.transform = 'translateX(-50%) scale(0.8)';
                         card.style.opacity = '0';
                         card.style.pointerEvents = 'none';
                         card.style.zIndex = '10';
                     }
-                } else { // Lógica para mobile (visual com cards laterais e bolinhas)
+                } else { // Lógica para mobile (visual com cards laterais e bolinhas - MAIS CENTRALIZADO)
+                    card.style.width = '90%'; // Largura um pouco menor para "espiar" os lados
+
                     if (isCurrent) {
                         card.classList.add('active');
-                        card.style.transform = 'translateX(0) scale(1)';
+                        card.style.transform = 'translateX(-50%) scale(1)'; // Centraliza corretamente
                         card.style.opacity = '1';
                         card.style.zIndex = '30';
-                        card.style.left = '50%';
                     } else if (isPrev) {
-                        card.style.transform = 'translateX(-120%) scale(0.9)'; // Mostra um pedaço do card anterior
-                        card.style.opacity = '0.8';
+                        card.style.transform = 'translateX(-150%) scale(0.9)'; // Mostra mais do card anterior
+                        card.style.opacity = '0.7';
                         card.style.zIndex = '20';
-                        card.style.left = '50%';
                     } else if (isNext) {
-                        card.style.transform = 'translateX(20%) scale(0.9)'; // Mostra um pedaço do próximo card
-                        card.style.opacity = '0.8';
+                        card.style.transform = 'translateX(50%) scale(0.9)'; // Mostra mais do próximo card
+                        card.style.opacity = '0.7';
                         card.style.zIndex = '20';
-                        card.style.left = '50%';
                     } else {
-                        card.style.transform = 'translateX(0) scale(0.8)';
+                        card.style.transform = 'translateX(-50%) scale(0.8)';
                         card.style.opacity = '0';
                         card.style.pointerEvents = 'none';
                         card.style.zIndex = '10';
-                        card.style.left = '50%';
+                        card.style.width = '90%';
                     }
                 }
             });
 
-            // Ajusta a altura do contêiner do carrossel para a altura do card ativo
             const activeCard = document.querySelector('.carousel-card.active');
             if (activeCard) {
                 requestAnimationFrame(() => {
@@ -676,11 +674,9 @@
                 });
             }
             
-            // Atualiza os indicadores
             updateIndicators();
         }
 
-        // Navegação por botões (apenas para desktop)
         prevBtn.addEventListener('click', () => {
             currentIndex = (currentIndex - 1 + carouselCards.length) % carouselCards.length;
             updateCarousel();
@@ -691,7 +687,6 @@
             updateCarousel();
         });
 
-        // Navegação por swipe (arrastar)
         carouselContainer.addEventListener('touchstart', e => {
             touchstartX = e.changedTouches[0].screenX;
         });
@@ -702,24 +697,23 @@
         });
 
         function handleSwipe() {
-            if (touchendX < touchstartX - 50) { // Swipe para a esquerda
+            if (touchendX < touchstartX - 50) {
                 currentIndex = (currentIndex + 1) % carouselCards.length;
             }
 
-            if (touchendX > touchstartX + 50) { // Swipe para a direita
+            if (touchendX > touchstartX + 50) {
                 currentIndex = (currentIndex - 1 + carouselCards.length) % carouselCards.length;
             }
             updateCarousel();
         }
 
-        // Função para criar e atualizar os indicadores
         function createIndicators() {
-            indicatorsContainer.innerHTML = ''; // Limpa os indicadores existentes
+            indicatorsContainer.innerHTML = '';
             carouselCards.forEach((_, index) => {
                 const indicator = document.createElement('div');
                 indicator.classList.add('w-2', 'h-2', 'rounded-full', 'mx-1', 'cursor-pointer', 'bg-gray-400', 'transition-all', 'duration-300');
                 if (index === currentIndex) {
-                    indicator.classList.add('!bg-primary-dark', 'w-3', 'h-3'); // Destaca o indicador ativo
+                    indicator.classList.add('!bg-primary-dark', 'w-3', 'h-3');
                 }
                 indicator.addEventListener('click', () => {
                     currentIndex = index;
@@ -741,7 +735,6 @@
             });
         }
         
-        // A funcionalidade de "Ler Mais" também precisa ajustar a altura
         const toggleReadMore = (button) => {
             const textElement = button.closest('.testimonial-text');
             const fullText = textElement.dataset.fullText;
@@ -777,8 +770,6 @@
             });
         };
 
-
-        // Incialização da funcionalidade de "Ler Mais"
         const testimonials = document.querySelectorAll('.testimonial-content');
         const limit = 150;
 
@@ -805,16 +796,16 @@
             }
         });
 
-        // Inicializa o carrossel e os indicadores
         updateCarousel();
         createIndicators();
 
         window.addEventListener('resize', () => {
             updateCarousel();
-            createIndicators(); // Re-cria os indicadores caso o layout mude de desktop para mobile
+            createIndicators();
         });
     });
-</script>
+</script> 
+
 <section id="faq" class="py-20 md:py-32 bg-primary-light">
     <div class="container mx-auto px-6">
         <div class="text-center mb-16">
