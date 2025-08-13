@@ -657,7 +657,7 @@
                 const button = document.createElement('button');
                 button.textContent = 'Ler Mais';
                 button.onclick = (e) => {
-                    e.stopPropagation(); // Evita que o clique no botão mova o carrossel
+                    e.stopPropagation();
                     toggleReadMore(button);
                 };
                 button.classList.add('text-accent-color', 'font-bold', 'hover:underline', 'inline-block');
@@ -673,7 +673,8 @@
         const textElement = button.closest('.testimonial-text');
         const fullText = textElement.dataset.fullText;
 
-        if (textElement.textContent.includes('Ler Mais')) {
+        // Verifica se o texto atual está truncado
+        if (button.textContent === 'Ler Mais') {
             textElement.textContent = fullText;
             const newButton = document.createElement('button');
             newButton.textContent = 'Ver Menos';
