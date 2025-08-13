@@ -528,10 +528,10 @@
                 </svg>
             </button>
             
-            <div id="carousel-cards" class="flex items-center justify-center relative w-full h-[600px] md:h-[500px] transition-all duration-500 ease-in-out">
+            <div id="carousel-cards" class="flex items-center justify-center relative w-full transition-all duration-500 ease-in-out">
                 
                 <div class="carousel-card absolute w-11/12 md:w-1/2 lg:w-1/3 transition-all duration-500 ease-in-out">
-                    <div class="bg-white p-8 rounded-lg shadow-lg flex flex-col items-center text-center h-full">
+                    <div class="bg-white p-8 rounded-lg shadow-lg flex flex-col items-center text-center">
                         <img src="https://i.imgur.com/BmFrzDD.png" alt="" class="rounded-full w-20 h-20 mb-4 object-cover border-2 border-accent-color">
                         <div class="testimonial-content">
                             <p class="italic text-gray-medium mb-4 testimonial-text">"Doutora muito experiente e cuidadosa! Me passou muita confiança, além de ter um consultório muito arrumado, higiene nota 10! Mãos de fada! Amei!"</p>
@@ -541,7 +541,7 @@
                 </div>
 
                 <div class="carousel-card absolute w-11/12 md:w-1/2 lg:w-1/3 transition-all duration-500 ease-in-out">
-                    <div class="bg-white p-8 rounded-lg shadow-lg flex flex-col items-center text-center h-full">
+                    <div class="bg-white p-8 rounded-lg shadow-lg flex flex-col items-center text-center">
                         <img src="https://placehold.co/80x80/06031b/f6f1ef?text=A.E.R." alt="" class="rounded-full w-20 h-20 mb-4 object-cover border-2 border-accent-color">
                         <div class="testimonial-content">
                             <p class="italic text-gray-medium mb-4 testimonial-text">"A Dra Amanda é uma profissional excelente, muito acima da média. Entre tantos profissionais que já fiz profilaxia (limpeza nos dentes), com ela foi uma experiência muito melhor, resultado muito satisfatório. Além de entregar um serviço de qualidade, ela ainda tem uma mão muito leve, ela faz tudo com muita delicadeza, o que deixa o procedimento muito confortável. Ela também tratou meus pais, sendo o caso do meu pai muito complicado, por ser um paciente com diabetes, o que dificulta a cicatrização e ele precisava fazer cirurgias para extração de dentes, pois ele estava com muita inflamação nas gengivas o que deixava os dentes moles e estava prejudicando a saúde bucal e geral dele. Ela resolveu tudo, com muito estudo do caso e um atendimento com todo cuidado possível, conseguiu restaurar a saúde bucal dele, fazendo um bem imenso pra saúde geral dele. Pra mim é a melhor, sem dúvidas."</p>
@@ -551,7 +551,7 @@
                 </div>
 
                 <div class="carousel-card absolute w-11/12 md:w-1/2 lg:w-1/3 transition-all duration-500 ease-in-out">
-                    <div class="bg-white p-8 rounded-lg shadow-lg flex flex-col items-center text-center h-full">
+                    <div class="bg-white p-8 rounded-lg shadow-lg flex flex-col items-center text-center">
                         <img src="https://placehold.co/80x80/06031b/f6f1ef?text=H.B." alt="" class="rounded-full w-20 h-20 mb-4 object-cover border-2 border-accent-color">
                         <div class="testimonial-content">
                             <p class="italic text-gray-medium mb-4 testimonial-text">"O atendimento e profissionalismo da Dra são impecáveis! Ambiente muito organizado, agradável e relaxante! Trabalho incrível! Recomento muito"</p>
@@ -561,7 +561,7 @@
                 </div>
 
                 <div class="carousel-card absolute w-11/12 md:w-1/2 lg:w-1/3 transition-all duration-500 ease-in-out">
-                    <div class="bg-white p-8 rounded-lg shadow-lg flex flex-col items-center text-center h-full">
+                    <div class="bg-white p-8 rounded-lg shadow-lg flex flex-col items-center text-center">
                         <img src="https://placehold.co/80x80/06031b/f6f1ef?text=F.G." alt="" class="rounded-full w-20 h-20 mb-4 object-cover border-2 border-accent-color">
                         <div class="testimonial-content">
                             <p class="italic text-gray-medium mb-4 testimonial-text">"Uma excelente profissional,muito atenciosa e dedicada aos seus pacientes. Já me atendeu algumas vezes e em todas as consultas sempre me tranquilizou e me passou muita confiança. Uma pessoa extremamente gentil e educada. Que Deus abençoe e ilumine grandemente sua carreira profissional,e seja repleta de aprendizado, oportunidade e crescimento🙏 Índico de olhos fechados🌷"</p>
@@ -571,7 +571,7 @@
                 </div>
 
                 <div class="carousel-card absolute w-11/12 md:w-1/2 lg:w-1/3 transition-all duration-500 ease-in-out">
-                    <div class="bg-white p-8 rounded-lg shadow-lg flex flex-col items-center text-center h-full">
+                    <div class="bg-white p-8 rounded-lg shadow-lg flex flex-col items-center text-center">
                         <img src="https://i.imgur.com/plad7i6.png" alt="" class="rounded-full w-20 h-20 mb-4 object-cover border-2 border-accent-color">
                         <div class="testimonial-content">
                             <p class="italic text-gray-medium mb-4 testimonial-text">"O atendimento com a Dra. Amanda foi excelente. Muito simpática! Tem todo um cuidado em nós deixar tranquilo na consulta. Super indico!"</p>
@@ -580,6 +580,9 @@
                     </div>
                 </div>
             </div>
+
+            <div id="carousel-indicators" class="flex justify-center mt-8">
+                </div>
         </div>
     </div>
 </section>
@@ -590,6 +593,7 @@
         const carouselContainer = document.getElementById('carousel-cards');
         const prevBtn = document.getElementById('prevBtn');
         const nextBtn = document.getElementById('nextBtn');
+        const indicatorsContainer = document.getElementById('carousel-indicators');
         let currentIndex = 0;
 
         // Variáveis para o swipe (arrastar)
@@ -597,6 +601,9 @@
         let touchendX = 0;
 
         function updateCarousel() {
+            // Remove a classe de altura fixa para ajuste dinâmico
+            carouselContainer.style.height = 'auto';
+
             carouselCards.forEach((card, index) => {
                 const isCurrent = index === currentIndex;
                 const isPrev = index === (currentIndex - 1 + carouselCards.length) % carouselCards.length;
@@ -634,17 +641,29 @@
                         card.style.pointerEvents = 'none';
                         card.style.zIndex = '10';
                     }
-                } else { // Lógica para mobile (1 card visível)
+                } else { // Lógica para mobile (visual com cards laterais e bolinhas)
                     if (isCurrent) {
                         card.classList.add('active');
                         card.style.transform = 'translateX(0) scale(1)';
                         card.style.opacity = '1';
                         card.style.zIndex = '30';
+                        card.style.left = '50%';
+                    } else if (isPrev) {
+                        card.style.transform = 'translateX(-120%) scale(0.9)'; // Mostra um pedaço do card anterior
+                        card.style.opacity = '0.8';
+                        card.style.zIndex = '20';
+                        card.style.left = '50%';
+                    } else if (isNext) {
+                        card.style.transform = 'translateX(20%) scale(0.9)'; // Mostra um pedaço do próximo card
+                        card.style.opacity = '0.8';
+                        card.style.zIndex = '20';
+                        card.style.left = '50%';
                     } else {
                         card.style.transform = 'translateX(0) scale(0.8)';
                         card.style.opacity = '0';
                         card.style.pointerEvents = 'none';
                         card.style.zIndex = '10';
+                        card.style.left = '50%';
                     }
                 }
             });
@@ -656,6 +675,9 @@
                     carouselContainer.style.height = `${activeCard.offsetHeight}px`;
                 });
             }
+            
+            // Atualiza os indicadores
+            updateIndicators();
         }
 
         // Navegação por botões (apenas para desktop)
@@ -689,8 +711,37 @@
             }
             updateCarousel();
         }
+
+        // Função para criar e atualizar os indicadores
+        function createIndicators() {
+            indicatorsContainer.innerHTML = ''; // Limpa os indicadores existentes
+            carouselCards.forEach((_, index) => {
+                const indicator = document.createElement('div');
+                indicator.classList.add('w-2', 'h-2', 'rounded-full', 'mx-1', 'cursor-pointer', 'bg-gray-400', 'transition-all', 'duration-300');
+                if (index === currentIndex) {
+                    indicator.classList.add('!bg-primary-dark', 'w-3', 'h-3'); // Destaca o indicador ativo
+                }
+                indicator.addEventListener('click', () => {
+                    currentIndex = index;
+                    updateCarousel();
+                });
+                indicatorsContainer.appendChild(indicator);
+            });
+        }
         
-        // A funcionalidade de "Ler Mais" precisa ajustar a altura também
+        function updateIndicators() {
+            const indicators = indicatorsContainer.querySelectorAll('div');
+            indicators.forEach((indicator, index) => {
+                indicator.classList.remove('!bg-primary-dark', 'w-3', 'h-3');
+                indicator.classList.add('bg-gray-400', 'w-2', 'h-2');
+                if (index === currentIndex) {
+                    indicator.classList.remove('bg-gray-400', 'w-2', 'h-2');
+                    indicator.classList.add('!bg-primary-dark', 'w-3', 'h-3');
+                }
+            });
+        }
+        
+        // A funcionalidade de "Ler Mais" também precisa ajustar a altura
         const toggleReadMore = (button) => {
             const textElement = button.closest('.testimonial-text');
             const fullText = textElement.dataset.fullText;
@@ -727,7 +778,7 @@
         };
 
 
-        // Inicialização da funcionalidade de "Ler Mais"
+        // Incialização da funcionalidade de "Ler Mais"
         const testimonials = document.querySelectorAll('.testimonial-content');
         const limit = 150;
 
@@ -754,13 +805,16 @@
             }
         });
 
+        // Inicializa o carrossel e os indicadores
         updateCarousel();
+        createIndicators();
 
-        // Adiciona um listener para atualizar o carrossel se a tela for redimensionada
-        window.addEventListener('resize', updateCarousel);
+        window.addEventListener('resize', () => {
+            updateCarousel();
+            createIndicators(); // Re-cria os indicadores caso o layout mude de desktop para mobile
+        });
     });
 </script>
-
 <section id="faq" class="py-20 md:py-32 bg-primary-light">
     <div class="container mx-auto px-6">
         <div class="text-center mb-16">
