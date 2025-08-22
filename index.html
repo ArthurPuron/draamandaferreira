@@ -63,9 +63,7 @@
             background-color: rgba(0, 0, 0, 0.6);
         }
 
-#modal-box {
-  height: 500px; /* Define uma altura fixa para todo o modal (imagem + texto) */
-}
+
 /* Adicione este código junto com o outro CSS */
 #modal-image {
   object-fit: contain; /* Muda de 'cobrir' para 'conter' */
@@ -84,6 +82,19 @@
   #modal-box > div:last-child {
     width: 70%;      /* Aumentamos a largura para preencher o espaço restante */
   }
+}
+
+/* Garante que a coluna de TEXTO controle o overflow do seu conteúdo interno */
+#modal-box > div:last-child {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Faz o CONTEÚDO do texto (o <div id="modal-content">) crescer e rolar */
+#modal-content {
+  flex-grow: 1;
+  /* A propriedade abaixo já existe no seu HTML, mas garantimos aqui */
+  overflow-y: auto; 
 }
         .chart-container {
             position: relative;
