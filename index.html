@@ -63,25 +63,15 @@
             background-color: rgba(0, 0, 0, 0.6);
         }
 
-/* ESTILOS CORRIGIDOS PARA O MODAL DE SERVIÇOS */
+/* SOLUÇÃO FINAL PARA O MODAL DE SERVIÇOS */
 #modal-image {
-  object-fit: contain;
-  background-color: #f6f1ef;
+  object-fit: cover; /* A imagem vai preencher o espaço, cortando o excesso */
 }
 
 @media (min-width: 768px) {
-  /* Define as larguras das colunas */
-  #modal-box > div:first-child {
-    width: 30%;
-    flex-shrink: 0;
-  }
+  /* Define uma altura fixa para a coluna de texto */
   #modal-box > div:last-child {
-    width: 70%;
-    
-    /* A MÁGICA ACONTECE AQUI: */
-    /* Impede a coluna de texto de crescer além da altura da imagem */
-    /* Usamos 'min-height: 0' para que o 'overflow' funcione corretamente em um container flex */
-    min-height: 0; 
+    height: 550px; /* << Você pode ajustar este valor se quiser */
   }
 }
 
