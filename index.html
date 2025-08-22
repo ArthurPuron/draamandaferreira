@@ -71,6 +71,20 @@
   object-fit: contain; /* Muda de 'cobrir' para 'conter' */
   background-color: #f6f1ef; /* Opcional: define uma cor de fundo para o espaço que sobrar */
 }
+
+/* Ajusta a proporção das colunas do modal em telas maiores */
+@media (min-width: 768px) {
+  /* Seleciona a coluna da IMAGEM dentro do modal */
+  #modal-box > div:first-child {
+    width: 30%;      /* Reduzimos a largura de 33.3% para 30% */
+    flex-shrink: 0;  /* Garante que esta coluna não vai encolher */
+  }
+
+  /* Seleciona a coluna do TEXTO dentro do modal */
+  #modal-box > div:last-child {
+    width: 70%;      /* Aumentamos a largura para preencher o espaço restante */
+  }
+}
         .chart-container {
             position: relative;
             width: 100%;
