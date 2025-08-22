@@ -63,15 +63,19 @@
             background-color: rgba(0, 0, 0, 0.6);
         }
 
-/* SOLUÇÃO FINAL PARA O MODAL DE SERVIÇOS */
+/* VERSÃO FINAL E CORRIGIDA DO MODAL */
 #modal-image {
-  object-fit: cover; /* A imagem vai preencher o espaço, cortando o excesso */
+  object-fit: cover;
 }
 
 @media (min-width: 768px) {
-  /* Define uma altura fixa para a coluna de texto */
+  /* 1. Define uma altura fixa para a coluna de texto */
   #modal-box > div:last-child {
-    height: 550px; /* << Você pode ajustar este valor se quiser */
+    height: 550px; /* << Você pode ajustar este valor */
+    
+    /* 2. Transforma a coluna em um container flex para controlar o filho */
+    display: flex;
+    flex-direction: column;
   }
 }
 
@@ -414,11 +418,9 @@ Minha missão vai além de dentes ou gengivas: é devolver a você a liberdade d
             <img id="modal-image" src="" alt="Imagem do Procedimento" class="w-full h-full object-cover">
         </div>
         
-        <div class="w-full md:w-2/3 h-full bg-white rounded-lg shadow-2xl p-8 relative">
-            <button id="modal-close-button" class="absolute top-4 right-4 text-gray-400 hover:text-primary-dark text-3xl z-10">&times;</button>
-            <div id="modal-content" class="max-h-[75vh] overflow-y-auto">
-                </div>
-        </div>
+        <div class="w-full md:w-2/3 h-full bg-white rounded-lg shadow-2xl relative">  <button id="modal-close-button" class="absolute top-4 right-4 text-gray-400 hover:text-primary-dark text-3xl z-10">×</button>
+    <div id="modal-content" class="max-h-[75vh] overflow-y-auto p-8"> </div>
+</div>
 
     </div>
 </div>
