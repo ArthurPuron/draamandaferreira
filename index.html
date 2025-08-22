@@ -63,39 +63,28 @@
             background-color: rgba(0, 0, 0, 0.6);
         }
 
-
-/* Adicione este código junto com o outro CSS */
+/* ESTILOS CORRIGIDOS PARA O MODAL DE SERVIÇOS */
 #modal-image {
-  object-fit: contain; /* Muda de 'cobrir' para 'conter' */
-  background-color: #f6f1ef; /* Opcional: define uma cor de fundo para o espaço que sobrar */
+  object-fit: contain;
+  background-color: #f6f1ef;
 }
 
-/* Ajusta a proporção das colunas do modal em telas maiores */
 @media (min-width: 768px) {
-  /* Seleciona a coluna da IMAGEM dentro do modal */
+  /* Define as larguras das colunas */
   #modal-box > div:first-child {
-    width: 30%;      /* Reduzimos a largura de 33.3% para 30% */
-    flex-shrink: 0;  /* Garante que esta coluna não vai encolher */
+    width: 30%;
+    flex-shrink: 0;
   }
-
-  /* Seleciona a coluna do TEXTO dentro do modal */
   #modal-box > div:last-child {
-    width: 70%;      /* Aumentamos a largura para preencher o espaço restante */
+    width: 70%;
+    
+    /* A MÁGICA ACONTECE AQUI: */
+    /* Impede a coluna de texto de crescer além da altura da imagem */
+    /* Usamos 'min-height: 0' para que o 'overflow' funcione corretamente em um container flex */
+    min-height: 0; 
   }
 }
 
-/* Garante que a coluna de TEXTO controle o overflow do seu conteúdo interno */
-#modal-box > div:last-child {
-  display: flex;
-  flex-direction: column;
-}
-
-/* Faz o CONTEÚDO do texto (o <div id="modal-content">) crescer e rolar */
-#modal-content {
-  flex-grow: 1;
-  /* A propriedade abaixo já existe no seu HTML, mas garantimos aqui */
-  overflow-y: auto; 
-}
         .chart-container {
             position: relative;
             width: 100%;
