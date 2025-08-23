@@ -46,6 +46,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/vanilla-js-calendar@2.6.0/build/vanilla-js-calendar.min.css" rel="stylesheet">
     <style>
         body {
             font-family: 'Poppins', sans-serif;
@@ -1009,7 +1010,7 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     // Inicializa o calendário
-    const calendar = new VanillaCalendar(calendarContainer, options);
+    const calendar = new JSCalendar(calendarContainer, options);
     calendar.init();
 
     // Função para buscar os horários na nossa Netlify Function
