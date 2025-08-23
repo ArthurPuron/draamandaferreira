@@ -64,6 +64,23 @@
   text-align: justify;
 }
 
+/* Estilos para os botões de horário no agendamento */
+.time-slot {
+  display: inline-block;
+  background-color: #122947; /* accent-color */
+  color: #f6f1ef; /* text-light */
+  padding: 8px 16px;
+  margin: 4px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  border: 1px solid #64748B; /* gray-medium */
+}
+.time-slot:hover, .time-slot.selected {
+  background-color: #f6f1ef; /* primary-light */
+  color: #06031b; /* primary-dark */
+  font-weight: 600;
+}
         .modal-overlay {
             background-color: rgba(0, 0, 0, 0.6);
         }
@@ -568,6 +585,51 @@ Não! Utilizamos técnicas modernas com agentes clareadores de alta qualidade e 
 Se você notar sangramento ao escovar ou passar fio dental, inchaço, vermelhidão ou mau hálito persistente, são sinais de que sua gengiva precisa de atenção. Agende uma avaliação: muitas vezes, o problema é silencioso até fases avançadas.
             </div>
             </div>
+    </div>
+</section>
+
+<section id="agendamento" class="py-20 md:py-32 bg-primary-dark text-text-light">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold">Agendamento Online</h2>
+            <p class="mt-2 text-gray-400">Escolha o melhor dia e horário para você.</p>
+        </div>
+
+        <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8 items-start">
+
+            <div>
+                <h3 class="text-2xl font-bold mb-4 text-center">1. Escolha uma data</h3>
+                <div id="calendar-container" class="bg-primary-light rounded-lg shadow-lg p-4">
+                    <p class="text-center text-gray-500 py-16">Carregando calendário...</p>
+                </div>
+            </div>
+
+            <div>
+                <div id="horarios-container" class="min-h-[200px]">
+                    <h3 class="text-2xl font-bold mb-4 text-center">2. Escolha um horário</h3>
+                    <div id="horarios-disponiveis" class="text-center p-4 border-2 border-dashed border-gray-600 rounded-lg">
+                        <p class="text-gray-400">Selecione uma data no calendário para ver os horários disponíveis.</p>
+                        </div>
+                </div>
+
+                <div id="formulario-agendamento" class="hidden mt-8">
+                    <h3 class="text-2xl font-bold mb-4 text-center">3. Preencha seus dados</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <label for="nome-paciente" class="block text-sm font-medium text-gray-300">Nome Completo</label>
+                            <input type="text" id="nome-paciente" class="mt-1 block w-full bg-gray-800 border-gray-600 rounded-md shadow-sm py-2 px-3 text-white focus:outline-none focus:ring-accent-color focus:border-accent-color" placeholder="Seu nome completo">
+                        </div>
+                        <div>
+                            <label for="nascimento-paciente" class="block text-sm font-medium text-gray-300">Data de Nascimento</label>
+                            <input type="date" id="nascimento-paciente" class="mt-1 block w-full bg-gray-800 border-gray-600 rounded-md shadow-sm py-2 px-3 text-white focus:outline-none focus:ring-accent-color focus:border-accent-color">
+                        </div>
+                        <button id="botao-agendar" class="w-full bg-accent-color text-text-light font-bold text-lg px-8 py-3 rounded-lg shadow-lg hover:bg-accent-hover transition-transform duration-300 transform hover:scale-105">
+                            Confirmar Agendamento
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
