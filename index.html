@@ -973,6 +973,97 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 </script>
-    
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-js-calendar@1.6.2/build/vanilla-js-calendar.min.js"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Elementos da página
+    const calendarContainer = document.getElementById('calendar-container');
+    const horariosDisponiveis = document.getElementById('horarios-disponiveis');
+    const formularioAgendamento = document.getElementById('formulario-agendamento');
+
+    let selectedDate = null;
+    let selectedTime = null;
+
+    // Opções do calendário
+    const options = {
+      // Desabilita datas passadas
+      date: {
+        min: new Date(),
+      },
+      settings: {
+        lang: 'pt-BR',
+        iso8601: false,
+      },
+      actions: {
+        clickDay(event, dates) {
+          if (!dates[0]) return;
+
+          const date = new Date(dates[0]);
+          // Formata a data como YYYY-MM-DD
+          selectedDate = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
+
+          fetchAvailableSlots(selectedDate);
+        },
+      },
+    };
+
+    // Inicializa o calendário
+    const calendar = new VanillaCalendar(calendarContainer, options);
+    calendar.init();
+
+    // Função para buscar os horários na nossa Netlify Function
+    async function fetchAvailableSlots(date) {
+      horariosDisponiveis.innerHTML = '<p class="text-gray-300">Buscando horários...</p>';
+      formularioAgendamento.classList.add('hidden');
+
+      try {
+        const response = await fetch(`/.netlify/functions/get-available-slots?date=${date}`);
+        if (!response.ok) {
+          throw new Error('Falha na resposta da rede');
+        }
+        const data = await response.json();
+
+        if (data.slots && data.slots.length > 0) {
+          displaySlots(data.slots);
+        } else {
+          horariosDisponiveis.innerHTML = '<p class="text-gray-400">Nenhum horário disponível para esta data.</p>';
+        }
+      } catch (error) {
+        console.error('Erro ao buscar horários:', error);
+        horariosDisponiveis.innerHTML = '<p class="text-red-400">Erro ao carregar horários. Tente novamente.</p>';
+      }
+    }
+
+    // Função para mostrar os horários na tela
+    function displaySlots(slots) {
+      horariosDisponiveis.innerHTML = ''; // Limpa a área
+      slots.forEach(time => {
+        const slotElement = document.createElement('div');
+        slotElement.className = 'time-slot';
+        slotElement.textContent = time;
+        slotElement.dataset.time = time;
+        horariosDisponiveis.appendChild(slotElement);
+      });
+    }
+
+    // Adiciona o evento de clique para os horários
+    horariosDisponiveis.addEventListener('click', (event) => {
+      if (event.target.classList.contains('time-slot')) {
+        // Remove a seleção de outros horários
+        document.querySelectorAll('.time-slot.selected').forEach(el => el.classList.remove('selected'));
+
+        // Adiciona a classe 'selected' ao clicado
+        const slot = event.target;
+        slot.classList.add('selected');
+        selectedTime = slot.dataset.time;
+
+        // Mostra o formulário
+        formularioAgendamento.classList.remove('hidden');
+      }
+    });
+
+  });
+</script>
 </body>
 </html>
