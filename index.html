@@ -1,53 +1,58 @@
 <!DOCTYPE html>
 <html lang="pt-BR" class="scroll-smooth">
 <head>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Dentist",
-  "name": "Dra. Amanda Ferreira - Cirurgiã Dentista",
-  "image": "https://i.imgur.com/ZAkzRi4.jpeg",
-  "@id": "https://draamandaferreira.com",
-  "url": "https://draamandaferreira.com",
-  "telephone": "+5519998291133",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "R. Mogi Guaçu, 403 - sala 2",
-    "addressLocality": "Campinas",
-    "addressRegion": "SP",
-    "postalCode": "13090-605",
-    "addressCountry": "BR"
-  },
-  "openingHoursSpecification": [
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": [
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday"
-      ],
-      "opens": "08:00",
-      "closes": "18:00"
-    }
-  ],
-  "sameAs": [
-    "https://g.co/kgs/VrbJCG1"
-  ]
-}
-</script>
-<link rel="icon" type="image/x-icon" href="./imagem/favicon.ico">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dra. Amanda Ferreira | Odontologia Estética em Campinas</title>
     <meta name="description" content="Dra. Amanda Ferreira, dentista em Campinas. Agende uma consulta para tratamentos de estética dental, implantes, odontopediatria e muito mais. Cuidados exclusivos para o seu sorriso.">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/x-icon" href="./imagem/favicon.ico">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Dentist",
+      "name": "Dra. Amanda Ferreira - Cirurgiã Dentista",
+      "image": "https://i.imgur.com/ZAkzRi4.jpeg",
+      "@id": "https://draamandaferreira.com",
+      "url": "https://draamandaferreira.com",
+      "telephone": "+5519998291133",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "R. Mogi Guaçu, 403 - sala 2",
+        "addressLocality": "Campinas",
+        "addressRegion": "SP",
+        "postalCode": "13090-605",
+        "addressCountry": "BR"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+          ],
+          "opens": "08:00",
+          "closes": "18:00"
+        }
+      ],
+      "sameAs": [
+        "https://g.co/kgs/VrbJCG1"
+      ]
+    }
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/js-year-calendar@2.0.0/dist/js-year-calendar.min.css">       
-<style> body {
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/js-year-calendar@2.0.0/dist/js-year-calendar.min.css">
+    
+    <style>
+        body {
             font-family: 'Poppins', sans-serif;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
@@ -59,89 +64,74 @@
             color: #122947; /* New accent blue */
             font-weight: 600;
         }
-
-.texto-justificado {
-  text-align: justify;
-}
-/* ========================================================== */
-/* ESTILOS DE CORREÇÃO PARA O NOVO CALENDÁRIO (JS-YEAR-CALENDAR) */
-/* ========================================================== */
-
-/* Força a cor do texto dentro do calendário para ser escura e legível */
-.calendar-container {
-    color: #06031b; /* Cor 'primary-dark' do seu site */
-}
-
-/* Estiliza o cabeçalho (onde fica o nome do mês e ano) */
-.calendar-header {
-    text-align: center;
-    margin-bottom: 10px;
-}
-
-.calendar-header span {
-    font-size: 1.5em;
-    font-weight: bold;
-    color: #122947; /* Cor 'accent-color' do seu site */
-}
-
-/* Garante que os dias da semana e os números das datas sejam visíveis */
-.calendar .calendar-header table th,
-.calendar table.month th,
-.calendar table.month td {
-    color: #333; /* Cor escura para o texto */
-    opacity: 1; /* Garante que não fiquem transparentes */
-}
-
-/* Destaca o dia selecionado pelo usuário */
-.calendar table.month td.day.selected {
-    background-color: #122947; /* Cor 'accent-color' */
-    color: #f6f1ef; /* Cor 'text-light' */
-    border-radius: 50%;
-    font-weight: bold;
-}
-
-/* Destaca o dia atual */
- .calendar table.month td.day.today {
-    background-color: #d1d5db; /* Um cinza claro para diferenciar */
-    border-radius: 50%;
-}
-/* Estilos para os botões de horário no agendamento */
-.time-slot {
-  display: inline-block;
-  background-color: #122947; /* accent-color */
-  color: #f6f1ef; /* text-light */
-  padding: 8px 16px;
-  margin: 4px;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  border: 1px solid #64748B; /* gray-medium */
-}
-.time-slot:hover, .time-slot.selected {
-  background-color: #f6f1ef; /* primary-light */
-  color: #06031b; /* primary-dark */
-  font-weight: 600;
-}
+        .texto-justificado {
+            text-align: justify;
+        }
+        
+        /* ESTILOS DE CORREÇÃO PARA O NOVO CALENDÁRIO (JS-YEAR-CALENDAR) */
+        .calendar-container {
+            color: #06031b; /* Cor 'primary-dark' do seu site */
+        }
+        .calendar-header {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .calendar-header span {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #122947; /* Cor 'accent-color' do seu site */
+        }
+        .calendar .calendar-header table th,
+        .calendar table.month th,
+        .calendar table.month td {
+            color: #333; /* Cor escura para o texto */
+            opacity: 1; /* Garante que não fiquem transparentes */
+        }
+        .calendar table.month td.day.selected {
+            background-color: #122947; /* Cor 'accent-color' */
+            color: #f6f1ef; /* Cor 'text-light' */
+            border-radius: 50%;
+            font-weight: bold;
+        }
+        .calendar table.month td.day.today {
+            background-color: #d1d5db; /* Um cinza claro para diferenciar */
+            border-radius: 50%;
+        }
+        
+        /* Estilos para os botões de horário no agendamento */
+        .time-slot {
+            display: inline-block;
+            background-color: #122947; /* accent-color */
+            color: #f6f1ef; /* text-light */
+            padding: 8px 16px;
+            margin: 4px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            border: 1px solid #64748B; /* gray-medium */
+        }
+        .time-slot:hover, .time-slot.selected {
+            background-color: #f6f1ef; /* primary-light */
+            color: #06031b; /* primary-dark */
+            font-weight: 600;
+        }
+        
+        /* Estilos do Modal */
         .modal-overlay {
             background-color: rgba(0, 0, 0, 0.6);
         }
-
-/* VERSÃO FINAL E CORRIGIDA DO MODAL */
-#modal-image {
-  object-fit: cover;
-}
-
-@media (min-width: 768px) {
-  /* 1. Define uma altura fixa para a coluna de texto */
-  #modal-box > div:last-child {
-    height: 550px; /* << Você pode ajustar este valor */
-    
-    /* 2. Transforma a coluna em um container flex para controlar o filho */
-    display: flex;
-    flex-direction: column;
-  }
-}
-
+        #modal-image {
+            object-fit: cover;
+        }
+        @media (min-width: 768px) {
+            #modal-box > div:last-child {
+                height: 550px;
+                display: flex;
+                flex-direction: column;
+            }
+        }
+        
+        /* Estilos Diversos */
         .chart-container {
             position: relative;
             width: 100%;
@@ -156,7 +146,6 @@
                 height: 350px;
             }
         }
-        /* New style for fade-in effect */
         .fade-in-image {
             opacity: 0;
             transition: opacity 1s ease-out;
@@ -166,37 +155,37 @@
         }
         
         /* Media Queries para a imagem de fundo da seção Home */
-        /* Estilo para mobile (largura até 767px) */
         @media (max-width: 767px) {
             #home {
                 background-image: url('https://i.imgur.com/LCTDpAZ.jpeg');
             }
         }
-        /* Estilo para desktop (largura a partir de 768px) */
         @media (min-width: 768px) {
             #home {
                 background-image: url('https://i.imgur.com/ZltwQyg.png');
             }
         }
     </style>
+    
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        'primary-dark': '#06031b', /* Very dark blue/almost black */
-                        'primary-light': '#f6f1ef', /* Off-white/cream */
-                        'accent-color': '#122947', /* New accent blue */
-                        'accent-hover': '#0A1C30', /* Slightly darker shade of new accent blue for hover */
+                        'primary-dark': '#06031b',
+                        'primary-light': '#f6f1ef',
+                        'accent-color': '#122947',
+                        'accent-hover': '#0A1C30',
                         'text-dark': '#06031b',
                         'text-light': '#f6f1ef',
-                        'gray-medium': '#64748B' /* Original Slate-500 for secondary text */
+                        'gray-medium': '#64748B'
                     }
                 }
             }
         }
     </script>
 </head>
+
 <body class="bg-primary-light text-text-dark">
 
     <header id="header" class="bg-primary-light/90 backdrop-blur-sm fixed top-0 left-0 right-0 z-50 shadow-md transition-all duration-300 py-2">
@@ -242,7 +231,7 @@
                     </p>
                     <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4 max-w-2xl mx-auto">
                         <a href="https://wa.me/5519998291133?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta%21" target="_blank" class="bg-accent-color text-text-light font-bold text-lg px-6 md:px-8 py-3 md:py-4 rounded-lg shadow-lg hover:bg-accent-hover transition-transform duration-300 transform hover:scale-105 text-center">
-                            Agendar consulta 
+                            Agendar consulta 
                         </a>
                         <a href="#servicos" class="bg-white text-primary-dark font-bold text-lg px-6 md:px-8 py-3 md:py-4 rounded-lg shadow-lg hover:bg-gray-medium hover:text-primary-dark transition-transform duration-300 transform hover:scale-105 border border-primary-dark text-center">
                             Conheça nosso trabalho
@@ -252,902 +241,851 @@
             </div>
         </section>
 
- <section id="sobre" class="py-20 md:py-32 bg-primary-light">
-    <div class="container mx-auto px-6">
-        <div class="text-center mb-16">
-            <h2 class="text-3xl md:text-4xl font-bold text-primary-dark">Sobre a Dra. Amanda Ferreira</h2>
-            <p class="mt-2 text-gray-medium">Dedicação, inovação e excelência em cada atendimento.</p>
-        </div>
-        <div class="flex flex-col md:flex-row items-center gap-12 md:gap-16">
-            <div class="md:w-1/2">
-                <img src="https://i.imgur.com/eChHKyL.jpeg" alt="Foto da Dra. Amanda Ferreira sorrindo" class="rounded-lg shadow-2xl w-full h-auto object-cover fade-in-image is-visible">
-            </div>
-            <div class="md:w-1/2 text-gray-medium text-base md:text-lg">
-                <p class="mb-4 texto-justificado">
-                    Odontologia, para mim, é sobre devolver leveza.
-                    <br><br>
-                    Leveza para mastigar, para sorrir, para viver sem desconfortos ou inseguranças. E é nessa simplicidade com profundidade que encontro minha maior realização.
-                    <br><br>
-                    Minha trajetória começou na Universidade São Francisco, mas meu maior aprendizado vem de cada história que ouço na cadeira. Por isso, além de me dedicar a cursos e atualizações constantes, valorizo o diálogo, a escuta e o planejamento compartilhado.
-                    <br><br>
-                    Aqui, você não encontrará apenas tecnologia de ponta ou técnicas refinadas — mas um espaço seguro, onde sua ansiedade é acolhida, suas duvidas são levadas a sério e seu tratamento é desenhado junto com você.
-                    <br><br>
-                    Minha missão vai além de dentes ou gengivas: é devolver a você a liberdade de sorrir sem receio, mastigar sem desconforto e viver com mais leveza. Porque sorrir não é só estética: é memória, é encontro, é identidade.
-                </p>
-                <p class="font-semibold text-primary-dark">Com carinho,</p>
-                <p class="font-semibold text-primary-dark mt-2">Dra. Amanda Ferreira | CRO-SP 170758</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-       <section id="servicos" class="py-20 md:py-32 bg-primary-light">
-    <div class="container mx-auto px-6">
-        
-        <div id="service-list-container">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-primary-dark">Procedimentos</h2>
-                <p class="mt-2 text-gray-medium">Seu plano de tratamento é exclusivo: desenhado para preservar sua saúde bucal com naturalidade e precisão. Conheça abaixo nossas áreas de atuação — cada uma oferece soluções específicas para transformar seu sorriso com longevidade.</p>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <a href="#" class="service-card bg-white p-8 rounded-lg shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 block" data-service-id="clinica-geral">
-                    <img src="https://i.imgur.com/QRZhk80.png" alt="Ícone de Clínica Geral" class="w-12 h-12 mx-auto mb-4">
-                    <h3 class="text-2xl font-bold text-primary-dark mb-3 text-center">Clínica Geral<br>Adulto e Infantil</h3>
-                    <p class="text-gray-medium text-center">Seu porto seguro bucal.</p>
-                    <div class="mt-4 text-gray-medium font-semibold underline text-center">Ver mais...</div>
-                </a>
-                <a href="#" class="service-card bg-white p-8 rounded-lg shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 block" data-service-id="primeira-consulta">
-                    <img src="https://i.imgur.com/2A0wYTm.png" alt="Ícone de Primeira Consulta" class="w-12 h-12 mx-auto mb-4">
-                    <h3 class="text-2xl font-bold text-primary-dark mb-3 text-center">Primeira consulta</h3>
-                    <p class="text-gray-medium text-center">O primeiro passo de uma jornada compartilhada.</p>
-                    <div class="mt-4 text-gray-medium font-semibold underline text-center">Ver mais...</div>
-                </a>
-                <a href="#" class="service-card bg-white p-8 rounded-lg shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 block" data-service-id="prevencao">
-                    <img src="https://i.imgur.com/RpREKpt.png" alt="Ícone de Prevenção em Saúde Bucal" class="w-12 h-12 mx-auto mb-4">
-                    <h3 class="text-2xl font-bold text-primary-dark mb-3 text-center">Prevenção em saúde bucal</h3>
-                    <p class="text-gray-medium text-center">O cuidado que antecipa o problema.</p>
-                    <div class="mt-4 text-gray-medium font-semibold underline text-center">Ver mais...</div>
-                </a>
-                <a href="#" class="service-card bg-white p-8 rounded-lg shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 block" data-service-id="gengivais">
-                    <img src="https://i.imgur.com/Ysp23yR.png" alt="Ícone de Tratamentos Gengivais" class="w-12 h-12 mx-auto mb-4">
-                    <h3 class="text-2xl font-bold text-primary-dark mb-3 text-center">Tratamentos gengivais</h3>
-                    <p class="text-gray-medium text-center">Quando sua gengiva pede atenção silenciosa.</p>
-                    <div class="mt-4 text-gray-medium font-semibold underline text-center">Ver mais...</div>
-                </a>
-                <a href="#" class="service-card bg-white p-8 rounded-lg shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 block" data-service-id="estetica">
-                    <img src="https://i.imgur.com/73VtQmQ.png" alt="Ícone de Estética Dental" class="w-12 h-12 mx-auto mb-4">
-                    <h3 class="text-2xl font-bold text-primary-dark mb-3 text-center">Estética dental</h3>
-                    <p class="text-gray-medium text-center">Harmonize forma, cor e confiança.</p>
-                    <div class="mt-4 text-gray-medium font-semibold underline text-center">Ver mais...</div>
-                </a>
-                <a href="#" class="service-card bg-white p-8 rounded-lg shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 block" data-service-id="reabilitacao">
-                    <img src="https://i.imgur.com/LmV5XkG.png" alt="Ícone de Reabilitação Oral" class="w-12 h-12 mx-auto mb-4">
-                    <h3 class="text-2xl font-bold text-primary-dark mb-3 text-center">Reabilitação Oral</h3>
-                    <p class="text-gray-medium text-center">Reconstruindo funções e histórias.</p>
-                    <div class="mt-4 text-gray-medium font-semibold underline text-center">Ver mais...</div>
-                </a>
-            </div>
-        </div>
-
-        <div id="service-details-content" class="hidden">
-            
-            <div class="service-detail-data" id="detail-clinica-geral" data-image-src="https://i.imgur.com/HRQfKix.jpeg">
-                <h3 class="text-3xl font-bold text-primary-dark mb-6">Clínica Geral (Adulto e Infantil)</h3>
-                <div class="space-y-6 text-gray-medium text-lg">
-                    <div>
-                        <h4 class="font-bold text-xl text-primary-dark mb-2">Como funciona?</h4>
-                        <p>Realizamos diagnósticos completos, prevenção e tratamentos iniciais (como limpeza dental, restaurações, curativos etc), sempre com tecnologia e abordagens minimamente invasivas. Para crianças, usamos técnicas lúdicas e respeito ao tempo de cada um!</p>
+        <section id="sobre" class="py-20 md:py-32 bg-primary-light">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-primary-dark">Sobre a Dra. Amanda Ferreira</h2>
+                    <p class="mt-2 text-gray-medium">Dedicação, inovação e excelência em cada atendimento.</p>
+                </div>
+                <div class="flex flex-col md:flex-row items-center gap-12 md:gap-16">
+                    <div class="md:w-1/2">
+                        <img src="https://i.imgur.com/eChHKyL.jpeg" alt="Foto da Dra. Amanda Ferreira sorrindo" class="rounded-lg shadow-2xl w-full h-auto object-cover fade-in-image is-visible">
                     </div>
-                    <div>
-                        <h4 class="font-bold text-xl text-primary-dark mb-2">Por que é indicado?</h4>
-                        <p>É a base da saúde bucal! Ideal para check-ups regulares, dor de dente, cáries iniciais ou acompanhamento infantil. Detectamos problemas precocemente, evitando complicações futuras.</p>
-                    </div>
-                    <div>
-                        <h4 class="font-bold text-xl text-primary-dark mb-2">Quais os benefícios?</h4>
-                        <ul class="list-disc list-inside space-y-2">
-                            <li>Diagnóstico precoce de problemas.</li>
-                            <li>Tratamentos que preservam sua estrutura dental natural.</li>
-                            <li>Ambiente acolhedor para crianças, sem traumas.</li>
-                        </ul>
+                    <div class="md:w-1/2 text-gray-medium text-base md:text-lg">
+                        <p class="mb-4 texto-justificado">
+                            Odontologia, para mim, é sobre devolver leveza.
+                            <br><br>
+                            Leveza para mastigar, para sorrir, para viver sem desconfortos ou inseguranças. E é nessa simplicidade com profundidade que encontro minha maior realização.
+                            <br><br>
+                            Minha trajetória começou na Universidade São Francisco, mas meu maior aprendizado vem de cada história que ouço na cadeira. Por isso, além de me dedicar a cursos e atualizações constantes, valorizo o diálogo, a escuta e o planejamento compartilhado.
+                            <br><br>
+                            Aqui, você não encontrará apenas tecnologia de ponta ou técnicas refinadas — mas um espaço seguro, onde sua ansiedade é acolhida, suas duvidas são levadas a sério e seu tratamento é desenhado junto com você.
+                            <br><br>
+                            Minha missão vai além de dentes ou gengivas: é devolver a você a liberdade de sorrir sem receio, mastigar sem desconforto e viver com mais leveza. Porque sorrir não é só estética: é memória, é encontro, é identidade.
+                        </p>
+                        <p class="font-semibold text-primary-dark">Com carinho,</p>
+                        <p class="font-semibold text-primary-dark mt-2">Dra. Amanda Ferreira | CRO-SP 170758</p>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <div class="service-detail-data" id="detail-primeira-consulta" data-image-src="https://i.imgur.com/V4fuNK0.jpeg">
-                <h3 class="text-3xl font-bold text-primary-dark mb-6">Primeira Consulta</h3>
-                <div class="space-y-6 text-gray-medium text-lg">
-                    <p>Este é o momento mais importante da nossa trajetória. Pois será aqui que vamos falar sobre a sua história, buscando entender sua rotina, hábitos, procedimentos pelos quais já passou e eventuais dúvidas. Assim teremos em mãos informações valiosas que nos guiarão ao seu plano de tratamento ideal!</p>
-                    <p>Em nosso consultório contamos com tecnologias desde seu primeiro contato conosco! Por meio da microscopia eletrônica e radiografias, somos capazes de analisar sua condição bucal de maneira minuciosa para diagnósticos mais precisos.</p>
-                    <div>
-    <h4 class="font-bold text-xl text-primary-dark mb-2">Nesse primeiro momento nossos objetivos são:</h4>
-                        <ul class="list-disc list-inside space-y-2 mt-2">
-                            <li>Te conhecer e ouvir sua história.</li>
-                            <li>Realizar exames prévios para maior apuração de detalhes.</li>
-                            <li>Definir seu plano de tratamento de acordo com suas necessidades e desejos individuais.</li>
-                        </ul>
+        <section id="servicos" class="py-20 md:py-32 bg-primary-light">
+            <div class="container mx-auto px-6">
+                <div id="service-list-container">
+                    <div class="text-center mb-16">
+                        <h2 class="text-3xl md:text-4xl font-bold text-primary-dark">Procedimentos</h2>
+                        <p class="mt-2 text-gray-medium">Seu plano de tratamento é exclusivo: desenhado para preservar sua saúde bucal com naturalidade e precisão. Conheça abaixo nossas áreas de atuação — cada uma oferece soluções específicas para transformar seu sorriso com longevidade.</p>
                     </div>
-                    <div>
-                        <h4 class="font-bold text-xl text-primary-dark mb-2">Quais os benefícios?</h4>
-                        <ul class="list-disc list-inside space-y-2">
-                            <li>Clareza sobre a saúde da sua boca.</li>
-                            <li>Planejamento visual do seu tratamento.</li>
-                            <li>Construção de uma relação de confiança.</li>
-                        </ul>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <a href="#" class="service-card bg-white p-8 rounded-lg shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 block" data-service-id="clinica-geral">
+                            <img src="https://i.imgur.com/QRZhk80.png" alt="Ícone de Clínica Geral" class="w-12 h-12 mx-auto mb-4">
+                            <h3 class="text-2xl font-bold text-primary-dark mb-3 text-center">Clínica Geral<br>Adulto e Infantil</h3>
+                            <p class="text-gray-medium text-center">Seu porto seguro bucal.</p>
+                            <div class="mt-4 text-gray-medium font-semibold underline text-center">Ver mais...</div>
+                        </a>
+                        <a href="#" class="service-card bg-white p-8 rounded-lg shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 block" data-service-id="primeira-consulta">
+                            <img src="https://i.imgur.com/2A0wYTm.png" alt="Ícone de Primeira Consulta" class="w-12 h-12 mx-auto mb-4">
+                            <h3 class="text-2xl font-bold text-primary-dark mb-3 text-center">Primeira consulta</h3>
+                            <p class="text-gray-medium text-center">O primeiro passo de uma jornada compartilhada.</p>
+                            <div class="mt-4 text-gray-medium font-semibold underline text-center">Ver mais...</div>
+                        </a>
+                        <a href="#" class="service-card bg-white p-8 rounded-lg shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 block" data-service-id="prevencao">
+                            <img src="https://i.imgur.com/RpREKpt.png" alt="Ícone de Prevenção em Saúde Bucal" class="w-12 h-12 mx-auto mb-4">
+                            <h3 class="text-2xl font-bold text-primary-dark mb-3 text-center">Prevenção em saúde bucal</h3>
+                            <p class="text-gray-medium text-center">O cuidado que antecipa o problema.</p>
+                            <div class="mt-4 text-gray-medium font-semibold underline text-center">Ver mais...</div>
+                        </a>
+                        <a href="#" class="service-card bg-white p-8 rounded-lg shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 block" data-service-id="gengivais">
+                            <img src="https://i.imgur.com/Ysp23yR.png" alt="Ícone de Tratamentos Gengivais" class="w-12 h-12 mx-auto mb-4">
+                            <h3 class="text-2xl font-bold text-primary-dark mb-3 text-center">Tratamentos gengivais</h3>
+                            <p class="text-gray-medium text-center">Quando sua gengiva pede atenção silenciosa.</p>
+                            <div class="mt-4 text-gray-medium font-semibold underline text-center">Ver mais...</div>
+                        </a>
+                        <a href="#" class="service-card bg-white p-8 rounded-lg shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 block" data-service-id="estetica">
+                            <img src="https://i.imgur.com/73VtQmQ.png" alt="Ícone de Estética Dental" class="w-12 h-12 mx-auto mb-4">
+                            <h3 class="text-2xl font-bold text-primary-dark mb-3 text-center">Estética dental</h3>
+                            <p class="text-gray-medium text-center">Harmonize forma, cor e confiança.</p>
+                            <div class="mt-4 text-gray-medium font-semibold underline text-center">Ver mais...</div>
+                        </a>
+                        <a href="#" class="service-card bg-white p-8 rounded-lg shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 block" data-service-id="reabilitacao">
+                            <img src="https://i.imgur.com/LmV5XkG.png" alt="Ícone de Reabilitação Oral" class="w-12 h-12 mx-auto mb-4">
+                            <h3 class="text-2xl font-bold text-primary-dark mb-3 text-center">Reabilitação Oral</h3>
+                            <p class="text-gray-medium text-center">Reconstruindo funções e histórias.</p>
+                            <div class="mt-4 text-gray-medium font-semibold underline text-center">Ver mais...</div>
+                        </a>
                     </div>
                 </div>
-            </div>
 
-            <div class="service-detail-data" id="detail-prevencao" data-image-src="https://i.imgur.com/zuRyWlA.jpeg">
-                <h3 class="text-3xl font-bold text-primary-dark mb-6">Prevenção em Saúde Bucal</h3>
-                <div class="space-y-6 text-gray-medium text-lg">
-                    <div>
-                        <h4 class="font-bold text-xl text-primary-dark mb-2">Como funciona?</h4>
-                        <p>Acompanhamento a cada 3 a 6 meses, com consultas preventivas! Combinação de profilaxia profissional (limpeza ultrassônica), aplicação de flúor e orientações de higiene bucal adaptadas a sua rotina.</p>
-                    </div>
-                    <div>
-                        <h4 class="font-bold text-xl text-primary-dark mb-2">Por que é indicado?</h4>
-                        <p>Evita cáries, gengivite e perda óssea. Indispensável para quem quer manter o sorriso natural por décadas, com mínima intervenção.</p>
-                    </div>
-                    <div>
-                        <h4 class="font-bold text-xl text-primary-dark mb-2">Quais os benefícios?</h4>
-                        <ul class="list-disc list-inside space-y-2">
-                            <li>Economia de tempo e recursos a longo prazo.</li>
-                            <li>Menor necessidade de intervenções complexas.</li>
-                            <li>Sorriso saudável por mais tempo.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="service-detail-data" id="detail-gengivais" data-image-src="https://i.imgur.com/HGVgpYQ.jpeg">
-                <h3 class="text-3xl font-bold text-primary-dark mb-6">Tratamentos Gengivais</h3>
-                <div class="space-y-6 text-gray-medium text-lg">
-                    <div>
-                        <h4 class="font-bold text-xl text-primary-dark mb-2">Como funciona?</h4>
-                        <p>Controlamos inflamações gengivais com técnicas minimamente invasivas: raspagem de tártaro, laserterapia, bioestimulação e ajuste de hábitos. E para casos avançados, técnicas para regeneração tecidual.</p>
-                    </div>
-                    <div>
-                        <h4 class="font-bold text-xl text-primary-dark mb-2">Por que é indicado?</h4>
-                        <p>Sangramento, inchaço ou retração gengival são sinais de alerta! Tratar previne perda dentária, mau hálito e até complicações sistêmicas.</p>
-                    </div>
-                    <div>
-                        <h4 class="font-bold text-xl text-primary-dark mb-2">Quais os benefícios?</h4>
-                        <ul class="list-disc list-inside space-y-2">
-                            <li>Fim do desconforto e sangramento.</li>
-                            <li>Proteção da base que sustenta seus dentes.</li>
-                            <li>Tratamento de doença periodontal.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="service-detail-data" id="detail-estetica" data-image-src="https://i.imgur.com/HstEoPz.jpeg">
-                <h3 class="text-3xl font-bold text-primary-dark mb-6">Estética Dental</h3>
-                <div class="space-y-6 text-gray-medium text-lg">
-                    <div>
-                        <h4 class="font-bold text-xl text-primary-dark mb-2">Como funciona?</h4>
-                        <p>Harmonizamos forma, cor e função com técnicas como:</p>
-                        <ul class="list-disc list-inside space-y-2 mt-2">
-                            <li>Acréscimos estratégicos em resina composta.</li>
-                            <li>Clareamento interno/externo com controle de sensibilidade.</li>
-                            <li>Gengivoplastia para sorrisos com excesso de gengiva.</li>
-                            <li>Peeling gengival para manchas escuras na gengiva.</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h4 class="font-bold text-xl text-primary-dark mb-2">Por que é indicado?</h4>
-                        <p>Para quem deseja um sorriso que reflita sua autoestima — seja por manchas, espaços, dentes fraturados ou desarmonias.</p>
-                    </div>
-                    <div>
-                        <h4 class="font-bold text-xl text-primary-dark mb-2">Quais os benefícios?</h4>
-                        <ul class="list-disc list-inside space-y-2">
-                            <li>Sorriso natural e alinhado à sua personalidade.</li>
-                            <li>Confiança para expressar suas emoções.</li>
-                            <li>Resultados que respeitam sua anatomia natural.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="service-detail-data" id="detail-reabilitacao" data-image-src="https://i.imgur.com/d6ElNOn.jpeg">
-                <h3 class="text-3xl font-bold text-primary-dark mb-6">Reabilitação Oral</h3>
-                <div class="space-y-6 text-gray-medium text-lg">
-                    <div>
-                        <h4 class="font-bold text-xl text-primary-dark mb-2">Como funciona?</h4>
-                        <p>Reconstruímos sorrisos comprometidos (por perdas dentais, desgastes severos ou DTM) com próteses fixas/sobre implantes, placas oclusais digitais e restaurações cerâmicas integradas.</p>
-                    </div>
-                    <div>
-                        <h4 class="font-bold text-xl text-primary-dark mb-2">Por que é indicado?</h4>
-                        <p>Quando há múltiplas perdas, dor articular ou dificuldade mastigatória. Restaura função, confiança e saúde integral.</p>
-                    </div>
-                    <div>
-                        <h4 class="font-bold text-xl text-primary-dark mb-2">Quais os benefícios?</h4>
-                        <ul class="list-disc list-inside space-y-2">
-                            <li>Recuperação da capacidade de mastigar com conforto.</li>
-                            <li>Sorriso completo e natural.</li>
-                            <li>Melhora significativa na qualidade de vida.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-        </div> </div> </section>
-
-<div id="service-modal" class="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center p-4 z-50 hidden opacity-0 transition-opacity duration-300">
-    
-    <div id="modal-box" class="w-full max-w-6xl max-h-[90vh] flex flex-col md:flex-row items-center gap-8 transform scale-95 transition-transform duration-300">
-        
-        <div class="w-full md:w-1/3 h-full bg-white rounded-lg shadow-2xl overflow-hidden">
-            <img id="modal-image" src="" alt="Imagem do Procedimento" class="w-full h-full object-cover">
-        </div>
-        
-        <div class="w-full md:w-2/3 h-full bg-white rounded-lg shadow-2xl relative">  <button id="modal-close-button" class="absolute top-4 right-4 text-gray-400 hover:text-primary-dark text-3xl z-10">×</button>
-    <div id="modal-content" class="max-h-[75vh] overflow-y-auto p-8"> </div>
-</div>
-
-    </div>
-</div>
-      
-<section id="depoimentos" class="py-20 md:py-32 bg-primary-light">
-    <div class="container mx-auto px-6 relative">
-        <div class="text-center mb-16">
-            <h2 class="text-3xl md:text-4xl font-bold text-primary-dark">O que meus pacientes dizem</h2>
-            <p class="mt-2 text-gray-medium">Para nós, a sua opinião importa muito! Amamos saber</p>
-        </div>
-
-        <div class="carousel-container relative w-full overflow-hidden">
-            <button id="prevBtn" class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-white text-gray-dark p-2 rounded-full shadow-lg z-20 hover:bg-gray-200 transition-all hidden md:block">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-                </svg>
-            </button>
-
-            <button id="nextBtn" class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-white text-gray-dark p-2 rounded-full shadow-lg z-20 hover:bg-gray-200 transition-all hidden md:block">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                </svg>
-            </button>
-            
-            <div id="carousel-cards" class="flex items-center justify-center relative w-full transition-all duration-500 ease-in-out">
-                
-                <div class="carousel-card absolute w-11/12 md:w-1/2 lg:w-1/3 transition-all duration-500 ease-in-out">
-                    <div class="bg-white p-8 rounded-lg shadow-lg flex flex-col items-center text-center">
-                        <img src="https://i.imgur.com/BmFrzDD.png" alt="" class="rounded-full w-20 h-20 mb-4 object-cover border-2 border-accent-color">
-                        <div class="testimonial-content">
-                            <p class="italic text-gray-medium mb-4 testimonial-text">"Doutora muito experiente e cuidadosa! Me passou muita confiança, além de ter um consultório muito arrumado, higiene nota 10! Mãos de fada! Amei!"</p>
+                <div id="service-details-content" class="hidden">
+                    <div class="service-detail-data" id="detail-clinica-geral" data-image-src="https://i.imgur.com/HRQfKix.jpeg">
+                        <h3 class="text-3xl font-bold text-primary-dark mb-6">Clínica Geral (Adulto e Infantil)</h3>
+                        <div class="space-y-6 text-gray-medium text-lg">
+                            <div>
+                                <h4 class="font-bold text-xl text-primary-dark mb-2">Como funciona?</h4>
+                                <p>Realizamos diagnósticos completos, prevenção e tratamentos iniciais (como limpeza dental, restaurações, curativos etc), sempre com tecnologia e abordagens minimamente invasivas. Para crianças, usamos técnicas lúdicas e respeito ao tempo de cada um!</p>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-xl text-primary-dark mb-2">Por que é indicado?</h4>
+                                <p>É a base da saúde bucal! Ideal para check-ups regulares, dor de dente, cáries iniciais ou acompanhamento infantil. Detectamos problemas precocemente, evitando complicações futuras.</p>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-xl text-primary-dark mb-2">Quais os benefícios?</h4>
+                                <ul class="list-disc list-inside space-y-2">
+                                    <li>Diagnóstico precoce de problemas.</li>
+                                    <li>Tratamentos que preservam sua estrutura dental natural.</li>
+                                    <li>Ambiente acolhedor para crianças, sem traumas.</li>
+                                </ul>
+                            </div>
                         </div>
-                        <p class="font-semibold text-primary-dark">- Mariana Corradini Antunes</p>
                     </div>
-                </div>
-
-                <div class="carousel-card absolute w-11/12 md:w-1/2 lg:w-1/3 transition-all duration-500 ease-in-out">
-                    <div class="bg-white p-8 rounded-lg shadow-lg flex flex-col items-center text-center">
-                        <img src="https://placehold.co/80x80/06031b/f6f1ef?text=A.E.R." alt="" class="rounded-full w-20 h-20 mb-4 object-cover border-2 border-accent-color">
-                        <div class="testimonial-content">
-                            <p class="italic text-gray-medium mb-4 testimonial-text">"A Dra Amanda é uma profissional excelente, muito acima da média. Entre tantos profissionais que já fiz profilaxia (limpeza nos dentes), com ela foi uma experiência muito melhor, resultado muito satisfatório. Além de entregar um serviço de qualidade, ela ainda tem uma mão muito leve, ela faz tudo com muita delicadeza, o que deixa o procedimento muito confortável. Ela também tratou meus pais, sendo o caso do meu pai muito complicado, por ser um paciente com diabetes, o que dificulta a cicatrização e ele precisava fazer cirurgias para extração de dentes, pois ele estava com muita inflamação nas gengivas o que deixava os dentes moles e estava prejudicando a saúde bucal e geral dele. Ela resolveu tudo, com muito estudo do caso e um atendimento com todo cuidado possível, conseguiu restaurar a saúde bucal dele, fazendo um bem imenso pra saúde geral dele. Pra mim é a melhor, sem dúvidas."</p>
+                    <div class="service-detail-data" id="detail-primeira-consulta" data-image-src="https://i.imgur.com/V4fuNK0.jpeg">
+                        <h3 class="text-3xl font-bold text-primary-dark mb-6">Primeira Consulta</h3>
+                        <div class="space-y-6 text-gray-medium text-lg">
+                            <p>Este é o momento mais importante da nossa trajetória. Pois será aqui que vamos falar sobre a sua história, buscando entender sua rotina, hábitos, procedimentos pelos quais já passou e eventuais dúvidas. Assim teremos em mãos informações valiosas que nos guiarão ao seu plano de tratamento ideal!</p>
+                            <p>Em nosso consultório contamos com tecnologias desde seu primeiro contato conosco! Por meio da microscopia eletrônica e radiografias, somos capazes de analisar sua condição bucal de maneira minuciosa para diagnósticos mais precisos.</p>
+                            <div>
+                                <h4 class="font-bold text-xl text-primary-dark mb-2">Nesse primeiro momento nossos objetivos são:</h4>
+                                <ul class="list-disc list-inside space-y-2 mt-2">
+                                    <li>Te conhecer e ouvir sua história.</li>
+                                    <li>Realizar exames prévios para maior apuração de detalhes.</li>
+                                    <li>Definir seu plano de tratamento de acordo com suas necessidades e desejos individuais.</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-xl text-primary-dark mb-2">Quais os benefícios?</h4>
+                                <ul class="list-disc list-inside space-y-2">
+                                    <li>Clareza sobre a saúde da sua boca.</li>
+                                    <li>Planejamento visual do seu tratamento.</li>
+                                    <li>Construção de uma relação de confiança.</li>
+                                </ul>
+                            </div>
                         </div>
-                        <p class="font-semibold text-primary-dark">- Ana Eloise Reis</p>
                     </div>
-                </div>
-
-    <div class="carousel-card absolute w-11/12 md:w-1/2 lg:w-1/3 transition-all duration-500 ease-in-out">
-                    <div class="bg-white p-8 rounded-lg shadow-lg flex flex-col items-center text-center">
-                        <img src="https://i.imgur.com/mRfiPID.png" alt="" class="rounded-full w-20 h-20 mb-4 object-cover border-2 border-accent-color">
-                        <div class="testimonial-content">
-                            <p class="italic text-gray-medium mb-4 testimonial-text">"Uma ótima profissional. Com mãos leves e educada! Valeu a pena realizar trabalho com ela"</p>
+                    <div class="service-detail-data" id="detail-prevencao" data-image-src="https://i.imgur.com/zuRyWlA.jpeg">
+                        <h3 class="text-3xl font-bold text-primary-dark mb-6">Prevenção em Saúde Bucal</h3>
+                        <div class="space-y-6 text-gray-medium text-lg">
+                            <div>
+                                <h4 class="font-bold text-xl text-primary-dark mb-2">Como funciona?</h4>
+                                <p>Acompanhamento a cada 3 a 6 meses, com consultas preventivas! Combinação de profilaxia profissional (limpeza ultrassônica), aplicação de flúor e orientações de higiene bucal adaptadas a sua rotina.</p>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-xl text-primary-dark mb-2">Por que é indicado?</h4>
+                                <p>Evita cáries, gengivite e perda óssea. Indispensável para quem quer manter o sorriso natural por décadas, com mínima intervenção.</p>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-xl text-primary-dark mb-2">Quais os benefícios?</h4>
+                                <ul class="list-disc list-inside space-y-2">
+                                    <li>Economia de tempo e recursos a longo prazo.</li>
+                                    <li>Menor necessidade de intervenções complexas.</li>
+                                    <li>Sorriso saudável por mais tempo.</li>
+                                </ul>
+                            </div>
                         </div>
-                        <p class="font-semibold text-primary-dark">- Diogo Araújo</p>
                     </div>
-                </div>
-
-                <div class="carousel-card absolute w-11/12 md:w-1/2 lg:w-1/3 transition-all duration-500 ease-in-out">
-                    <div class="bg-white p-8 rounded-lg shadow-lg flex flex-col items-center text-center">
-                        <img src="https://placehold.co/80x80/06031b/f6f1ef?text=H.B." alt="" class="rounded-full w-20 h-20 mb-4 object-cover border-2 border-accent-color">
-                        <div class="testimonial-content">
-                            <p class="italic text-gray-medium mb-4 testimonial-text">"O atendimento e profissionalismo da Dra são impecáveis! Ambiente muito organizado, agradável e relaxante! Trabalho incrível! Recomento muito"</p>
+                    <div class="service-detail-data" id="detail-gengivais" data-image-src="https://i.imgur.com/HGVgpYQ.jpeg">
+                        <h3 class="text-3xl font-bold text-primary-dark mb-6">Tratamentos Gengivais</h3>
+                        <div class="space-y-6 text-gray-medium text-lg">
+                            <div>
+                                <h4 class="font-bold text-xl text-primary-dark mb-2">Como funciona?</h4>
+                                <p>Controlamos inflamações gengivais com técnicas minimamente invasivas: raspagem de tártaro, laserterapia, bioestimulação e ajuste de hábitos. E para casos avançados, técnicas para regeneração tecidual.</p>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-xl text-primary-dark mb-2">Por que é indicado?</h4>
+                                <p>Sangramento, inchaço ou retração gengival são sinais de alerta! Tratar previne perda dentária, mau hálito e até complicações sistêmicas.</p>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-xl text-primary-dark mb-2">Quais os benefícios?</h4>
+                                <ul class="list-disc list-inside space-y-2">
+                                    <li>Fim do desconforto e sangramento.</li>
+                                    <li>Proteção da base que sustenta seus dentes.</li>
+                                    <li>Tratamento de doença periodontal.</li>
+                                </ul>
+                            </div>
                         </div>
-                        <p class="font-semibold text-primary-dark">- hela belezaria</p>
                     </div>
-                </div>
-
-                <div class="carousel-card absolute w-11/12 md:w-1/2 lg:w-1/3 transition-all duration-500 ease-in-out">
-                    <div class="bg-white p-8 rounded-lg shadow-lg flex flex-col items-center text-center">
-                        <img src="https://placehold.co/80x80/06031b/f6f1ef?text=F.G." alt="" class="rounded-full w-20 h-20 mb-4 object-cover border-2 border-accent-color">
-                        <div class="testimonial-content">
-                            <p class="italic text-gray-medium mb-4 testimonial-text">"Uma excelente profissional,muito atenciosa e dedicada aos seus pacientes. Já me atendeu algumas vezes e em todas as consultas sempre me tranquilizou e me passou muita confiança. Uma pessoa extremamente gentil e educada. Que Deus abençoe e ilumine grandemente sua carreira profissional,e seja repleta de aprendizado, oportunidade e crescimento🙏 Índico de olhos fechados🌷"</p>
+                    <div class="service-detail-data" id="detail-estetica" data-image-src="https://i.imgur.com/HstEoPz.jpeg">
+                        <h3 class="text-3xl font-bold text-primary-dark mb-6">Estética Dental</h3>
+                        <div class="space-y-6 text-gray-medium text-lg">
+                            <div>
+                                <h4 class="font-bold text-xl text-primary-dark mb-2">Como funciona?</h4>
+                                <p>Harmonizamos forma, cor e função com técnicas como:</p>
+                                <ul class="list-disc list-inside space-y-2 mt-2">
+                                    <li>Acréscimos estratégicos em resina composta.</li>
+                                    <li>Clareamento interno/externo com controle de sensibilidade.</li>
+                                    <li>Gengivoplastia para sorrisos com excesso de gengiva.</li>
+                                    <li>Peeling gengival para manchas escuras na gengiva.</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-xl text-primary-dark mb-2">Por que é indicado?</h4>
+                                <p>Para quem deseja um sorriso que reflita sua autoestima — seja por manchas, espaços, dentes fraturados ou desarmonias.</p>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-xl text-primary-dark mb-2">Quais os benefícios?</h4>
+                                <ul class="list-disc list-inside space-y-2">
+                                    <li>Sorriso natural e alinhado à sua personalidade.</li>
+                                    <li>Confiança para expressar suas emoções.</li>
+                                    <li>Resultados que respeitam sua anatomia natural.</li>
+                                </ul>
+                            </div>
                         </div>
-                        <p class="font-semibold text-primary-dark">- fabiola gomes</p>
                     </div>
-                </div>
-
-                <div class="carousel-card absolute w-11/12 md:w-1/2 lg:w-1/3 transition-all duration-500 ease-in-out">
-                    <div class="bg-white p-8 rounded-lg shadow-lg flex flex-col items-center text-center">
-                        <img src="https://i.imgur.com/plad7i6.png" alt="" class="rounded-full w-20 h-20 mb-4 object-cover border-2 border-accent-color">
-                        <div class="testimonial-content">
-                            <p class="italic text-gray-medium mb-4 testimonial-text">"O atendimento com a Dra. Amanda foi excelente. Muito simpática! Tem todo um cuidado em nós deixar tranquilo na consulta. Super indico!"</p>
+                    <div class="service-detail-data" id="detail-reabilitacao" data-image-src="https://i.imgur.com/d6ElNOn.jpeg">
+                        <h3 class="text-3xl font-bold text-primary-dark mb-6">Reabilitação Oral</h3>
+                        <div class="space-y-6 text-gray-medium text-lg">
+                            <div>
+                                <h4 class="font-bold text-xl text-primary-dark mb-2">Como funciona?</h4>
+                                <p>Reconstruímos sorrisos comprometidos (por perdas dentais, desgastes severos ou DTM) com próteses fixas/sobre implantes, placas oclusais digitais e restaurações cerâmicas integradas.</p>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-xl text-primary-dark mb-2">Por que é indicado?</h4>
+                                <p>Quando há múltiplas perdas, dor articular ou dificuldade mastigatória. Restaura função, confiança e saúde integral.</p>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-xl text-primary-dark mb-2">Quais os benefícios?</h4>
+                                <ul class="list-disc list-inside space-y-2">
+                                    <li>Recuperação da capacidade de mastigar com conforto.</li>
+                                    <li>Sorriso completo e natural.</li>
+                                    <li>Melhora significativa na qualidade de vida.</li>
+                                </ul>
+                            </div>
                         </div>
-                        <p class="font-semibold text-primary-dark">- Aline Costa</p>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <div id="carousel-indicators" class="flex justify-center mt-8">
+        <div id="service-modal" class="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center p-4 z-50 hidden opacity-0 transition-opacity duration-300">
+            <div id="modal-box" class="w-full max-w-6xl max-h-[90vh] flex flex-col md:flex-row items-center gap-8 transform scale-95 transition-transform duration-300">
+                <div class="w-full md:w-1/3 h-full bg-white rounded-lg shadow-2xl overflow-hidden">
+                    <img id="modal-image" src="" alt="Imagem do Procedimento" class="w-full h-full object-cover">
                 </div>
-        </div>
-    </div>
-</section>
-
-
-
-<section id="faq" class="py-20 md:py-32 bg-primary-light">
-    <div class="container mx-auto px-6">
-        <div class="text-center mb-16">
-            <h2 class="text-3xl md:text-4xl font-bold text-primary-dark">Perguntas frequentes</h2>
-            <p class="mt-2 text-gray-medium">Respostas para suas dúvidas mais comuns.</p>
-        </div>
-        <div class="max-w-3xl mx-auto space-y-4">
-            
-            <div class="bg-white p-6 rounded-lg shadow-md">
-                <button class="faq-toggle w-full flex justify-between items-center text-left text-lg font-semibold text-primary-dark">
-                    <span>Como funciona a primeira consulta? Preciso já saber o que tenho?</span>
-                    <span class="faq-icon text-accent-color text-xl">+</span>
-                </button>
-                <div class="faq-content mt-4 hidden text-gray-medium">
-Não! A primeira consulta é um momento para nos conhecermos. Conversamos sobre seus hábitos, medos e objetivos, realizo exame clinico e, se necessário, indico exames complementares. Você não precisa chegar com um diagnóstico — só com a vontade de cuidar de você.
+                <div class="w-full md:w-2/3 h-full bg-white rounded-lg shadow-2xl relative">
+                    <button id="modal-close-button" class="absolute top-4 right-4 text-gray-400 hover:text-primary-dark text-3xl z-10">×</button>
+                    <div id="modal-content" class="max-h-[75vh] overflow-y-auto p-8"> </div>
                 </div>
             </div>
-            
-            <div class="bg-white p-6 rounded-lg shadow-md">
-                <button class="faq-toggle w-full flex justify-between items-center text-left text-lg font-semibold text-primary-dark">
-                    <span>Por que devo investir em prevenção se não sinto nada?</span>
-                    <span class="faq-icon text-accent-color text-xl">+</span>
-                </button>
-                <div class="faq-content mt-4 hidden text-gray-medium">
-Porque mesmo bocas limpas podem não estar saudáveis. Doenças como a cárie, gengivite, periodontite e/ou condições de apertamento dental são silenciosas e em alguns casos assintomáticas no início. Portanto, prevenir é garantir que pequenas questões não se tornem problemas complexos.
-                </div>
-            </div>
-            
-            <div class="bg-white p-6 rounded-lg shadow-md">
-                <button class="faq-toggle w-full flex justify-between items-center text-left text-lg font-semibold text-primary-dark">
-                    <span>Clareamento dental dói ou desgasta os dentes?</span>
-                    <span class="faq-icon text-accent-color text-xl">+</span>
-                </button>
-                <div class="faq-content mt-4 hidden text-gray-medium">
-Não! Utilizamos técnicas modernas com agentes clareadores de alta qualidade e protocolos que preservam o esmalte dental. Durante o processo, pode haver sensibilidade leve e transitória — tudo é controlado e personalizado para seu conforto.
-                </div>
-            </div>
-
-            <div class="bg-white p-6 rounded-lg shadow-md">
-                <button class="faq-toggle w-full flex justify-between items-center text-left text-lg font-semibold text-primary-dark">
-                    <span>Como sei se preciso de tratamento gengival?</span>
-                    <span class="faq-icon text-accent-color text-xl">+</span>
-                </button>
-                <div class="faq-content mt-4 hidden text-gray-medium">
-Se você notar sangramento ao escovar ou passar fio dental, inchaço, vermelhidão ou mau hálito persistente, são sinais de que sua gengiva precisa de atenção. Agende uma avaliação: muitas vezes, o problema é silencioso até fases avançadas.
-            </div>
-            </div>
-    </div>
-</section>
-
-<section id="agendamento" class="py-20 md:py-32 bg-primary-dark text-text-light">
-    <div class="container mx-auto px-6">
-        <div class="text-center mb-16">
-            <h2 class="text-3xl md:text-4xl font-bold">Agendamento Online</h2>
-            <p class="mt-2 text-gray-400">Escolha o melhor dia e horário para você.</p>
         </div>
 
-        <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8 items-start">
-
-            <div>
-                <h3 class="text-2xl font-bold mb-4 text-center">1. Escolha uma data</h3>
-                <div id="calendar-container" class="bg-primary-light rounded-lg shadow-lg p-4">
-                    <p class="text-center text-gray-500 py-16">Carregando calendário...</p>
+        <section id="depoimentos" class="py-20 md:py-32 bg-primary-light">
+            <div class="container mx-auto px-6 relative">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-primary-dark">O que meus pacientes dizem</h2>
+                    <p class="mt-2 text-gray-medium">Para nós, a sua opinião importa muito! Amamos saber</p>
                 </div>
-            </div>
-
-            <div>
-                <div id="horarios-container" class="min-h-[200px]">
-                    <h3 class="text-2xl font-bold mb-4 text-center">2. Escolha um horário</h3>
-                    <div id="horarios-disponiveis" class="text-center p-4 border-2 border-dashed border-gray-600 rounded-lg">
-                        <p class="text-gray-400">Selecione uma data no calendário para ver os horários disponíveis.</p>
+                <div class="carousel-container relative w-full overflow-hidden">
+                    <button id="prevBtn" class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-white text-gray-dark p-2 rounded-full shadow-lg z-20 hover:bg-gray-200 transition-all hidden md:block">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                        </svg>
+                    </button>
+                    <button id="nextBtn" class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-white text-gray-dark p-2 rounded-full shadow-lg z-20 hover:bg-gray-200 transition-all hidden md:block">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </button>
+                    <div id="carousel-cards" class="flex items-center justify-center relative w-full transition-all duration-500 ease-in-out">
+                        <div class="carousel-card absolute w-11/12 md:w-1/2 lg:w-1/3 transition-all duration-500 ease-in-out">
+                            <div class="bg-white p-8 rounded-lg shadow-lg flex flex-col items-center text-center">
+                                <img src="https://i.imgur.com/BmFrzDD.png" alt="" class="rounded-full w-20 h-20 mb-4 object-cover border-2 border-accent-color">
+                                <div class="testimonial-content">
+                                    <p class="italic text-gray-medium mb-4 testimonial-text">"Doutora muito experiente e cuidadosa! Me passou muita confiança, além de ter um consultório muito arrumado, higiene nota 10! Mãos de fada! Amei!"</p>
+                                </div>
+                                <p class="font-semibold text-primary-dark">- Mariana Corradini Antunes</p>
+                            </div>
                         </div>
-                </div>
-
-                <div id="formulario-agendamento" class="hidden mt-8">
-    <h3 class="text-2xl font-bold mb-4 text-center">3. Preencha seus dados</h3>
-    <div class="space-y-4">
-        <div>
-            <label for="nome-paciente" class="block text-sm font-medium text-gray-300">Nome Completo</label>
-            <input type="text" id="nome-paciente" class="mt-1 block w-full bg-gray-800 border-gray-600 rounded-md shadow-sm py-2 px-3 text-white focus:outline-none focus:ring-accent-color focus:border-accent-color" placeholder="Seu nome completo" required>
-        </div>
-        <div>
-            <label for="nascimento-paciente" class="block text-sm font-medium text-gray-300">Data de Nascimento</label>
-            <input type="date" id="nascimento-paciente" class="mt-1 block w-full bg-gray-800 border-gray-600 rounded-md shadow-sm py-2 px-3 text-white focus:outline-none focus:ring-accent-color focus:border-accent-color" required>
-        </div>
-        <div>
-            <label for="whatsapp-paciente" class="block text-sm font-medium text-gray-300">WhatsApp</label>
-            <input type="tel" id="whatsapp-paciente" class="mt-1 block w-full bg-gray-800 border-gray-600 rounded-md shadow-sm py-2 px-3 text-white focus:outline-none focus:ring-accent-color focus:border-accent-color" placeholder="(XX) XXXXX-XXXX" required>
-        </div>
-        <button id="botao-agendar" class="w-full bg-accent-color text-text-light font-bold text-lg px-8 py-3 rounded-lg shadow-lg hover:bg-accent-hover transition-transform duration-300 transform hover:scale-105">
-            Confirmar Agendamento
-        </button>
-    </div>
-</div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="contato" class="py-20 md:py-32 bg-primary-light">
-    <div class="container mx-auto px-6">
-        <div class="text-center mb-16">
-            <h2 class="text-3xl md:text-4xl font-bold text-primary-dark">Entre em Contato com a Dra. Amanda Ferreira</h2>
-            <p class="mt-2 text-gray-medium">Amaremos conhecer você, será um prazer recebê-lo em nosso espaço!</p>
-        </div>
-        <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-12">
-            <div class="space-y-6">
-                <div class="flex items-start space-x-4">
-                    <span class="text-accent-color text-2xl mt-1">📍</span> <div>
-                        <h4 class="font-bold text-lg text-primary-dark">Endereço</h4>
-                        <p class="text-gray-medium">Clinica Unity - Consultório 2<br>R. Mogi Guaçu, 403<br>Chácara da Barra, Campinas - SP, 13090-605</p>
+                        <div class="carousel-card absolute w-11/12 md:w-1/2 lg:w-1/3 transition-all duration-500 ease-in-out">
+                            <div class="bg-white p-8 rounded-lg shadow-lg flex flex-col items-center text-center">
+                                <img src="https://placehold.co/80x80/06031b/f6f1ef?text=A.E.R." alt="" class="rounded-full w-20 h-20 mb-4 object-cover border-2 border-accent-color">
+                                <div class="testimonial-content">
+                                    <p class="italic text-gray-medium mb-4 testimonial-text">"A Dra Amanda é uma profissional excelente, muito acima da média. Entre tantos profissionais que já fiz profilaxia (limpeza nos dentes), com ela foi uma experiência muito melhor, resultado muito satisfatório. Além de entregar um serviço de qualidade, ela ainda tem uma mão muito leve, ela faz tudo com muita delicadeza, o que deixa o procedimento muito confortável. Ela também tratou meus pais, sendo o caso do meu pai muito complicado, por ser um paciente com diabetes, o que dificulta a cicatrização e ele precisava fazer cirurgias para extração de dentes, pois ele estava com muita inflamação nas gengivas o que deixava os dentes moles e estava prejudicando a saúde bucal e geral dele. Ela resolveu tudo, com muito estudo do caso e um atendimento com todo cuidado possível, conseguiu restaurar a saúde bucal dele, fazendo um bem imenso pra saúde geral dele. Pra mim é a melhor, sem dúvidas."</p>
+                                </div>
+                                <p class="font-semibold text-primary-dark">- Ana Eloise Reis</p>
+                            </div>
+                        </div>
+                        <div class="carousel-card absolute w-11/12 md:w-1/2 lg:w-1/3 transition-all duration-500 ease-in-out">
+                            <div class="bg-white p-8 rounded-lg shadow-lg flex flex-col items-center text-center">
+                                <img src="https://i.imgur.com/mRfiPID.png" alt="" class="rounded-full w-20 h-20 mb-4 object-cover border-2 border-accent-color">
+                                <div class="testimonial-content">
+                                    <p class="italic text-gray-medium mb-4 testimonial-text">"Uma ótima profissional. Com mãos leves e educada! Valeu a pena realizar trabalho com ela"</p>
+                                </div>
+                                <p class="font-semibold text-primary-dark">- Diogo Araújo</p>
+                            </div>
+                        </div>
+                        <div class="carousel-card absolute w-11/12 md:w-1/2 lg:w-1/3 transition-all duration-500 ease-in-out">
+                            <div class="bg-white p-8 rounded-lg shadow-lg flex flex-col items-center text-center">
+                                <img src="https://placehold.co/80x80/06031b/f6f1ef?text=H.B." alt="" class="rounded-full w-20 h-20 mb-4 object-cover border-2 border-accent-color">
+                                <div class="testimonial-content">
+                                    <p class="italic text-gray-medium mb-4 testimonial-text">"O atendimento e profissionalismo da Dra são impecáveis! Ambiente muito organizado, agradável e relaxante! Trabalho incrível! Recomento muito"</p>
+                                </div>
+                                <p class="font-semibold text-primary-dark">- hela belezaria</p>
+                            </div>
+                        </div>
+                        <div class="carousel-card absolute w-11/12 md:w-1/2 lg:w-1/3 transition-all duration-500 ease-in-out">
+                            <div class="bg-white p-8 rounded-lg shadow-lg flex flex-col items-center text-center">
+                                <img src="https://placehold.co/80x80/06031b/f6f1ef?text=F.G." alt="" class="rounded-full w-20 h-20 mb-4 object-cover border-2 border-accent-color">
+                                <div class="testimonial-content">
+                                    <p class="italic text-gray-medium mb-4 testimonial-text">"Uma excelente profissional,muito atenciosa e dedicada aos seus pacientes. Já me atendeu algumas vezes e em todas as consultas sempre me tranquilizou e me passou muita confiança. Uma pessoa extremamente gentil e educada. Que Deus abençoe e ilumine grandemente sua carreira profissional,e seja repleta de aprendizado, oportunidade e crescimento🙏 Índico de olhos fechados🌷"</p>
+                                </div>
+                                <p class="font-semibold text-primary-dark">- fabiola gomes</p>
+                            </div>
+                        </div>
+                        <div class="carousel-card absolute w-11/12 md:w-1/2 lg:w-1/3 transition-all duration-500 ease-in-out">
+                            <div class="bg-white p-8 rounded-lg shadow-lg flex flex-col items-center text-center">
+                                <img src="https://i.imgur.com/plad7i6.png" alt="" class="rounded-full w-20 h-20 mb-4 object-cover border-2 border-accent-color">
+                                <div class="testimonial-content">
+                                    <p class="italic text-gray-medium mb-4 testimonial-text">"O atendimento com a Dra. Amanda foi excelente. Muito simpática! Tem todo um cuidado em nós deixar tranquilo na consulta. Super indico!"</p>
+                                </div>
+                                <p class="font-semibold text-primary-dark">- Aline Costa</p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="flex items-start space-x-4">
-                   <span class="text-accent-color text-2xl mt-1">📞</span> <div>
-                        <h4 class="font-bold text-lg text-primary-dark">Telefone</h4>
-                        <a href="tel:+551932525852" class="text-gray-medium hover:text-accent-color">(19) 3252-5852</a>
-                    </div>
-                </div>
-                 <div class="flex items-start space-x-4">
-                   <span class="text-accent-color text-2xl mt-1">📱</span> <div>
-                        <h4 class="font-bold text-lg text-primary-dark">WhatsApp</h4>
-                        <a href="https://wa.me/5519998291133?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta%21" target="_blank" class="text-gray-medium hover:text-accent-color">(19) 99829-1133</a>
-                    </div>
-                </div>
-                <div class="flex items-start space-x-4">
-                    <span class="text-accent-color text-2xl mt-1">📩</span> <div>
-                        <h4 class="font-bold text-lg text-primary-dark">E-mail</h4>
-                        <a href="mailto:dra.amandabeatrizferreira@gmail.com" class="text-gray-medium hover:text-accent-color">dra.amandabeatrizferreira@gmail.com</a>
-                    </div>
+                    <div id="carousel-indicators" class="flex justify-center mt-8"></div>
                 </div>
             </div>
-            <div>
-                <div class="rounded-lg shadow-lg overflow-hidden h-full min-h-[300px] md:min-h-[400px]">
-                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3675.297479709873!2d-47.05436662446736!3d-22.90563457920336!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c8c704f7e2c949%3A0x7d2b0e8c7c1b2c1!2sR.%20Mogi%20Gua%C3%A7u%2C%20403%20-%20Ch%C3%A1cara%20da%20Barra%2C%20Campinas%20-%20SP%2C%2013090-605!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Localização da Clínica no Google Maps"></iframe>
+        </section>
+
+        <section id="faq" class="py-20 md:py-32 bg-primary-light">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-primary-dark">Perguntas frequentes</h2>
+                    <p class="mt-2 text-gray-medium">Respostas para suas dúvidas mais comuns.</p>
+                </div>
+                <div class="max-w-3xl mx-auto space-y-4">
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <button class="faq-toggle w-full flex justify-between items-center text-left text-lg font-semibold text-primary-dark">
+                            <span>Como funciona a primeira consulta? Preciso já saber o que tenho?</span>
+                            <span class="faq-icon text-accent-color text-xl">+</span>
+                        </button>
+                        <div class="faq-content mt-4 hidden text-gray-medium">
+                            Não! A primeira consulta é um momento para nos conhecermos. Conversamos sobre seus hábitos, medos e objetivos, realizo exame clinico e, se necessário, indico exames complementares. Você não precisa chegar com um diagnóstico — só com a vontade de cuidar de você.
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <button class="faq-toggle w-full flex justify-between items-center text-left text-lg font-semibold text-primary-dark">
+                            <span>Por que devo investir em prevenção se não sinto nada?</span>
+                            <span class="faq-icon text-accent-color text-xl">+</span>
+                        </button>
+                        <div class="faq-content mt-4 hidden text-gray-medium">
+                            Porque mesmo bocas limpas podem não estar saudáveis. Doenças como a cárie, gengivite, periodontite e/ou condições de apertamento dental são silenciosas e em alguns casos assintomáticas no início. Portanto, prevenir é garantir que pequenas questões não se tornem problemas complexos.
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <button class="faq-toggle w-full flex justify-between items-center text-left text-lg font-semibold text-primary-dark">
+                            <span>Clareamento dental dói ou desgasta os dentes?</span>
+                            <span class="faq-icon text-accent-color text-xl">+</span>
+                        </button>
+                        <div class="faq-content mt-4 hidden text-gray-medium">
+                            Não! Utilizamos técnicas modernas com agentes clareadores de alta qualidade e protocolos que preservam o esmalte dental. Durante o processo, pode haver sensibilidade leve e transitória — tudo é controlado e personalizado para seu conforto.
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <button class="faq-toggle w-full flex justify-between items-center text-left text-lg font-semibold text-primary-dark">
+                            <span>Como sei se preciso de tratamento gengival?</span>
+                            <span class="faq-icon text-accent-color text-xl">+</span>
+                        </button>
+                        <div class="faq-content mt-4 hidden text-gray-medium">
+                            Se você notar sangramento ao escovar ou passar fio dental, inchaço, vermelhidão ou mau hálito persistente, são sinais de que sua gengiva precisa de atenção. Agende uma avaliação: muitas vezes, o problema é silencioso até fases avançadas.
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-</section>
+        </section>
 
+        <section id="agendamento" class="py-20 md:py-32 bg-primary-dark text-text-light">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold">Agendamento Online</h2>
+                    <p class="mt-2 text-gray-400">Escolha o melhor dia e horário para você.</p>
+                </div>
+                <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8 items-start">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4 text-center">1. Escolha uma data</h3>
+                        <div id="calendar-container" class="bg-primary-light rounded-lg shadow-lg p-4">
+                            <p class="text-center text-gray-500 py-16">Carregando calendário...</p>
+                        </div>
+                    </div>
+                    <div>
+                        <div id="horarios-container" class="min-h-[200px]">
+                            <h3 class="text-2xl font-bold mb-4 text-center">2. Escolha um horário</h3>
+                            <div id="horarios-disponiveis" class="text-center p-4 border-2 border-dashed border-gray-600 rounded-lg">
+                                <p class="text-gray-400">Selecione uma data no calendário para ver os horários disponíveis.</p>
+                            </div>
+                        </div>
+                        <div id="formulario-agendamento" class="hidden mt-8">
+                            <h3 class="text-2xl font-bold mb-4 text-center">3. Preencha seus dados</h3>
+                            <div class="space-y-4">
+                                <div>
+                                    <label for="nome-paciente" class="block text-sm font-medium text-gray-300">Nome Completo</label>
+                                    <input type="text" id="nome-paciente" class="mt-1 block w-full bg-gray-800 border-gray-600 rounded-md shadow-sm py-2 px-3 text-white focus:outline-none focus:ring-accent-color focus:border-accent-color" placeholder="Seu nome completo" required>
+                                </div>
+                                <div>
+                                    <label for="nascimento-paciente" class="block text-sm font-medium text-gray-300">Data de Nascimento</label>
+                                    <input type="date" id="nascimento-paciente" class="mt-1 block w-full bg-gray-800 border-gray-600 rounded-md shadow-sm py-2 px-3 text-white focus:outline-none focus:ring-accent-color focus:border-accent-color" required>
+                                </div>
+                                <div>
+                                    <label for="whatsapp-paciente" class="block text-sm font-medium text-gray-300">WhatsApp</label>
+                                    <input type="tel" id="whatsapp-paciente" class="mt-1 block w-full bg-gray-800 border-gray-600 rounded-md shadow-sm py-2 px-3 text-white focus:outline-none focus:ring-accent-color focus:border-accent-color" placeholder="(XX) XXXXX-XXXX" required>
+                                </div>
+                                <button id="botao-agendar" class="w-full bg-accent-color text-text-light font-bold text-lg px-8 py-3 rounded-lg shadow-lg hover:bg-accent-hover transition-transform duration-300 transform hover:scale-105">
+                                    Confirmar Agendamento
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        
+        <section id="contato" class="py-20 md:py-32 bg-primary-light">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-primary-dark">Entre em Contato com a Dra. Amanda Ferreira</h2>
+                    <p class="mt-2 text-gray-medium">Amaremos conhecer você, será um prazer recebê-lo em nosso espaço!</p>
+                </div>
+                <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-12">
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <span class="text-accent-color text-2xl mt-1">📍</span>
+                            <div>
+                                <h4 class="font-bold text-lg text-primary-dark">Endereço</h4>
+                                <p class="text-gray-medium">Clinica Unity - Consultório 2<br>R. Mogi Guaçu, 403<br>Chácara da Barra, Campinas - SP, 13090-605</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <span class="text-accent-color text-2xl mt-1">📞</span>
+                            <div>
+                                <h4 class="font-bold text-lg text-primary-dark">Telefone</h4>
+                                <a href="tel:+551932525852" class="text-gray-medium hover:text-accent-color">(19) 3252-5852</a>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <span class="text-accent-color text-2xl mt-1">📱</span>
+                            <div>
+                                <h4 class="font-bold text-lg text-primary-dark">WhatsApp</h4>
+                                <a href="https://wa.me/5519998291133?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta%21" target="_blank" class="text-gray-medium hover:text-accent-color">(19) 99829-1133</a>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <span class="text-accent-color text-2xl mt-1">📩</span>
+                            <div>
+                                <h4 class="font-bold text-lg text-primary-dark">E-mail</h4>
+                                <a href="mailto:dra.amandabeatrizferreira@gmail.com" class="text-gray-medium hover:text-accent-color">dra.amandabeatrizferreira@gmail.com</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="rounded-lg shadow-lg overflow-hidden h-full min-h-[300px] md:min-h-[400px]">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3675.297479709873!2d-47.05436662446736!3d-22.90563457920336!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c8c704f7e2c949%3A0x7d2b0e8c7c1b2c1!2sR.%20Mogi%20Gua%C3%A7u%2C%20403%20-%20Ch%C3%A1cara%20da%20Barra%2C%20Campinas%20-%20SP%2C%2013090-605!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Localização da Clínica no Google Maps"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer class="bg-primary-dark text-text-light py-8">
         <div class="container mx-auto px-6 text-center">
             <p>© 2025 Dra. Amanda Ferreira. Todos os direitos reservados.</p>
-<p class="text-sm mt-2">Semeando gentileza.</p>
+            <p class="text-sm mt-2">Semeando gentileza.</p>
             <p class="text-sm mt-2">Desenvolvido com carinho para tornar seu dia a dia mais leve!</p>
         </div>
     </footer>
 
- <script>
-document.addEventListener('DOMContentLoaded', function () {
+    <script src="https://cdn.jsdelivr.net/npm/js-year-calendar@2.0.0/dist/js-year-calendar.min.js"></script>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
 
-    // ===================================================================
-    // CONTROLE DO MENU MOBILE E CABEÇALHO
-    // ===================================================================
-    const mobileMenuButton = document.getElementById('mobile-menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const header = document.getElementById('header');
-    if (mobileMenuButton) {
-        mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
-    }
-    if (mobileMenu) {
-        mobileMenu.addEventListener('click', e => (e.target.tagName === 'A' || e.target.tagName === 'BUTTON') && mobileMenu.classList.add('hidden'));
-    }
-    if (header) {
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                header.classList.add('py-2', 'shadow-lg');
-                header.classList.remove('py-4', 'shadow-md');
-            } else {
-                header.classList.add('py-4', 'shadow-md');
-                header.classList.remove('py-2', 'shadow-lg');
+        // ===================================================================
+        // CONTROLE DO MENU MOBILE E CABEÇALHO
+        // ===================================================================
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const header = document.getElementById('header');
+        if (mobileMenuButton) {
+            mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+        }
+        if (mobileMenu) {
+            mobileMenu.addEventListener('click', e => (e.target.tagName === 'A' || e.target.tagName === 'BUTTON') && mobileMenu.classList.add('hidden'));
+        }
+        if (header) {
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('py-2', 'shadow-lg');
+                    header.classList.remove('py-4', 'shadow-md');
+                } else {
+                    header.classList.add('py-4', 'shadow-md');
+                    header.classList.remove('py-2', 'shadow-lg');
+                }
+            });
+        }
+
+        // ===================================================================
+        // NAVEGAÇÃO ATIVA (DESTACA LINK DO MENU CONFORME A SEÇÃO VISÍVEL)
+        // ===================================================================
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+        if (sections.length > 0 && navLinks.length > 0) {
+            const sectionObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        navLinks.forEach(link => {
+                            link.classList.remove('active-nav');
+                            if (link.getAttribute('href') === `#${entry.target.id}`) {
+                                link.classList.add('active-nav');
+                            }
+                        });
+                    }
+                });
+            }, { root: null, rootMargin: '0px', threshold: 0.4 });
+            sections.forEach(section => sectionObserver.observe(section));
+        }
+
+        // ===================================================================
+        // ANIMAÇÃO DE FADE-IN DA IMAGEM NA SEÇÃO "SOBRE"
+        // ===================================================================
+        const sobreImage = document.querySelector('#sobre img');
+        if (sobreImage) {
+            sobreImage.classList.add('fade-in-image');
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+            imageObserver.observe(sobreImage);
+        }
+
+        // ===================================================================
+        // LÓGICA DO MODAL DE SERVIÇOS
+        // ===================================================================
+        const serviceCards = document.querySelectorAll('.service-card');
+        const modal = document.getElementById('service-modal');
+        if (serviceCards.length > 0 && modal) {
+            const modalBox = document.getElementById('modal-box');
+            const modalImage = document.getElementById('modal-image');
+            const modalContent = document.getElementById('modal-content');
+            const closeModalButton = document.getElementById('modal-close-button');
+            
+            serviceCards.forEach(card => {
+                card.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const serviceId = this.dataset.serviceId;
+                    const detailContent = document.getElementById(`detail-${serviceId}`);
+                    if (detailContent) {
+                        modalImage.src = detailContent.dataset.imageSrc;
+                        modalContent.innerHTML = detailContent.innerHTML;
+                        modal.classList.remove('hidden');
+                        setTimeout(() => {
+                            modal.classList.remove('opacity-0');
+                            modalBox.classList.remove('scale-95');
+                        }, 10);
+                    }
+                });
+            });
+
+            function closeModal() {
+                modal.classList.add('opacity-0');
+                modalBox.classList.add('scale-95');
+                setTimeout(() => modal.classList.add('hidden'), 300);
             }
-        });
-    }
 
-    // ===================================================================
-    // NAVEGAÇÃO ATIVA (DESTACA LINK DO MENU CONFORME A SEÇÃO VISÍVEL)
-    // ===================================================================
-    const sections = document.querySelectorAll('section');
-    const navLinks = document.querySelectorAll('.nav-link');
-    if (sections.length > 0 && navLinks.length > 0) {
-        const sectionObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    navLinks.forEach(link => {
-                        link.classList.remove('active-nav');
-                        if (link.getAttribute('href') === `#${entry.target.id}`) {
-                            link.classList.add('active-nav');
+            closeModalButton.addEventListener('click', closeModal);
+            modal.addEventListener('click', e => e.target === modal && closeModal());
+            document.addEventListener('keydown', e => e.key === 'Escape' && !modal.classList.contains('hidden') && closeModal());
+        }
+
+        // ===================================================================
+        // CARROSSEL DE DEPOIMENTOS
+        // ===================================================================
+        const carouselCards = document.querySelectorAll('.carousel-card');
+        if (carouselCards.length > 0) {
+            const carouselContainer = document.getElementById('carousel-cards');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const indicatorsContainer = document.getElementById('carousel-indicators');
+            let currentIndex = 0;
+            let touchstartX = 0;
+            let touchendX = 0;
+
+            function updateCarousel() {
+                carouselContainer.style.height = 'auto';
+                carouselCards.forEach((card, index) => {
+                    const isCurrent = index === currentIndex;
+                    const isPrev = index === (currentIndex - 1 + carouselCards.length) % carouselCards.length;
+                    const isNext = index === (currentIndex + 1) % carouselCards.length;
+                    
+                    card.classList.remove('active', 'prev-card', 'next-card');
+                    card.style.transform = '';
+                    card.style.zIndex = '';
+                    card.style.opacity = '';
+                    card.style.pointerEvents = '';
+                    card.style.left = '50%';
+
+                    if (window.innerWidth >= 768) {
+                        const zIndex = 10 - Math.abs(index - currentIndex);
+                        card.style.zIndex = zIndex;
+                        if (isCurrent) {
+                            card.classList.add('active');
+                            card.style.transform = 'translateX(-50%) scale(1)';
+                            card.style.opacity = '1';
+                            card.style.zIndex = '30';
+                        } else if (isPrev) {
+                            card.classList.add('prev-card');
+                            card.style.transform = 'translateX(-130%) scale(0.85)';
+                            card.style.opacity = '0.5';
+                            card.style.zIndex = '20';
+                        } else if (isNext) {
+                            card.classList.add('next-card');
+                            card.style.transform = 'translateX(30%) scale(0.85)';
+                            card.style.opacity = '0.5';
+                            card.style.zIndex = '20';
+                        } else {
+                            card.style.transform = 'translateX(-50%) scale(0.8)';
+                            card.style.opacity = '0';
+                            card.style.pointerEvents = 'none';
+                            card.style.zIndex = '10';
                         }
+                    } else {
+                        card.style.width = '90%';
+                        if (isCurrent) {
+                            card.classList.add('active');
+                            card.style.transform = 'translateX(-50%) scale(1)';
+                            card.style.opacity = '1';
+                            card.style.zIndex = '30';
+                        } else {
+                            card.style.transform = 'translateX(-50%) scale(0.8)';
+                            card.style.opacity = '0';
+                            card.style.pointerEvents = 'none';
+                        }
+                    }
+                });
+                
+                const activeCard = document.querySelector('.carousel-card.active');
+                if (activeCard) {
+                    requestAnimationFrame(() => {
+                        carouselContainer.style.height = `${activeCard.offsetHeight}px`;
                     });
                 }
-            });
-        }, { root: null, rootMargin: '0px', threshold: 0.4 });
-        sections.forEach(section => sectionObserver.observe(section));
-    }
+                updateIndicators();
+            }
 
-    // ===================================================================
-    // ANIMAÇÃO DE FADE-IN DA IMAGEM NA SEÇÃO "SOBRE"
-    // ===================================================================
-    const sobreImage = document.querySelector('#sobre img');
-    if (sobreImage) {
-        sobreImage.classList.add('fade-in-image');
-        const imageObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.5 });
-        imageObserver.observe(sobreImage);
-    }
+            function handleSwipe() {
+                if (touchendX < touchstartX - 50) currentIndex = (currentIndex + 1) % carouselCards.length;
+                if (touchendX > touchstartX + 50) currentIndex = (currentIndex - 1 + carouselCards.length) % carouselCards.length;
+                updateCarousel();
+            }
 
-    // ===================================================================
-    // LÓGICA DO MODAL DE SERVIÇOS
-    // ===================================================================
-    const serviceCards = document.querySelectorAll('.service-card');
-    const modal = document.getElementById('service-modal');
-    if (serviceCards.length > 0 && modal) {
-        const modalBox = document.getElementById('modal-box');
-        const modalImage = document.getElementById('modal-image');
-        const modalContent = document.getElementById('modal-content');
-        const closeModalButton = document.getElementById('modal-close-button');
-        
-        serviceCards.forEach(card => {
-            card.addEventListener('click', function(e) {
-                e.preventDefault();
-                const serviceId = this.dataset.serviceId;
-                const detailContent = document.getElementById(`detail-${serviceId}`);
-                if (detailContent) {
-                    modalImage.src = detailContent.dataset.imageSrc;
-                    modalContent.innerHTML = detailContent.innerHTML;
-                    modal.classList.remove('hidden');
-                    setTimeout(() => {
-                        modal.classList.remove('opacity-0');
-                        modalBox.classList.remove('scale-95');
-                    }, 10);
-                }
-            });
-        });
-
-        function closeModal() {
-            modal.classList.add('opacity-0');
-            modalBox.classList.add('scale-95');
-            setTimeout(() => modal.classList.add('hidden'), 300);
-        }
-
-        closeModalButton.addEventListener('click', closeModal);
-        modal.addEventListener('click', e => e.target === modal && closeModal());
-        document.addEventListener('keydown', e => e.key === 'Escape' && !modal.classList.contains('hidden') && closeModal());
-    }
-
-    // ===================================================================
-    // CARROSSEL DE DEPOIMENTOS
-    // ===================================================================
-    const carouselCards = document.querySelectorAll('.carousel-card');
-    if (carouselCards.length > 0) {
-        const carouselContainer = document.getElementById('carousel-cards');
-        const prevBtn = document.getElementById('prevBtn');
-        const nextBtn = document.getElementById('nextBtn');
-        const indicatorsContainer = document.getElementById('carousel-indicators');
-        let currentIndex = 0;
-        let touchstartX = 0;
-        let touchendX = 0;
-
-        // FUNÇÕES PRINCIPAIS DO CARROSSEL (AGORA COMPLETAS)
-        function updateCarousel() {
-            carouselContainer.style.height = 'auto';
-            carouselCards.forEach((card, index) => {
-                const isCurrent = index === currentIndex;
-                const isPrev = index === (currentIndex - 1 + carouselCards.length) % carouselCards.length;
-                const isNext = index === (currentIndex + 1) % carouselCards.length;
-                
-                card.classList.remove('active', 'prev-card', 'next-card');
-                card.style.transform = '';
-                card.style.zIndex = '';
-                card.style.opacity = '';
-                card.style.pointerEvents = '';
-                card.style.left = '50%';
-
-                if (window.innerWidth >= 768) {
-                    const zIndex = 10 - Math.abs(index - currentIndex);
-                    card.style.zIndex = zIndex;
-                    if (isCurrent) {
-                        card.classList.add('active');
-                        card.style.transform = 'translateX(-50%) scale(1)';
-                        card.style.opacity = '1';
-                        card.style.zIndex = '30';
-                    } else if (isPrev) {
-                        card.classList.add('prev-card');
-                        card.style.transform = 'translateX(-130%) scale(0.85)';
-                        card.style.opacity = '0.5';
-                        card.style.zIndex = '20';
-                    } else if (isNext) {
-                        card.classList.add('next-card');
-                        card.style.transform = 'translateX(30%) scale(0.85)';
-                        card.style.opacity = '0.5';
-                        card.style.zIndex = '20';
-                    } else {
-                        card.style.transform = 'translateX(-50%) scale(0.8)';
-                        card.style.opacity = '0';
-                        card.style.pointerEvents = 'none';
-                        card.style.zIndex = '10';
-                    }
-                } else {
-                    card.style.width = '90%';
-                    if (isCurrent) {
-                        card.classList.add('active');
-                        card.style.transform = 'translateX(-50%) scale(1)';
-                        card.style.opacity = '1';
-                        card.style.zIndex = '30';
-                    } else {
-                        card.style.transform = 'translateX(-50%) scale(0.8)';
-                        card.style.opacity = '0';
-                        card.style.pointerEvents = 'none';
-                    }
-                }
-            });
+            function createIndicators() {
+                indicatorsContainer.innerHTML = '';
+                carouselCards.forEach((_, index) => {
+                    const indicator = document.createElement('div');
+                    indicator.classList.add('w-2', 'h-2', 'rounded-full', 'mx-1', 'cursor-pointer', 'bg-gray-400', 'transition-all', 'duration-300');
+                    if (index === currentIndex) indicator.classList.add('!bg-primary-dark', 'w-3', 'h-3');
+                    indicator.addEventListener('click', () => {
+                        currentIndex = index;
+                        updateCarousel();
+                    });
+                    indicatorsContainer.appendChild(indicator);
+                });
+            }
             
-            const activeCard = document.querySelector('.carousel-card.active');
-            if (activeCard) {
+            function updateIndicators() {
+                Array.from(indicatorsContainer.children).forEach((indicator, index) => {
+                    indicator.classList.remove('!bg-primary-dark', 'w-3', 'h-3');
+                    indicator.classList.add('bg-gray-400', 'w-2', 'h-2');
+                    if (index === currentIndex) {
+                        indicator.classList.add('!bg-primary-dark', 'w-3', 'h-3');
+                    }
+                });
+            }
+
+            const toggleReadMore = (button) => {
+                const textElement = button.closest('.testimonial-text');
+                const fullText = textElement.dataset.fullText;
+                const parentCard = button.closest('.carousel-card');
+                const limit = 150;
+
+                if (button.textContent === 'Ler Mais') {
+                    textElement.innerHTML = fullText;
+                    const newButton = document.createElement('button');
+                    newButton.textContent = 'Ver Menos';
+                    newButton.className = 'text-accent-color font-bold hover:underline inline-block ml-1';
+                    newButton.onclick = (e) => { e.stopPropagation(); toggleReadMore(newButton); };
+                    textElement.appendChild(newButton);
+                } else {
+                    const truncatedText = fullText.substring(0, limit) + '... ';
+                    textElement.innerHTML = truncatedText;
+                    const newButton = document.createElement('button');
+                    newButton.textContent = 'Ler Mais';
+                    newButton.className = 'text-accent-color font-bold hover:underline inline-block ml-1';
+                    newButton.onclick = (e) => { e.stopPropagation(); toggleReadMore(newButton); };
+                    textElement.appendChild(newButton);
+                }
+                
                 requestAnimationFrame(() => {
-                    carouselContainer.style.height = `${activeCard.offsetHeight}px`;
+                    if(parentCard.classList.contains('active')) {
+                       carouselContainer.style.height = `${parentCard.offsetHeight}px`;
+                    }
                 });
-            }
-            updateIndicators();
-        }
+            };
 
-        function handleSwipe() {
-            if (touchendX < touchstartX - 50) currentIndex = (currentIndex + 1) % carouselCards.length;
-            if (touchendX > touchstartX + 50) currentIndex = (currentIndex - 1 + carouselCards.length) % carouselCards.length;
+            document.querySelectorAll('.testimonial-content').forEach(testimonial => {
+                const textElement = testimonial.querySelector('.testimonial-text');
+                const fullText = textElement.textContent.trim();
+                const limit = 150;
+                if (fullText.length > limit) {
+                    textElement.dataset.fullText = fullText;
+                    const truncatedText = fullText.substring(0, limit) + '... ';
+                    textElement.innerHTML = '';
+                    const textNode = document.createTextNode(truncatedText);
+                    const button = document.createElement('button');
+                    button.textContent = 'Ler Mais';
+                    button.className = 'text-accent-color font-bold hover:underline inline-block ml-1';
+                    button.onclick = (e) => { e.stopPropagation(); toggleReadMore(button); };
+                    textElement.appendChild(textNode);
+                    textElement.appendChild(button);
+                }
+            });
+
+            createIndicators();
             updateCarousel();
+            window.addEventListener('resize', updateCarousel);
+            prevBtn.addEventListener('click', () => { currentIndex = (currentIndex - 1 + carouselCards.length) % carouselCards.length; updateCarousel(); });
+            nextBtn.addEventListener('click', () => { currentIndex = (currentIndex + 1) % carouselCards.length; updateCarousel(); });
+            carouselContainer.addEventListener('touchstart', e => { touchstartX = e.changedTouches[0].screenX; });
+            carouselContainer.addEventListener('touchend', e => { touchendX = e.changedTouches[0].screenX; handleSwipe(); });
         }
 
-        function createIndicators() {
-            indicatorsContainer.innerHTML = '';
-            carouselCards.forEach((_, index) => {
-                const indicator = document.createElement('div');
-                indicator.classList.add('w-2', 'h-2', 'rounded-full', 'mx-1', 'cursor-pointer', 'bg-gray-400', 'transition-all', 'duration-300');
-                if (index === currentIndex) indicator.classList.add('!bg-primary-dark', 'w-3', 'h-3');
-                indicator.addEventListener('click', () => {
-                    currentIndex = index;
-                    updateCarousel();
+        // ===================================================================
+        // CONTROLE DO FAQ (ACCORDION)
+        // ===================================================================
+        const faqToggles = document.querySelectorAll('.faq-toggle');
+        if (faqToggles.length > 0) {
+            faqToggles.forEach(toggle => {
+                toggle.addEventListener('click', function() {
+                    const content = this.nextElementSibling;
+                    const icon = this.querySelector('.faq-icon');
+                    content.classList.toggle('hidden');
+                    icon.innerHTML = content.classList.contains('hidden') ? '+' : '−';
                 });
-                indicatorsContainer.appendChild(indicator);
             });
         }
         
-        function updateIndicators() {
-            Array.from(indicatorsContainer.children).forEach((indicator, index) => {
-                indicator.classList.remove('!bg-primary-dark', 'w-3', 'h-3');
-                indicator.classList.add('bg-gray-400', 'w-2', 'h-2');
-                if (index === currentIndex) {
-                    indicator.classList.add('!bg-primary-dark', 'w-3', 'h-3');
+        // ===================================================================
+        // LÓGICA DO CALENDÁRIO E AGENDAMENTO
+        // ===================================================================
+        const calendarContainer = document.getElementById('calendar-container');
+        if (calendarContainer) {
+            let selectedDate = null;
+            let selectedTime = null;
+            const horariosDisponiveis = document.getElementById('horarios-disponiveis');
+            const formularioAgendamento = document.getElementById('formulario-agendamento');
+
+            new Calendar(calendarContainer, {
+                language: 'pt',
+                minDate: new Date(),
+                displayMonthsPerRow: 2,
+                numberofMonths: 2,
+                disabledWeekDays: [0, 2, 3, 4, 6],
+                clickDay: function(e) {
+                    const date = e.date;
+                    selectedDate = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
+                    fetchAvailableSlots(selectedDate);
                 }
             });
-        }
 
-        // LÓGICA "LER MAIS"
-        const toggleReadMore = (button) => {
-            const textElement = button.closest('.testimonial-text');
-            const fullText = textElement.dataset.fullText;
-            const parentCard = button.closest('.carousel-card');
-            const limit = 150;
-
-            if (button.textContent === 'Ler Mais') {
-                textElement.innerHTML = fullText;
-                const newButton = document.createElement('button');
-                newButton.textContent = 'Ver Menos';
-                newButton.className = 'text-accent-color font-bold hover:underline inline-block ml-1';
-                newButton.onclick = (e) => { e.stopPropagation(); toggleReadMore(newButton); };
-                textElement.appendChild(newButton);
-            } else {
-                const truncatedText = fullText.substring(0, limit) + '... ';
-                textElement.innerHTML = truncatedText;
-                const newButton = document.createElement('button');
-                newButton.textContent = 'Ler Mais';
-                newButton.className = 'text-accent-color font-bold hover:underline inline-block ml-1';
-                newButton.onclick = (e) => { e.stopPropagation(); toggleReadMore(newButton); };
-                textElement.appendChild(newButton);
-            }
-            
-            requestAnimationFrame(() => {
-                if(parentCard.classList.contains('active')) {
-                   carouselContainer.style.height = `${parentCard.offsetHeight}px`;
-                }
-            });
-        };
-
-        document.querySelectorAll('.testimonial-content').forEach(testimonial => {
-            const textElement = testimonial.querySelector('.testimonial-text');
-            const fullText = textElement.textContent.trim();
-            const limit = 150;
-            if (fullText.length > limit) {
-                textElement.dataset.fullText = fullText;
-                const truncatedText = fullText.substring(0, limit) + '... ';
-                textElement.innerHTML = '';
-                const textNode = document.createTextNode(truncatedText);
-                const button = document.createElement('button');
-                button.textContent = 'Ler Mais';
-                button.className = 'text-accent-color font-bold hover:underline inline-block ml-1';
-                button.onclick = (e) => { e.stopPropagation(); toggleReadMore(button); };
-                textElement.appendChild(textNode);
-                textElement.appendChild(button);
-            }
-        });
-
-        // INICIALIZAÇÃO DO CARROSSEL
-        createIndicators();
-        updateCarousel();
-        window.addEventListener('resize', updateCarousel);
-        prevBtn.addEventListener('click', () => { currentIndex = (currentIndex - 1 + carouselCards.length) % carouselCards.length; updateCarousel(); });
-        nextBtn.addEventListener('click', () => { currentIndex = (currentIndex + 1) % carouselCards.length; updateCarousel(); });
-        carouselContainer.addEventListener('touchstart', e => { touchstartX = e.changedTouches[0].screenX; });
-        carouselContainer.addEventListener('touchend', e => { touchendX = e.changedTouches[0].screenX; handleSwipe(); });
-    }
-
-    // ===================================================================
-    // CONTROLE DO FAQ (ACCORDION)
-    // ===================================================================
-    const faqToggles = document.querySelectorAll('.faq-toggle');
-    if (faqToggles.length > 0) {
-        faqToggles.forEach(toggle => {
-            toggle.addEventListener('click', function() {
-                const content = this.nextElementSibling;
-                const icon = this.querySelector('.faq-icon');
-                content.classList.toggle('hidden');
-                icon.innerHTML = content.classList.contains('hidden') ? '+' : '−';
-            });
-        });
-    }
-
-});
-</script>
-<script src="https://cdn.jsdelivr.net/npm/js-year-calendar@2.0.0/dist/js-year-calendar.min.js"></script>
-<script>
-  // COLE ESTE CÓDIGO COMPLETO DENTRO DA ÚLTIMA TAG <SCRIPT>
-
-document.addEventListener('DOMContentLoaded', function () {
-    // ===================================================================
-    // AQUI VAI TODA A SUA LÓGICA ORIGINAL (MENU, MODAL, CARROSSEL, FAQ, ETC.)
-    // Se você tiver algum código customizado, ele deve ficar aqui no topo.
-    // O código que me enviou anteriormente não continha a lógica do menu, então
-    // certifique-se de que ele esteja aqui se precisar.
-    // ===================================================================
-
-    // ===================================================================
-    // LÓGICA DO CALENDÁRIO E AGENDAMENTO
-    // ===================================================================
-    const calendarContainer = document.getElementById('calendar-container');
-
-    if (calendarContainer) {
-        let selectedDate = null;
-        let selectedTime = null;
-        const horariosDisponiveis = document.getElementById('horarios-disponiveis');
-        const formularioAgendamento = document.getElementById('formulario-agendamento');
-
-        // Inicializa o calendário
-// CÓDIGO CORRIGIDO COM O LIMITE DE MESES
-new Calendar(calendarContainer, {
-    language: 'pt',
-    minDate: new Date(),
-    
-    // --- LINHAS IMPORTANTES ADICIONADAS AQUI ---
-    displayMonthsPerRow: 2, // Exibe 2 meses por linha
-    numberofMonths: 2,      // Exibe um total de 2 meses
-    // ---------------------------------------------
-    
-    disabledWeekDays: [0, 2, 3, 4, 6], // Desabilita Dom, Ter, Qua, Qui, Sab
-    clickDay: function(e) {
-        const date = e.date; 
-        selectedDate = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
-        fetchAvailableSlots(selectedDate);
-    }
-});
-
-        async function fetchAvailableSlots(date) {
-            horariosDisponiveis.innerHTML = '<p class="text-gray-300">Buscando horários...</p>';
-            formularioAgendamento.classList.add('hidden');
-            try {
-                const response = await fetch(`/.netlify/functions/get-available-slots?date=${date}`);
-                if (!response.ok) { throw new Error('Falha na resposta da rede'); }
-                const data = await response.json();
-                if (data.slots && data.slots.length > 0) {
-                    displaySlots(data.slots);
-                } else {
-                    horariosDisponiveis.innerHTML = '<p class="text-gray-400">Nenhum horário disponível para esta data.</p>';
-                }
-            } catch (error) {
-                console.error('Erro ao buscar horários:', error);
-                horariosDisponiveis.innerHTML = '<p class="text-red-400">Erro ao carregar horários. Tente novamente.</p>';
-            }
-        }
-
-        function displaySlots(slots) {
-            horariosDisponiveis.innerHTML = '';
-            slots.forEach(time => {
-                const slotElement = document.createElement('div');
-                slotElement.className = 'time-slot';
-                slotElement.textContent = time;
-                slotElement.dataset.time = time;
-                horariosDisponiveis.appendChild(slotElement);
-            });
-        }
-
-        horariosDisponiveis.addEventListener('click', (event) => {
-            if (event.target.classList.contains('time-slot')) {
-                document.querySelectorAll('.time-slot.selected').forEach(el => el.classList.remove('selected'));
-                const slot = event.target;
-                slot.classList.add('selected');
-                selectedTime = slot.dataset.time;
-                formularioAgendamento.classList.remove('hidden');
-            }
-        });
-
-        // LÓGICA PARA O BOTÃO "CONFIRMAR AGENDAMENTO"
-        const botaoAgendar = document.getElementById('botao-agendar');
-        if (botaoAgendar) {
-            botaoAgendar.addEventListener('click', async () => {
-                const patientName = document.getElementById('nome-paciente').value;
-                const patientBirthdate = document.getElementById('nascimento-paciente').value;
-                
-                if (!selectedDate || !selectedTime || !patientName || !patientBirthdate) {
-                    alert('Por favor, preencha todos os campos e selecione data e horário.');
-                    return;
-                }
-
-                botaoAgendar.disabled = true;
-                botaoAgendar.textContent = 'Agendando...';
-
+            async function fetchAvailableSlots(date) {
+                horariosDisponiveis.innerHTML = '<p class="text-gray-300">Buscando horários...</p>';
+                formularioAgendamento.classList.add('hidden');
                 try {
-                    const response = await fetch('/.netlify/functions/create-appointment', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({
-                            date: selectedDate,
-                            time: selectedTime,
-                            patientName: patientName,
-                            patientBirthdate: patientBirthdate,
-                        }),
-                    });
-
-                    const result = await response.json();
-                    if (!response.ok) { throw new Error(result.error || 'Ocorreu um erro.'); }
-
-                    // Sucesso!
-                    document.getElementById('agendamento').innerHTML = `
-                        <div class="text-center p-8 bg-green-900/50 text-white rounded-lg border border-green-400">
-                            <h3 class="text-2xl font-bold">Obrigado!</h3>
-                          <p class="mt-2 text-lg">Seu pré-agendamento para ${selectedDate.split('-').reverse().join('/')} às ${selectedTime} foi realizado com sucesso.</p>
-                            <p class="mt-4 text-sm">Em breve, você receberá uma confirmação via WhatsApp.</p>
-                        </div>
-                    `;
-
+                    const response = await fetch(`/.netlify/functions/get-available-slots?date=${date}`);
+                    if (!response.ok) { throw new Error('Falha na resposta da rede'); }
+                    const data = await response.json();
+                    if (data.slots && data.slots.length > 0) {
+                        displaySlots(data.slots);
+                    } else {
+                        horariosDisponiveis.innerHTML = '<p class="text-gray-400">Nenhum horário disponível para esta data.</p>';
+                    }
                 } catch (error) {
-                    console.error('Erro no agendamento:', error);
-                    alert(`Não foi possível confirmar o agendamento. Detalhe: ${error.message}`);
-                    botaoAgendar.disabled = false;
-                    botaoAgendar.textContent = 'Confirmar Agendamento';
+                    console.error('Erro ao buscar horários:', error);
+                    horariosDisponiveis.innerHTML = '<p class="text-red-400">Erro ao carregar horários. Tente novamente.</p>';
+                }
+            }
+
+            function displaySlots(slots) {
+                horariosDisponiveis.innerHTML = '';
+                slots.forEach(time => {
+                    const slotElement = document.createElement('div');
+                    slotElement.className = 'time-slot';
+                    slotElement.textContent = time;
+                    slotElement.dataset.time = time;
+                    horariosDisponiveis.appendChild(slotElement);
+                });
+            }
+
+            horariosDisponiveis.addEventListener('click', (event) => {
+                if (event.target.classList.contains('time-slot')) {
+                    document.querySelectorAll('.time-slot.selected').forEach(el => el.classList.remove('selected'));
+                    const slot = event.target;
+                    slot.classList.add('selected');
+                    selectedTime = slot.dataset.time;
+                    formularioAgendamento.classList.remove('hidden');
                 }
             });
+
+            const botaoAgendar = document.getElementById('botao-agendar');
+            if (botaoAgendar) {
+                botaoAgendar.addEventListener('click', async () => {
+                    const patientName = document.getElementById('nome-paciente').value;
+                    const patientBirthdate = document.getElementById('nascimento-paciente').value;
+                    
+                    if (!selectedDate || !selectedTime || !patientName || !patientBirthdate) {
+                        alert('Por favor, preencha todos os campos e selecione data e horário.');
+                        return;
+                    }
+
+                    botaoAgendar.disabled = true;
+                    botaoAgendar.textContent = 'Agendando...';
+
+                    try {
+                        const response = await fetch('/.netlify/functions/create-appointment', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({
+                                date: selectedDate,
+                                time: selectedTime,
+                                patientName: patientName,
+                                patientBirthdate: patientBirthdate,
+                            }),
+                        });
+
+                        const result = await response.json();
+                        if (!response.ok) { throw new Error(result.error || 'Ocorreu um erro.'); }
+
+                        document.getElementById('agendamento').innerHTML = `
+                            <div class="text-center p-8 bg-green-900/50 text-white rounded-lg border border-green-400">
+                                <h3 class="text-2xl font-bold">Obrigado!</h3>
+                                <p class="mt-2 text-lg">Seu pré-agendamento para ${selectedDate.split('-').reverse().join('/')} às ${selectedTime} foi realizado com sucesso.</p>
+                                <p class="mt-4 text-sm">Em breve, você receberá uma confirmação via WhatsApp.</p>
+                            </div>
+                        `;
+
+                    } catch (error) {
+                        console.error('Erro no agendamento:', error);
+                        alert(`Não foi possível confirmar o agendamento. Detalhe: ${error.message}`);
+                        botaoAgendar.disabled = false;
+                        botaoAgendar.textContent = 'Confirmar Agendamento';
+                    }
+                });
+            }
         }
-    }
-});
-</script>
+
+    });
+    </script>
 </body>
 </html>
