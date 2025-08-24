@@ -1007,9 +1007,20 @@ document.addEventListener('DOMContentLoaded', function () {
       },
     };
 
-    // Inicializa o calendário
-    const calendar = new JSCalendar(calendarContainer, options);
-    calendar.init();
+   // CÓDIGO AJUSTADO
+// A inicialização agora é direta, sem o .init()
+new Calendar(calendarContainer, {
+    language: 'pt', // Usa o código 'pt' para português
+    minDate: new Date(), // Desabilita datas passadas
+    clickDay: function(e) {
+        // "e.date" contém a data clicada
+        const date = e.date; 
+        // Formata a data como YYYY-MM-DD
+        selectedDate = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
+        // Chama sua função para buscar os horários
+        fetchAvailableSlots(selectedDate);
+    }
+});
 
     // Função para buscar os horários na nossa Netlify Function
     async function fetchAvailableSlots(date) {
