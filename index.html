@@ -68,28 +68,46 @@
         }
         
         /* ESTILOS PARA O NOVO CALENDÁRIO (VANILLA JS DATEPICKER) */
-.datepicker-view {
-    /* Ajusta a largura para caber dois meses lado a lado */
-    width: 600px; 
-}
+/* CSS FINAL E CORRIGIDO PARA O CALENDÁRIO */
 .datepicker-picker {
-    background-color: #f6f1ef; /* Cor 'primary-light' */
+    background-color: #f6f1ef; /* Fundo do calendário */
     border-radius: 8px;
-    border-color: #122947;
+    border: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 .datepicker-header .datepicker-title,
 .datepicker-controls .button {
-    color: #122947; /* Cor 'accent-color' */
+    color: #122947; /* Cor 'accent-color' para o título do mês */
     font-weight: bold;
 }
+/* Dias normais e disponíveis */
+.datepicker-main .days .day:not(.disabled):not(.selected) {
+    color: #06031b; /* Texto PRETO como você pediu */
+    font-weight: 600;
+}
+/* Dias indisponíveis (passados e desabilitados) */
+.datepicker-main .days .day.disabled, 
+.datepicker-main .days .day.prev, 
+.datepicker-main .days .day.next {
+    color: #b0b0b0; /* Texto CINZA como você pediu */
+    font-weight: 400;
+}
+/* Dia selecionado */
 .datepicker-main .days .day.selected, 
 .datepicker-main .days .day.selected:hover {
-    background-color: #122947; /* Cor 'accent-color' */
-    color: #f6f1ef; /* Cor 'text-light' */
+    background-color: #122947; /* Fundo 'accent-color' */
+    color: #f6f1ef; /* Texto claro */
+    border-radius: 50%;
 }
-.datepicker-main .days .day.today,
-.datepicker-main .days .day.today:hover {
-    background-color: #122947a0; /* Cor de destaque para o dia de hoje */
+/* Dia de hoje */
+.datepicker-main .days .day.today {
+    background-color: #e2e8f0; /* Fundo cinza claro para o dia de hoje */
+    border-radius: 50%;
+}
+.datepicker-main .days .day.focused,
+.datepicker-main .days .day:hover {
+    background-color: #e2e8f0; /* Fundo cinza claro ao passar o mouse */
+    border-radius: 50%;
 }
 .datepicker-main .days .day.disabled {
     color: #cccccc;
@@ -621,7 +639,7 @@
                     <h2 class="text-3xl md:text-4xl font-bold">Agendamento Online</h2>
                     <p class="mt-2 text-gray-400">Escolha o melhor dia e horário para você.</p>
                 </div>
-                <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8 items-start">
+<div class="max-w-4xl mx-auto md:flex md:gap-8 items-start">
                     <div>
                         <h3 class="text-2xl font-bold mb-4 text-center">1. Escolha uma data</h3>
                         <div id="calendar-container">
@@ -947,7 +965,7 @@ const calendarElement = document.getElementById('calendar-container');
 const datepicker = new Datepicker(calendarElement, {
     language: 'pt-BR',
     todayHighlight: true,
-    monthsToShow: 2,
+    monthsToShow: 1,
     daysOfWeekDisabled: [0, 2, 3, 4, 6]
 }); 
 
