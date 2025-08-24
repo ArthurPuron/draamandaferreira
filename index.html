@@ -694,402 +694,394 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/js-year-calendar@2.0.0/dist/js-year-calendar.min.js"></script>
-    
     <script>
-    document.addEventListener('DOMContentLoaded', function () {
+    // ===================================================================
+    // CONTROLE DO MENU MOBILE E CABEÇALHO
+    // ===================================================================
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const header = document.getElementById('header');
+    if (mobileMenuButton) {
+        mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+    }
+    if (mobileMenu) {
+        mobileMenu.addEventListener('click', e => (e.target.tagName === 'A' || e.target.tagName === 'BUTTON') && mobileMenu.classList.add('hidden'));
+    }
+    if (header) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('py-2', 'shadow-lg');
+                header.classList.remove('py-4', 'shadow-md');
+            } else {
+                header.classList.add('py-4', 'shadow-md');
+                header.classList.remove('py-2', 'shadow-lg');
+            }
+        });
+    }
 
-        // ===================================================================
-        // CONTROLE DO MENU MOBILE E CABEÇALHO
-        // ===================================================================
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const header = document.getElementById('header');
-        if (mobileMenuButton) {
-            mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
-        }
-        if (mobileMenu) {
-            mobileMenu.addEventListener('click', e => (e.target.tagName === 'A' || e.target.tagName === 'BUTTON') && mobileMenu.classList.add('hidden'));
-        }
-        if (header) {
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 50) {
-                    header.classList.add('py-2', 'shadow-lg');
-                    header.classList.remove('py-4', 'shadow-md');
-                } else {
-                    header.classList.add('py-4', 'shadow-md');
-                    header.classList.remove('py-2', 'shadow-lg');
+    // ===================================================================
+    // NAVEGAÇÃO ATIVA (DESTACA LINK DO MENU CONFORME A SEÇÃO VISÍVEL)
+    // ===================================================================
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-link');
+    if (sections.length > 0 && navLinks.length > 0) {
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    navLinks.forEach(link => {
+                        link.classList.remove('active-nav');
+                        if (link.getAttribute('href') === `#${entry.target.id}`) {
+                            link.classList.add('active-nav');
+                        }
+                    });
                 }
             });
-        }
+        }, { root: null, rootMargin: '0px', threshold: 0.4 });
+        sections.forEach(section => sectionObserver.observe(section));
+    }
 
-        // ===================================================================
-        // NAVEGAÇÃO ATIVA (DESTACA LINK DO MENU CONFORME A SEÇÃO VISÍVEL)
-        // ===================================================================
-        const sections = document.querySelectorAll('section');
-        const navLinks = document.querySelectorAll('.nav-link');
-        if (sections.length > 0 && navLinks.length > 0) {
-            const sectionObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        navLinks.forEach(link => {
-                            link.classList.remove('active-nav');
-                            if (link.getAttribute('href') === `#${entry.target.id}`) {
-                                link.classList.add('active-nav');
-                            }
-                        });
-                    }
-                });
-            }, { root: null, rootMargin: '0px', threshold: 0.4 });
-            sections.forEach(section => sectionObserver.observe(section));
-        }
-
-        // ===================================================================
-        // ANIMAÇÃO DE FADE-IN DA IMAGEM NA SEÇÃO "SOBRE"
-        // ===================================================================
-        const sobreImage = document.querySelector('#sobre img');
-        if (sobreImage) {
-            sobreImage.classList.add('fade-in-image');
-            const imageObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.5 });
-            imageObserver.observe(sobreImage);
-        }
-
-        // ===================================================================
-        // LÓGICA DO MODAL DE SERVIÇOS
-        // ===================================================================
-        const serviceCards = document.querySelectorAll('.service-card');
-        const modal = document.getElementById('service-modal');
-        if (serviceCards.length > 0 && modal) {
-            const modalBox = document.getElementById('modal-box');
-            const modalImage = document.getElementById('modal-image');
-            const modalContent = document.getElementById('modal-content');
-            const closeModalButton = document.getElementById('modal-close-button');
-            
-            serviceCards.forEach(card => {
-                card.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const serviceId = this.dataset.serviceId;
-                    const detailContent = document.getElementById(`detail-${serviceId}`);
-                    if (detailContent) {
-                        modalImage.src = detailContent.dataset.imageSrc;
-                        modalContent.innerHTML = detailContent.innerHTML;
-                        modal.classList.remove('hidden');
-                        setTimeout(() => {
-                            modal.classList.remove('opacity-0');
-                            modalBox.classList.remove('scale-95');
-                        }, 10);
-                    }
-                });
+    // ===================================================================
+    // ANIMAÇÃO DE FADE-IN DA IMAGEM NA SEÇÃO "SOBRE"
+    // ===================================================================
+    const sobreImage = document.querySelector('#sobre img');
+    if (sobreImage) {
+        sobreImage.classList.add('fade-in-image');
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
             });
+        }, { threshold: 0.5 });
+        imageObserver.observe(sobreImage);
+    }
 
-            function closeModal() {
-                modal.classList.add('opacity-0');
-                modalBox.classList.add('scale-95');
-                setTimeout(() => modal.classList.add('hidden'), 300);
-            }
+    // ===================================================================
+    // LÓGICA DO MODAL DE SERVIÇOS
+    // ===================================================================
+    const serviceCards = document.querySelectorAll('.service-card');
+    const modal = document.getElementById('service-modal');
+    if (serviceCards.length > 0 && modal) {
+        const modalBox = document.getElementById('modal-box');
+        const modalImage = document.getElementById('modal-image');
+        const modalContent = document.getElementById('modal-content');
+        const closeModalButton = document.getElementById('modal-close-button');
+        
+        serviceCards.forEach(card => {
+            card.addEventListener('click', function(e) {
+                e.preventDefault();
+                const serviceId = this.dataset.serviceId;
+                const detailContent = document.getElementById(`detail-${serviceId}`);
+                if (detailContent) {
+                    modalImage.src = detailContent.dataset.imageSrc;
+                    modalContent.innerHTML = detailContent.innerHTML;
+                    modal.classList.remove('hidden');
+                    setTimeout(() => {
+                        modal.classList.remove('opacity-0');
+                        modalBox.classList.remove('scale-95');
+                    }, 10);
+                }
+            });
+        });
 
-            closeModalButton.addEventListener('click', closeModal);
-            modal.addEventListener('click', e => e.target === modal && closeModal());
-            document.addEventListener('keydown', e => e.key === 'Escape' && !modal.classList.contains('hidden') && closeModal());
+        function closeModal() {
+            modal.classList.add('opacity-0');
+            modalBox.classList.add('scale-95');
+            setTimeout(() => modal.classList.add('hidden'), 300);
         }
 
-        // ===================================================================
-        // CARROSSEL DE DEPOIMENTOS
-        // ===================================================================
-        const carouselCards = document.querySelectorAll('.carousel-card');
-        if (carouselCards.length > 0) {
-            const carouselContainer = document.getElementById('carousel-cards');
-            const prevBtn = document.getElementById('prevBtn');
-            const nextBtn = document.getElementById('nextBtn');
-            const indicatorsContainer = document.getElementById('carousel-indicators');
-            let currentIndex = 0;
-            let touchstartX = 0;
-            let touchendX = 0;
+        closeModalButton.addEventListener('click', closeModal);
+        modal.addEventListener('click', e => e.target === modal && closeModal());
+        document.addEventListener('keydown', e => e.key === 'Escape' && !modal.classList.contains('hidden') && closeModal());
+    }
 
-            function updateCarousel() {
-                carouselContainer.style.height = 'auto';
-                carouselCards.forEach((card, index) => {
-                    const isCurrent = index === currentIndex;
-                    const isPrev = index === (currentIndex - 1 + carouselCards.length) % carouselCards.length;
-                    const isNext = index === (currentIndex + 1) % carouselCards.length;
-                    
-                    card.classList.remove('active', 'prev-card', 'next-card');
-                    card.style.transform = '';
-                    card.style.zIndex = '';
-                    card.style.opacity = '';
-                    card.style.pointerEvents = '';
-                    card.style.left = '50%';
+    // ===================================================================
+    // CARROSSEL DE DEPOIMENTOS
+    // ===================================================================
+    const carouselCards = document.querySelectorAll('.carousel-card');
+    if (carouselCards.length > 0) {
+        const carouselContainer = document.getElementById('carousel-cards');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const indicatorsContainer = document.getElementById('carousel-indicators');
+        let currentIndex = 0;
+        let touchstartX = 0;
+        let touchendX = 0;
 
-                    if (window.innerWidth >= 768) {
-                        const zIndex = 10 - Math.abs(index - currentIndex);
-                        card.style.zIndex = zIndex;
-                        if (isCurrent) {
-                            card.classList.add('active');
-                            card.style.transform = 'translateX(-50%) scale(1)';
-                            card.style.opacity = '1';
-                            card.style.zIndex = '30';
-                        } else if (isPrev) {
-                            card.classList.add('prev-card');
-                            card.style.transform = 'translateX(-130%) scale(0.85)';
-                            card.style.opacity = '0.5';
-                            card.style.zIndex = '20';
-                        } else if (isNext) {
-                            card.classList.add('next-card');
-                            card.style.transform = 'translateX(30%) scale(0.85)';
-                            card.style.opacity = '0.5';
-                            card.style.zIndex = '20';
-                        } else {
-                            card.style.transform = 'translateX(-50%) scale(0.8)';
-                            card.style.opacity = '0';
-                            card.style.pointerEvents = 'none';
-                            card.style.zIndex = '10';
-                        }
+        function updateCarousel() {
+            if (!carouselContainer) return;
+            carouselContainer.style.height = 'auto';
+            carouselCards.forEach((card, index) => {
+                const isCurrent = index === currentIndex;
+                const isPrev = index === (currentIndex - 1 + carouselCards.length) % carouselCards.length;
+                const isNext = index === (currentIndex + 1) % carouselCards.length;
+                
+                card.classList.remove('active', 'prev-card', 'next-card');
+                card.style.transform = '';
+                card.style.zIndex = '';
+                card.style.opacity = '';
+                card.style.pointerEvents = '';
+                card.style.left = '50%';
+
+                if (window.innerWidth >= 768) {
+                    const zIndex = 10 - Math.abs(index - currentIndex);
+                    card.style.zIndex = zIndex;
+                    if (isCurrent) {
+                        card.classList.add('active');
+                        card.style.transform = 'translateX(-50%) scale(1)';
+                        card.style.opacity = '1';
+                        card.style.zIndex = '30';
+                    } else if (isPrev) {
+                        card.classList.add('prev-card');
+                        card.style.transform = 'translateX(-130%) scale(0.85)';
+                        card.style.opacity = '0.5';
+                        card.style.zIndex = '20';
+                    } else if (isNext) {
+                        card.classList.add('next-card');
+                        card.style.transform = 'translateX(30%) scale(0.85)';
+                        card.style.opacity = '0.5';
+                        card.style.zIndex = '20';
                     } else {
-                        card.style.width = '90%';
-                        if (isCurrent) {
-                            card.classList.add('active');
-                            card.style.transform = 'translateX(-50%) scale(1)';
-                            card.style.opacity = '1';
-                            card.style.zIndex = '30';
-                        } else {
-                            card.style.transform = 'translateX(-50%) scale(0.8)';
-                            card.style.opacity = '0';
-                            card.style.pointerEvents = 'none';
-                        }
+                        card.style.transform = 'translateX(-50%) scale(0.8)';
+                        card.style.opacity = '0';
+                        card.style.pointerEvents = 'none';
+                        card.style.zIndex = '10';
                     }
-                });
-                
-                const activeCard = document.querySelector('.carousel-card.active');
-                if (activeCard) {
-                    requestAnimationFrame(() => {
-                        carouselContainer.style.height = `${activeCard.offsetHeight}px`;
-                    });
-                }
-                updateIndicators();
-            }
-
-            function handleSwipe() {
-                if (touchendX < touchstartX - 50) currentIndex = (currentIndex + 1) % carouselCards.length;
-                if (touchendX > touchstartX + 50) currentIndex = (currentIndex - 1 + carouselCards.length) % carouselCards.length;
-                updateCarousel();
-            }
-
-            function createIndicators() {
-                indicatorsContainer.innerHTML = '';
-                carouselCards.forEach((_, index) => {
-                    const indicator = document.createElement('div');
-                    indicator.classList.add('w-2', 'h-2', 'rounded-full', 'mx-1', 'cursor-pointer', 'bg-gray-400', 'transition-all', 'duration-300');
-                    if (index === currentIndex) indicator.classList.add('!bg-primary-dark', 'w-3', 'h-3');
-                    indicator.addEventListener('click', () => {
-                        currentIndex = index;
-                        updateCarousel();
-                    });
-                    indicatorsContainer.appendChild(indicator);
-                });
-            }
-            
-            function updateIndicators() {
-                Array.from(indicatorsContainer.children).forEach((indicator, index) => {
-                    indicator.classList.remove('!bg-primary-dark', 'w-3', 'h-3');
-                    indicator.classList.add('bg-gray-400', 'w-2', 'h-2');
-                    if (index === currentIndex) {
-                        indicator.classList.add('!bg-primary-dark', 'w-3', 'h-3');
-                    }
-                });
-            }
-
-            const toggleReadMore = (button) => {
-                const textElement = button.closest('.testimonial-text');
-                const fullText = textElement.dataset.fullText;
-                const parentCard = button.closest('.carousel-card');
-                const limit = 150;
-
-                if (button.textContent === 'Ler Mais') {
-                    textElement.innerHTML = fullText;
-                    const newButton = document.createElement('button');
-                    newButton.textContent = 'Ver Menos';
-                    newButton.className = 'text-accent-color font-bold hover:underline inline-block ml-1';
-                    newButton.onclick = (e) => { e.stopPropagation(); toggleReadMore(newButton); };
-                    textElement.appendChild(newButton);
                 } else {
-                    const truncatedText = fullText.substring(0, limit) + '... ';
-                    textElement.innerHTML = truncatedText;
-                    const newButton = document.createElement('button');
-                    newButton.textContent = 'Ler Mais';
-                    newButton.className = 'text-accent-color font-bold hover:underline inline-block ml-1';
-                    newButton.onclick = (e) => { e.stopPropagation(); toggleReadMore(newButton); };
-                    textElement.appendChild(newButton);
-                }
-                
-                requestAnimationFrame(() => {
-                    if(parentCard.classList.contains('active')) {
-                       carouselContainer.style.height = `${parentCard.offsetHeight}px`;
+                    card.style.width = '90%';
+                    if (isCurrent) {
+                        card.classList.add('active');
+                        card.style.transform = 'translateX(-50%) scale(1)';
+                        card.style.opacity = '1';
+                        card.style.zIndex = '30';
+                    } else {
+                        card.style.transform = 'translateX(-50%) scale(0.8)';
+                        card.style.opacity = '0';
+                        card.style.pointerEvents = 'none';
                     }
-                });
-            };
-
-            document.querySelectorAll('.testimonial-content').forEach(testimonial => {
-                const textElement = testimonial.querySelector('.testimonial-text');
-                const fullText = textElement.textContent.trim();
-                const limit = 150;
-                if (fullText.length > limit) {
-                    textElement.dataset.fullText = fullText;
-                    const truncatedText = fullText.substring(0, limit) + '... ';
-                    textElement.innerHTML = '';
-                    const textNode = document.createTextNode(truncatedText);
-                    const button = document.createElement('button');
-                    button.textContent = 'Ler Mais';
-                    button.className = 'text-accent-color font-bold hover:underline inline-block ml-1';
-                    button.onclick = (e) => { e.stopPropagation(); toggleReadMore(button); };
-                    textElement.appendChild(textNode);
-                    textElement.appendChild(button);
                 }
             });
-
-            createIndicators();
-            updateCarousel();
-            window.addEventListener('resize', updateCarousel);
-            prevBtn.addEventListener('click', () => { currentIndex = (currentIndex - 1 + carouselCards.length) % carouselCards.length; updateCarousel(); });
-            nextBtn.addEventListener('click', () => { currentIndex = (currentIndex + 1) % carouselCards.length; updateCarousel(); });
-            carouselContainer.addEventListener('touchstart', e => { touchstartX = e.changedTouches[0].screenX; });
-            carouselContainer.addEventListener('touchend', e => { touchendX = e.changedTouches[0].screenX; handleSwipe(); });
+            
+            const activeCard = document.querySelector('.carousel-card.active');
+            if (activeCard) {
+                requestAnimationFrame(() => {
+                    carouselContainer.style.height = `${activeCard.offsetHeight}px`;
+                });
+            }
+            updateIndicators();
         }
 
-        // ===================================================================
-        // CONTROLE DO FAQ (ACCORDION)
-        // ===================================================================
-        const faqToggles = document.querySelectorAll('.faq-toggle');
-        if (faqToggles.length > 0) {
-            faqToggles.forEach(toggle => {
-                toggle.addEventListener('click', function() {
-                    const content = this.nextElementSibling;
-                    const icon = this.querySelector('.faq-icon');
-                    content.classList.toggle('hidden');
-                    icon.innerHTML = content.classList.contains('hidden') ? '+' : '−';
+        function handleSwipe() {
+            if (touchendX < touchstartX - 50) currentIndex = (currentIndex + 1) % carouselCards.length;
+            if (touchendX > touchstartX + 50) currentIndex = (currentIndex - 1 + carouselCards.length) % carouselCards.length;
+            updateCarousel();
+        }
+
+        function createIndicators() {
+            if (!indicatorsContainer) return;
+            indicatorsContainer.innerHTML = '';
+            carouselCards.forEach((_, index) => {
+                const indicator = document.createElement('div');
+                indicator.classList.add('w-2', 'h-2', 'rounded-full', 'mx-1', 'cursor-pointer', 'bg-gray-400', 'transition-all', 'duration-300');
+                if (index === currentIndex) indicator.classList.add('!bg-primary-dark', 'w-3', 'h-3');
+                indicator.addEventListener('click', () => {
+                    currentIndex = index;
+                    updateCarousel();
                 });
+                indicatorsContainer.appendChild(indicator);
             });
         }
         
-        // ===================================================================
-        // LÓGICA DO CALENDÁRIO E AGENDAMENTO
-        // ===================================================================
-        const calendarContainer = document.getElementById('calendar-container');
-        if (calendarContainer) {
-            let selectedDate = null;
-            let selectedTime = null;
-            const horariosDisponiveis = document.getElementById('horarios-disponiveis');
-            const formularioAgendamento = document.getElementById('formulario-agendamento');
-
-         new Calendar(calendarContainer, {
-                language: 'pt',
-                minDate: new Date(),
-                
-                // --- LINHAS IMPORTANTES ADICIONADAS AQUI ---
-                displayMonthsPerRow: 2, // Exibe 2 meses por linha
-                numberofMonths: 2,      // Exibe um total de 2 meses
-                // ---------------------------------------------
-                
-                disabledWeekDays: [0, 2, 3, 4, 6], // Desabilita Dom, Ter, Qua, Qui, Sab
-                clickDay: function(e) {
-                    const date = e.date;  
-                    selectedDate = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
-                    fetchAvailableSlots(selectedDate);
+        function updateIndicators() {
+            if (!indicatorsContainer) return;
+            Array.from(indicatorsContainer.children).forEach((indicator, index) => {
+                indicator.classList.remove('!bg-primary-dark', 'w-3', 'h-3');
+                indicator.classList.add('bg-gray-400', 'w-2', 'h-2');
+                if (index === currentIndex) {
+                    indicator.classList.add('!bg-primary-dark', 'w-3', 'h-3');
                 }
             });
+        }
 
-            async function fetchAvailableSlots(date) {
-                horariosDisponiveis.innerHTML = '<p class="text-gray-300">Buscando horários...</p>';
-                formularioAgendamento.classList.add('hidden');
-                try {
-                    const response = await fetch(`/.netlify/functions/get-available-slots?date=${date}`);
-                    if (!response.ok) { throw new Error('Falha na resposta da rede'); }
-                    const data = await response.json();
-                    if (data.slots && data.slots.length > 0) {
-                        displaySlots(data.slots);
-                    } else {
-                        horariosDisponiveis.innerHTML = '<p class="text-gray-400">Nenhum horário disponível para esta data.</p>';
-                    }
-                } catch (error) {
-                    console.error('Erro ao buscar horários:', error);
-                    horariosDisponiveis.innerHTML = '<p class="text-red-400">Erro ao carregar horários. Tente novamente.</p>';
-                }
+        const toggleReadMore = (button) => {
+            const textElement = button.closest('.testimonial-text');
+            const fullText = textElement.dataset.fullText;
+            const parentCard = button.closest('.carousel-card');
+            const limit = 150;
+
+            if (button.textContent === 'Ler Mais') {
+                textElement.innerHTML = fullText;
+                const newButton = document.createElement('button');
+                newButton.textContent = 'Ver Menos';
+                newButton.className = 'text-accent-color font-bold hover:underline inline-block ml-1';
+                newButton.onclick = (e) => { e.stopPropagation(); toggleReadMore(newButton); };
+                textElement.appendChild(newButton);
+            } else {
+                const truncatedText = fullText.substring(0, limit) + '... ';
+                textElement.innerHTML = truncatedText;
+                const newButton = document.createElement('button');
+                newButton.textContent = 'Ler Mais';
+                newButton.className = 'text-accent-color font-bold hover:underline inline-block ml-1';
+                newButton.onclick = (e) => { e.stopPropagation(); toggleReadMore(newButton); };
+                textElement.appendChild(newButton);
             }
-
-            function displaySlots(slots) {
-                horariosDisponiveis.innerHTML = '';
-                slots.forEach(time => {
-                    const slotElement = document.createElement('div');
-                    slotElement.className = 'time-slot';
-                    slotElement.textContent = time;
-                    slotElement.dataset.time = time;
-                    horariosDisponiveis.appendChild(slotElement);
-                });
-            }
-
-            horariosDisponiveis.addEventListener('click', (event) => {
-                if (event.target.classList.contains('time-slot')) {
-                    document.querySelectorAll('.time-slot.selected').forEach(el => el.classList.remove('selected'));
-                    const slot = event.target;
-                    slot.classList.add('selected');
-                    selectedTime = slot.dataset.time;
-                    formularioAgendamento.classList.remove('hidden');
+            
+            requestAnimationFrame(() => {
+                if(parentCard.classList.contains('active')) {
+                   carouselContainer.style.height = `${parentCard.offsetHeight}px`;
                 }
             });
+        };
 
-            const botaoAgendar = document.getElementById('botao-agendar');
-            if (botaoAgendar) {
-                botaoAgendar.addEventListener('click', async () => {
-                    const patientName = document.getElementById('nome-paciente').value;
-                    const patientBirthdate = document.getElementById('nascimento-paciente').value;
-                    
-                    if (!selectedDate || !selectedTime || !patientName || !patientBirthdate) {
-                        alert('Por favor, preencha todos os campos e selecione data e horário.');
-                        return;
-                    }
+        document.querySelectorAll('.testimonial-content').forEach(testimonial => {
+            const textElement = testimonial.querySelector('.testimonial-text');
+            const fullText = textElement.textContent.trim();
+            const limit = 150;
+            if (fullText.length > limit) {
+                textElement.dataset.fullText = fullText;
+                const truncatedText = fullText.substring(0, limit) + '... ';
+                textElement.innerHTML = '';
+                const textNode = document.createTextNode(truncatedText);
+                const button = document.createElement('button');
+                button.textContent = 'Ler Mais';
+                button.className = 'text-accent-color font-bold hover:underline inline-block ml-1';
+                button.onclick = (e) => { e.stopPropagation(); toggleReadMore(button); };
+                textElement.appendChild(textNode);
+                textElement.appendChild(button);
+            }
+        });
 
-                    botaoAgendar.disabled = true;
-                    botaoAgendar.textContent = 'Agendando...';
+        createIndicators();
+        updateCarousel();
+        window.addEventListener('resize', updateCarousel);
+        prevBtn.addEventListener('click', () => { currentIndex = (currentIndex - 1 + carouselCards.length) % carouselCards.length; updateCarousel(); });
+        nextBtn.addEventListener('click', () => { currentIndex = (currentIndex + 1) % carouselCards.length; updateCarousel(); });
+        carouselContainer.addEventListener('touchstart', e => { touchstartX = e.changedTouches[0].screenX; });
+        carouselContainer.addEventListener('touchend', e => { touchendX = e.changedTouches[0].screenX; handleSwipe(); });
+    }
 
-                    try {
-                        const response = await fetch('/.netlify/functions/create-appointment', {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify({
-                                date: selectedDate,
-                                time: selectedTime,
-                                patientName: patientName,
-                                patientBirthdate: patientBirthdate,
-                            }),
-                        });
+    // ===================================================================
+    // CONTROLE DO FAQ (ACCORDION)
+    // ===================================================================
+    const faqToggles = document.querySelectorAll('.faq-toggle');
+    if (faqToggles.length > 0) {
+        faqToggles.forEach(toggle => {
+            toggle.addEventListener('click', function() {
+                const content = this.nextElementSibling;
+                const icon = this.querySelector('.faq-icon');
+                content.classList.toggle('hidden');
+                icon.innerHTML = content.classList.contains('hidden') ? '+' : '−';
+            });
+        });
+    }
+    
+    // ===================================================================
+    // LÓGICA DO CALENDÁRIO E AGENDAMENTO
+    // ===================================================================
+    const calendarContainer = document.getElementById('calendar-container');
+    if (calendarContainer) {
+        let selectedDate = null;
+        let selectedTime = null;
+        const horariosDisponiveis = document.getElementById('horarios-disponiveis');
+        const formularioAgendamento = document.getElementById('formulario-agendamento');
 
-                        const result = await response.json();
-                        if (!response.ok) { throw new Error(result.error || 'Ocorreu um erro.'); }
+        new Calendar(calendarContainer, {
+            language: 'pt',
+            minDate: new Date(),
+            displayMonthsPerRow: 2,
+            numberofMonths: 2,
+            disabledWeekDays: [0, 2, 3, 4, 6],
+            clickDay: function(e) {
+                const date = e.date;
+                selectedDate = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
+                fetchAvailableSlots(selectedDate);
+            }
+        });
 
-                        document.getElementById('agendamento').innerHTML = `
-                            <div class="text-center p-8 bg-green-900/50 text-white rounded-lg border border-green-400">
-                                <h3 class="text-2xl font-bold">Obrigado!</h3>
-                                <p class="mt-2 text-lg">Seu pré-agendamento para ${selectedDate.split('-').reverse().join('/')} às ${selectedTime} foi realizado com sucesso.</p>
-                                <p class="mt-4 text-sm">Em breve, você receberá uma confirmação via WhatsApp.</p>
-                            </div>
-                        `;
-
-                    } catch (error) {
-                        console.error('Erro no agendamento:', error);
-                        alert(`Não foi possível confirmar o agendamento. Detalhe: ${error.message}`);
-                        botaoAgendar.disabled = false;
-                        botaoAgendar.textContent = 'Confirmar Agendamento';
-                    }
-                });
+        async function fetchAvailableSlots(date) {
+            horariosDisponiveis.innerHTML = '<p class="text-gray-300">Buscando horários...</p>';
+            formularioAgendamento.classList.add('hidden');
+            try {
+                const response = await fetch(`/.netlify/functions/get-available-slots?date=${date}`);
+                if (!response.ok) { throw new Error('Falha na resposta da rede'); }
+                const data = await response.json();
+                if (data.slots && data.slots.length > 0) {
+                    displaySlots(data.slots);
+                } else {
+                    horariosDisponiveis.innerHTML = '<p class="text-gray-400">Nenhum horário disponível para esta data.</p>';
+                }
+            } catch (error) {
+                console.error('Erro ao buscar horários:', error);
+                horariosDisponiveis.innerHTML = '<p class="text-red-400">Erro ao carregar horários. Tente novamente.</p>';
             }
         }
 
-    });
-    </script>
+        function displaySlots(slots) {
+            horariosDisponiveis.innerHTML = '';
+            slots.forEach(time => {
+                const slotElement = document.createElement('div');
+                slotElement.className = 'time-slot';
+                slotElement.textContent = time;
+                slotElement.dataset.time = time;
+                horariosDisponiveis.appendChild(slotElement);
+            });
+        }
+
+        horariosDisponiveis.addEventListener('click', (event) => {
+            if (event.target.classList.contains('time-slot')) {
+                document.querySelectorAll('.time-slot.selected').forEach(el => el.classList.remove('selected'));
+                const slot = event.target;
+                slot.classList.add('selected');
+                selectedTime = slot.dataset.time;
+                formularioAgendamento.classList.remove('hidden');
+            }
+        });
+
+        const botaoAgendar = document.getElementById('botao-agendar');
+        if (botaoAgendar) {
+            botaoAgendar.addEventListener('click', async () => {
+                const patientName = document.getElementById('nome-paciente').value;
+                const patientBirthdate = document.getElementById('nascimento-paciente').value;
+                const patientWhatsapp = document.getElementById('whatsapp-paciente').value;
+
+                if (!selectedDate || !selectedTime || !patientName || !patientBirthdate || !patientWhatsapp) {
+                    alert('Por favor, preencha todos os campos e selecione data e horário.');
+                    return;
+                }
+                botaoAgendar.disabled = true;
+                botaoAgendar.textContent = 'Agendando...';
+                try {
+                    const response = await fetch('/.netlify/functions/create-appointment', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            date: selectedDate,
+                            time: selectedTime,
+                            patientName: patientName,
+                            patientBirthdate: patientBirthdate,
+                            patientWhatsapp: patientWhatsapp,
+                        }),
+                    });
+                    const result = await response.json();
+                    if (!response.ok) { throw new Error(result.error || 'Ocorreu um erro.'); }
+                    document.getElementById('agendamento').innerHTML = `
+                        <div class="text-center p-8 bg-green-900/50 text-white rounded-lg border border-green-400">
+                            <h3 class="text-2xl font-bold">Obrigado!</h3>
+                            <p class="mt-2 text-lg">Seu pré-agendamento para ${selectedDate.split('-').reverse().join('/')} às ${selectedTime} foi realizado com sucesso.</p>
+                            <p class="mt-4 text-sm">Em breve, você receberá uma confirmação via WhatsApp.</p>
+                        </div>
+                    `;
+                } catch (error) {
+                    console.error('Erro no agendamento:', error);
+                    alert(`Não foi possível confirmar o agendamento. Detalhe: ${error.message}`);
+                    botaoAgendar.disabled = false;
+                    botaoAgendar.textContent = 'Confirmar Agendamento';
+                }
+            });
+        }
+    }
+});
+</script>
 </body>
 </html>
