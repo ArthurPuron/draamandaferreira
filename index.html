@@ -1042,19 +1042,20 @@ document.addEventListener('DOMContentLoaded', function () {
         const formularioAgendamento = document.getElementById('formulario-agendamento');
 
         // Inicializa o calendário
-       // CÓDIGO NOVO
+// CÓDIGO CORRIGIDO COM O LIMITE DE MESES
 new Calendar(calendarContainer, {
     language: 'pt',
     minDate: new Date(),
-    displayMonthsPerRow: 2, // Mostra 2 meses por linha
+    
+    // --- LINHAS IMPORTANTES ADICIONADAS AQUI ---
+    displayMonthsPerRow: 2, // Exibe 2 meses por linha
+    numberofMonths: 2,      // Exibe um total de 2 meses
+    // ---------------------------------------------
+    
     disabledWeekDays: [0, 2, 3, 4, 6], // Desabilita Dom, Ter, Qua, Qui, Sab
-    numberofMonths: 2,      // Mostra um total de 2 meses
     clickDay: function(e) {
-        // "e.date" contém a data clicada
         const date = e.date; 
-        // Formata a data como YYYY-MM-DD
         selectedDate = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
-        // Chama sua função para buscar os horários
         fetchAvailableSlots(selectedDate);
     }
 });
