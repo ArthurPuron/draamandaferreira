@@ -71,6 +71,8 @@
         /* ESTILOS DE CORREÇÃO PARA O NOVO CALENDÁRIO (JS-YEAR-CALENDAR) */
         .calendar-container {
             color: #06031b; /* Cor 'primary-dark' do seu site */
+         max-width: 600px; /* <-- ADICIONE ESTA LINHA */
+         margin: auto;     /* <-- ADICIONE ESTA LINHA PARA CENTRALIZAR */
         }
         .calendar-header {
             text-align: center;
@@ -919,19 +921,24 @@
         const horariosDisponiveis = document.getElementById('horarios-disponiveis');
         const formularioAgendamento = document.getElementById('formulario-agendamento');
 
-        new Calendar(calendarContainer, {
-            language: 'pt',
-            minDate: new Date(),
-            displayMonthsPerRow: 2,
-            numberofMonths: 2,
-            disabledWeekDays: [0, 2, 3, 4, 6],
-            clickDay: function(e) {
-                const date = e.date;
-                selectedDate = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
-                fetchAvailableSlots(selectedDate);
-            }
-        });
-
+       new Calendar(calendarContainer, {
+    language: 'pt',
+    minDate: new Date(),
+    // Exibe os 12 meses do ano atual em formato de grade
+    style: 'background', 
+    // Garante que a visualização inicial seja a grade de meses
+    defaultView: 'months', 
+    // Inicia no ano atual
+    startYear: new Date().getFullYear(),
+    // Configura 2 meses por linha
+    displayMonthsPerRow: 2, 
+    disabledWeekDays: [0, 2, 3, 4, 6],
+    clickDay: function(e) {
+        const date = e.date;
+        selectedDate = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
+        fetchAvailableSlots(selectedDate);
+    }
+});
         async function fetchAvailableSlots(date) {
             horariosDisponiveis.innerHTML = '<p class="text-gray-300">Buscando horários...</p>';
             formularioAgendamento.classList.add('hidden');
