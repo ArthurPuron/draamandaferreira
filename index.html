@@ -654,21 +654,25 @@ Se você notar sangramento ao escovar ou passar fio dental, inchaço, vermelhid�
                 </div>
 
                 <div id="formulario-agendamento" class="hidden mt-8">
-                    <h3 class="text-2xl font-bold mb-4 text-center">3. Preencha seus dados</h3>
-                    <div class="space-y-4">
-                        <div>
-                            <label for="nome-paciente" class="block text-sm font-medium text-gray-300">Nome Completo</label>
-                            <input type="text" id="nome-paciente" class="mt-1 block w-full bg-gray-800 border-gray-600 rounded-md shadow-sm py-2 px-3 text-white focus:outline-none focus:ring-accent-color focus:border-accent-color" placeholder="Seu nome completo">
-                        </div>
-                        <div>
-                            <label for="nascimento-paciente" class="block text-sm font-medium text-gray-300">Data de Nascimento</label>
-                            <input type="date" id="nascimento-paciente" class="mt-1 block w-full bg-gray-800 border-gray-600 rounded-md shadow-sm py-2 px-3 text-white focus:outline-none focus:ring-accent-color focus:border-accent-color">
-                        </div>
-                        <button id="botao-agendar" class="w-full bg-accent-color text-text-light font-bold text-lg px-8 py-3 rounded-lg shadow-lg hover:bg-accent-hover transition-transform duration-300 transform hover:scale-105">
-                            Confirmar Agendamento
-                        </button>
-                    </div>
-                </div>
+    <h3 class="text-2xl font-bold mb-4 text-center">3. Preencha seus dados</h3>
+    <div class="space-y-4">
+        <div>
+            <label for="nome-paciente" class="block text-sm font-medium text-gray-300">Nome Completo</label>
+            <input type="text" id="nome-paciente" class="mt-1 block w-full bg-gray-800 border-gray-600 rounded-md shadow-sm py-2 px-3 text-white focus:outline-none focus:ring-accent-color focus:border-accent-color" placeholder="Seu nome completo" required>
+        </div>
+        <div>
+            <label for="nascimento-paciente" class="block text-sm font-medium text-gray-300">Data de Nascimento</label>
+            <input type="date" id="nascimento-paciente" class="mt-1 block w-full bg-gray-800 border-gray-600 rounded-md shadow-sm py-2 px-3 text-white focus:outline-none focus:ring-accent-color focus:border-accent-color" required>
+        </div>
+        <div>
+            <label for="whatsapp-paciente" class="block text-sm font-medium text-gray-300">WhatsApp</label>
+            <input type="tel" id="whatsapp-paciente" class="mt-1 block w-full bg-gray-800 border-gray-600 rounded-md shadow-sm py-2 px-3 text-white focus:outline-none focus:ring-accent-color focus:border-accent-color" placeholder="(XX) XXXXX-XXXX" required>
+        </div>
+        <button id="botao-agendar" class="w-full bg-accent-color text-text-light font-bold text-lg px-8 py-3 rounded-lg shadow-lg hover:bg-accent-hover transition-transform duration-300 transform hover:scale-105">
+            Confirmar Agendamento
+        </button>
+    </div>
+</div>
             </div>
         </div>
     </div>
@@ -1038,15 +1042,22 @@ document.addEventListener('DOMContentLoaded', function () {
         const formularioAgendamento = document.getElementById('formulario-agendamento');
 
         // Inicializa o calendário
-        new Calendar(calendarContainer, {
-            language: 'pt',
-            minDate: new Date(),
-            clickDay: function(e) {
-                const date = e.date;
-                selectedDate = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
-                fetchAvailableSlots(selectedDate);
-            }
-        });
+       // CÓDIGO NOVO
+new Calendar(calendarContainer, {
+    language: 'pt',
+    minDate: new Date(),
+    displayMonthsPerRow: 2, // Mostra 2 meses por linha
+    disabledWeekDays: [0, 2, 3, 4, 6], // Desabilita Dom, Ter, Qua, Qui, Sab
+    numberofMonths: 2,      // Mostra um total de 2 meses
+    clickDay: function(e) {
+        // "e.date" contém a data clicada
+        const date = e.date; 
+        // Formata a data como YYYY-MM-DD
+        selectedDate = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
+        // Chama sua função para buscar os horários
+        fetchAvailableSlots(selectedDate);
+    }
+});
 
         async function fetchAvailableSlots(date) {
             horariosDisponiveis.innerHTML = '<p class="text-gray-300">Buscando horários...</p>';
@@ -1121,7 +1132,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     document.getElementById('agendamento').innerHTML = `
                         <div class="text-center p-8 bg-green-900/50 text-white rounded-lg border border-green-400">
                             <h3 class="text-2xl font-bold">Obrigado!</h3>
-                            <p class="mt-2 text-lg">Seu agendamento para ${selectedDate.split('-').reverse().join('/')} às ${selectedTime} foi confirmado com sucesso.</p>
+                          <p class="mt-2 text-lg">Seu pré-agendamento para ${selectedDate.split('-').reverse().join('/')} às ${selectedTime} foi realizado com sucesso.</p>
                             <p class="mt-4 text-sm">Em breve, você receberá uma confirmação via WhatsApp.</p>
                         </div>
                     `;
