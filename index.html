@@ -986,16 +986,18 @@
             const horariosDisponiveis = document.getElementById('horarios-disponiveis');
             const formularioAgendamento = document.getElementById('formulario-agendamento');
 
-            new Calendar(calendarContainer, {
+         new Calendar(calendarContainer, {
                 language: 'pt',
                 minDate: new Date(),
+                
+                // --- LINHAS IMPORTANTES ADICIONADAS AQUI ---
                 displayMonthsPerRow: 2, // Exibe 2 meses por linha
                 numberofMonths: 2,      // Exibe um total de 2 meses
-                displayMonthsPerRow: 2,
-                numberofMonths: 2,
-                disabledWeekDays: [0, 2, 3, 4, 6],
+                // ---------------------------------------------
+                
+                disabledWeekDays: [0, 2, 3, 4, 6], // Desabilita Dom, Ter, Qua, Qui, Sab
                 clickDay: function(e) {
-                    const date = e.date;
+                    const date = e.date;  
                     selectedDate = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
                     fetchAvailableSlots(selectedDate);
                 }
