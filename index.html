@@ -63,7 +63,48 @@
 .texto-justificado {
   text-align: justify;
 }
+/* ========================================================== */
+/* ESTILOS DE CORREÇÃO PARA O NOVO CALENDÁRIO (JS-YEAR-CALENDAR) */
+/* ========================================================== */
 
+/* Força a cor do texto dentro do calendário para ser escura e legível */
+.calendar-container {
+    color: #06031b; /* Cor 'primary-dark' do seu site */
+}
+
+/* Estiliza o cabeçalho (onde fica o nome do mês e ano) */
+.calendar-header {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.calendar-header span {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #122947; /* Cor 'accent-color' do seu site */
+}
+
+/* Garante que os dias da semana e os números das datas sejam visíveis */
+.calendar .calendar-header table th,
+.calendar table.month th,
+.calendar table.month td {
+    color: #333; /* Cor escura para o texto */
+    opacity: 1; /* Garante que não fiquem transparentes */
+}
+
+/* Destaca o dia selecionado pelo usuário */
+.calendar table.month td.day.selected {
+    background-color: #122947; /* Cor 'accent-color' */
+    color: #f6f1ef; /* Cor 'text-light' */
+    border-radius: 50%;
+    font-weight: bold;
+}
+
+/* Destaca o dia atual */
+ .calendar table.month td.day.today {
+    background-color: #d1d5db; /* Um cinza claro para diferenciar */
+    border-radius: 50%;
+}
 /* Estilos para os botões de horário no agendamento */
 .time-slot {
   display: inline-block;
