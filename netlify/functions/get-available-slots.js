@@ -1,98 +1,80 @@
+// CÓDIGO NOVO E COMPLETO PARA get-available-slots.js
 const { google } = require("googleapis");
 
-// Configurações da consulta - VOCÊ PODE AJUSTAR AQUI SE PRECISAR
-const HORARIO_INICIO = 8; // 8:00
-const HORARIO_FIM = 18; // 18:00 (o último horário será às 17:00)
-const DURACAO_CONSULTA_MINUTOS = 60; // Duração de cada consulta
+// Lista fixa de horários permitidos
+const HORARIOS_PERMITIDOS = ['10:10', '11:40', '13:00', '14:30', '15:45'];
+const TIMEZONE = "America/Sao_Paulo";
 
-exports.handler = async (event, context) => {
-  // Pega a data enviada pelo site (ex: 2025-08-23)
+exports.handler = async (event) => {
   const { date } = event.queryStringParameters;
 
   if (!date) {
-    return {
-      statusCode: 400,
-      body: JSON.stringify({ error: "A data é obrigatória." }),
-    };
+    return { statusCode: 400, body: JSON.stringify({ error: "A data é obrigatória." }) };
   }
 
   try {
-    // Autentica com as credenciais seguras que guardamos na Netlify
     const auth = new google.auth.GoogleAuth({
       credentials: {
         client_email: process.env.GOOGLE_CLIENT_EMAIL,
-        private_key: process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, "\n"), // Formata a chave corretamente
+        private_key: process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, "\n"),
       },
       scopes: ["https://www.googleapis.com/auth/calendar.readonly"],
     });
 
     const calendar = google.calendar({ version: "v3", auth });
 
-    // Define o período de um dia inteiro para a consulta
-    const startOfDay = new Date(date);
-    startOfDay.setUTCHours(0, 0, 0, 0);
+    const startOfDay = new Date(`${date}T00:00:00.000-03:00`);
+    const endOfDay = new Date(`${date}T23:59:59.999-03:00`);
 
-    const endOfDay = new Date(date);
-    endOfDay.setUTCHours(23, 59, 59, 999);
-
-    // Pede ao Google os eventos (horários ocupados) para aquele dia
     const response = await calendar.events.list({
       calendarId: process.env.GOOGLE_CALENDAR_ID,
       timeMin: startOfDay.toISOString(),
       timeMax: endOfDay.toISOString(),
       singleEvents: true,
       orderBy: "startTime",
+      timeZone: TIMEZONE,
     });
 
-    const busySlots = response.data.items.map(event => ({
+    const busySlots = response.data.items.map((event) => ({
       start: new Date(event.start.dateTime),
       end: new Date(event.end.dateTime),
     }));
 
-    // Lógica para encontrar os horários livres
     const availableSlots = [];
-    const slotDate = new Date(date);
+    const now = new Date();
 
-    for (let hour = HORARIO_INICIO; hour < HORARIO_FIM; hour++) {
-      for (let minute = 0; minute < 60; minute += DURACAO_CONSULTA_MINUTOS) {
-        const slotStart = new Date(slotDate);
-        slotStart.setUTCHours(hour, minute, 0, 0);
+    for (const time of HORARIOS_PERMITIDOS) {
+      const [hour, minute] = time.split(':');
+      const slotStart = new Date(`${date}T${hour}:${minute}:00.000-03:00`);
 
-        const slotEnd = new Date(slotStart);
-        slotEnd.setMinutes(slotStart.getMinutes() + DURACAO_CONSULTA_MINUTOS);
+      if (slotStart < now) {
+        continue;
+      }
 
-        // Verifica se o slot está no futuro
-        if (slotStart < new Date()) {
-          continue;
+      // Vamos considerar um evento como ocupado se ele se sobrepuser por 1 minuto que seja.
+      const slotEnd = new Date(slotStart.getTime() + 1 * 60000);
+
+      let isBusy = false;
+      for (const busy of busySlots) {
+        if (slotStart < busy.end && slotEnd > busy.start) {
+          isBusy = true;
+          break;
         }
+      }
 
-        // Verifica se o slot está ocupado
-        let isBusy = false;
-        for (const busy of busySlots) {
-          if (slotStart < busy.end && slotEnd > busy.start) {
-            isBusy = true;
-            break;
-          }
-        }
-
-        if (!isBusy) {
-          const timeString = slotStart.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit', timeZone: 'America/Sao_Paulo' });
-          availableSlots.push(timeString);
-        }
+      if (!isBusy) {
+        availableSlots.push(time);
       }
     }
 
-    // Retorna a lista de horários livres para o site
     return {
       statusCode: 200,
+      headers: { "Access-Control-Allow-Origin": "*" },
       body: JSON.stringify({ slots: availableSlots }),
     };
 
   } catch (error) {
     console.error("Erro ao acessar a API do Google Calendar:", error);
-    return {
-      statusCode: 500,
-      body: JSON.stringify({ error: "Não foi possível buscar os horários." }),
-    };
+    return { statusCode: 500, body: JSON.stringify({ error: "Não foi possível buscar os horários." }) };
   }
 };
