@@ -741,6 +741,7 @@
     </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.3.4/dist/js/datepicker-full.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.3.4/dist/locales/pt-BR.js"></script>
     <script>
     document.addEventListener('DOMContentLoaded', function () {
 
@@ -971,32 +972,23 @@
 const calendarElement = document.getElementById('calendar-container');
 
 // CÓDIGO NOVO E FINAL
-// Primeiro, definimos nossa tradução customizada para os dias da semana
-const ptBR_custom = {
-    days: ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"],
-    daysShort: ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb"],
-    daysMin: ["D", "S", "T", "Q", "Q", "S", "S"], // <-- SUAS INICIAIS AQUI
-    months: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"],
-    monthsShort: ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"],
-    today: "Hoje",
-    clear: "Limpar",
-    format: "dd/mm/yyyy",
-    titleFormat: "MM yyyy",
-    weekStart: 0
-};
-
-// Agora, inicializamos o Datepicker com as novas opções
+// CÓDIGO NOVO E FINAL DA INICIALIZAÇÃO
 const datepicker = new Datepicker(calendarElement, {
-    language: 'pt-BR',
-    // Usamos nossa tradução customizada
-    locale: ptBR_custom,
+    language: 'pt-BR', // Agora ele vai usar o idioma que carregamos
     todayHighlight: true,
     monthsToShow: 1,
     showDaysOfWeek: true,
-    // Opção para esconder os dias de outros meses
-    showDaysInNextAndPreviousMonths: false,
+    showDaysInNextAndPreviousMonths: false, // <-- AGORA VAI FUNCIONAR
     daysOfWeekDisabled: [0, 2, 3, 4, 6]
 });
+
+// Sobrescreve as iniciais para ficarem com uma letra só
+datepicker.setOptions({
+    locale: {
+        daysMin: ["D", "S", "T", "Q", "Q", "S", "S"]
+    }
+});
+
 
 // Para o calendário inline, o evento é 'changeDate' no próprio elemento
 calendarElement.addEventListener('changeDate', function (e) {
