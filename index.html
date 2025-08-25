@@ -741,7 +741,6 @@
     </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.3.4/dist/js/datepicker-full.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.3.4/dist/locales/pt-BR.js"></script>
     <script>
     document.addEventListener('DOMContentLoaded', function () {
 
@@ -960,34 +959,110 @@
     // ===================================================================
     // LÓGICA DO CALENDÁRIO E AGENDAMENTO
     // ===================================================================
-    const calendarContainer = document.getElementById('calendar-container');
-    if (calendarContainer) {
-        let selectedDate = null;
-        let selectedTime = null;
-        const horariosDisponiveis = document.getElementById('horarios-disponiveis');
-        const formularioAgendamento = document.getElementById('formulario-agendamento');
+    // COLE ESTE BLOCO NO LUGAR DO ANTIGO
+// ===================================================================
+// LÓGICA DO CALENDÁRIO E AGENDAMENTO
+// ===================================================================
+const calendarContainer = document.getElementById('calendar-container');
+if (calendarContainer) {
+    let selectedDate = null;
+    let selectedTime = null;
+    const horariosDisponiveis = document.getElementById('horarios-disponiveis');
+    const formularioAgendamento = document.getElementById('formulario-agendamento');
 
-       // Calendario
-// CÓDIGO NOVO E FINAL
-const calendarElement = document.getElementById('calendar-container');
+    const datepicker = new Datepicker(calendarContainer, {
+        language: 'en', // Usaremos inglês por enquanto para garantir a estabilidade
+        todayHighlight: true,
+        monthsToShow: 1, // Exibe apenas 1 mês
+        showDaysOfWeek: true,
+        showDaysInNextAndPreviousMonths: false, // Esconde os dias de outros meses
+        daysOfWeekDisabled: [0, 2, 3, 4, 6] // Desabilita Dom, Ter, Qua, Qui, Sab
+    });
 
-// CÓDIGO NOVO E FINAL
-// CÓDIGO NOVO E FINAL DA INICIALIZAÇÃO
-const datepicker = new Datepicker(calendarElement, {
-    language: 'pt-BR', // Agora ele vai usar o idioma que carregamos
-    todayHighlight: true,
-    monthsToShow: 1,
-    showDaysOfWeek: true,
-    showDaysInNextAndPreviousMonths: false, // <-- AGORA VAI FUNCIONAR
-    daysOfWeekDisabled: [0, 2, 3, 4, 6]
-});
+    calendarContainer.addEventListener('changeDate', function (e) {
+        const date = e.detail.date;
+        selectedDate = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
+        fetchAvailableSlots(selectedDate);
+    });
 
-// Sobrescreve as iniciais para ficarem com uma letra só
-datepicker.setOptions({
-    locale: {
-        daysMin: ["D", "S", "T", "Q", "Q", "S", "S"]
+    async function fetchAvailableSlots(date) {
+        horariosDisponiveis.innerHTML = '<p class="text-gray-300">Buscando horários...</p>';
+        formularioAgendamento.classList.add('hidden');
+        try {
+            const response = await fetch(`/.netlify/functions/get-available-slots?date=${date}`);
+            if (!response.ok) { throw new Error('Falha na resposta da rede'); }
+            const data = await response.json();
+            if (data.slots && data.slots.length > 0) {
+                displaySlots(data.slots);
+            } else {
+                horariosDisponiveis.innerHTML = '<p class="text-gray-400">Nenhum horário disponível para esta data.</p>';
+            }
+        } catch (error) {
+            console.error('Erro ao buscar horários:', error);
+            horariosDisponiveis.innerHTML = '<p class="text-red-400">Erro ao carregar horários. Tente novamente.</p>';
+        }
     }
-});
+
+    function displaySlots(slots) {
+        horariosDisponiveis.innerHTML = '';
+        slots.forEach(time => {
+            const slotElement = document.createElement('div');
+            slotElement.className = 'time-slot';
+            slotElement.textContent = time;
+            slotElement.dataset.time = time;
+            horariosDisponiveis.appendChild(slotElement);
+        });
+    }
+
+    horariosDisponiveis.addEventListener('click', (event) => {
+        if (event.target.classList.contains('time-slot')) {
+            document.querySelectorAll('.time-slot.selected').forEach(el => el.classList.remove('selected'));
+            const slot = event.target;
+            slot.classList.add('selected');
+            selectedTime = slot.dataset.time;
+            formularioAgendamento.classList.remove('hidden');
+        }
+    });
+
+    const botaoAgendar = document.getElementById('botao-agendar');
+    if (botaoAgendar) {
+        botaoAgendar.addEventListener('click', async () => {
+            const patientName = document.getElementById('nome-paciente').value;
+            const patientBirthdate = document.getElementById('nascimento-paciente').value;
+            const patientWhatsapp = document.getElementById('whatsapp-paciente').value;
+            if (!selectedDate || !selectedTime || !patientName || !patientBirthdate || !patientWhatsapp) {
+                alert('Por favor, preencha todos os campos e selecione data e horário.');
+                return;
+            }
+            botaoAgendar.disabled = true;
+            botaoAgendar.textContent = 'Agendando...';
+            try {
+                const response = await fetch('/.netlify/functions/create-appointment', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        date: selectedDate, time: selectedTime, patientName: patientName,
+                        patientBirthdate: patientBirthdate, patientWhatsapp: patientWhatsapp,
+                    }),
+                });
+                const result = await response.json();
+                if (!response.ok) { throw new Error(result.error || 'Ocorreu um erro.'); }
+                document.getElementById('agendamento').innerHTML = `
+                    <div class="text-center p-8 bg-green-900/50 text-white rounded-lg border border-green-400">
+                        <h3 class="text-2xl font-bold">Obrigado!</h3>
+                        <p class="mt-2 text-lg">Seu pré-agendamento para ${selectedDate.split('-').reverse().join('/')} às ${selectedTime} foi realizado com sucesso.</p>
+                        <p class="mt-4 text-sm">Em breve, você receberá uma confirmação via WhatsApp.</p>
+                    </div>
+                `;
+            } catch (error) {
+                console.error('Erro no agendamento:', error);
+                alert(`Não foi possível confirmar o agendamento. Detalhe: ${error.message}`);
+                botaoAgendar.disabled = false;
+                botaoAgendar.textContent = 'Confirmar Agendamento';
+            }
+        });
+    }
+}
 
 
 // Para o calendário inline, o evento é 'changeDate' no próprio elemento
