@@ -642,63 +642,55 @@
             </div>
         </section>
 
-        <section id="agendamento" class="py-20 md:py-32 bg-primary-dark text-text-light">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold">Agendamento Online</h2>
-                <p class="mt-2 text-gray-400">Escolha o melhor dia e horário para você.</p>
-            </div>
-
-            <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 md:gap-8 items-start">
-
-                <div class="p-4 rounded-lg">
-                    <h3 class="text-2xl font-bold mb-4 text-center">1. Escolha uma data</h3>
-                    <div id="calendar-container">
-                        </div>
-                </div>
-
-                <div class="p-4 rounded-lg mt-8 md:mt-0">
-                    <h3 class="text-2xl font-bold mb-4 text-center">2. Escolha um horário</h3>
-                    <div id="horarios-container" class="min-h-[200px]">
-                        <div id="horarios-disponiveis" class="text-center p-4 border-2 border-dashed border-gray-600 rounded-lg">
-                            <p class="text-gray-400">Selecione uma data no calendário para ver os horários disponíveis.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="formulario-agendamento" class="hidden p-4 rounded-lg bg-gray-900/50 border border-gray-700 mt-8 md:mt-0">
-                    <h3 class="text-2xl font-bold mb-4 text-center">3. Preencha seus dados</h3>
-                    <div class="space-y-4">
-                        <div>
-                            <label for="nome-paciente" class="block text-sm font-medium text-gray-300">Nome Completo</label>
-                            <input type="text" id="nome-paciente" class="mt-1 block w-full bg-gray-800 border-gray-600 rounded-md shadow-sm py-2 px-3 text-white focus:outline-none focus:ring-accent-color focus:border-accent-color" placeholder="Seu nome completo" required>
-                        </div>
-                        <div>
-                            <label for="nascimento-paciente" class="block text-sm font-medium text-gray-300">Data de Nascimento</label>
-                            <input type="date" id="nascimento-paciente" class="mt-1 block w-full bg-gray-800 border-gray-600 rounded-md shadow-sm py-2 px-3 text-white focus:outline-none focus:ring-accent-color focus:border-accent-color" required>
-                        </div>
-                        <div>
-                            <label for="whatsapp-paciente" class="block text-sm font-medium text-gray-300">WhatsApp</label>
-                            <input type="tel" id="whatsapp-paciente" class="mt-1 block w-full bg-gray-800 border-gray-600 rounded-md shadow-sm py-2 px-3 text-white focus:outline-none focus:ring-accent-color focus:border-accent-color" placeholder="(XX) XXXXX-XXXX" required>
-                        </div>
-                        <button id="botao-agendar" class="w-full bg-accent-color text-text-light font-bold text-lg px-8 py-3 rounded-lg shadow-lg hover:bg-accent-hover transition-transform duration-300 transform hover:scale-105">
-                            Confirmar Agendamento
-                        </button>
-                    </div>
-                </div>
-
-            </div>
+       <section id="agendamento" class="py-20 md:py-32 bg-primary-dark text-text-light">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold">Agendamento Online</h2>
+            <p class="mt-2 text-gray-400">Escolha o melhor dia e horário para você.</p>
         </div>
-    </section>
-    ```
 
-### O que foi alterado:
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 md:gap-8 items-start">
 
-1.  **Container Principal:** O `div` que envolve as colunas agora usa `grid grid-cols-1 md:grid-cols-3 md:gap-8`. Isso significa que em telas pequenas será uma coluna só (um embaixo do outro) e em telas médias ou grandes (`md:`), ele se transformará em uma grade de 3 colunas com um espaçamento (`gap-8`) entre elas.
-2.  **Aumento da Largura:** Mudei a classe `max-w-4xl` para `max-w-7xl` para dar mais espaço às três colunas na tela.
-3.  **Estrutura das Colunas:** Criei três `divs` separadas, uma para cada etapa do seu desenho. O mais importante é que o `div` da terceira coluna agora tem o `id="formulario-agendamento"` e a classe `hidden`.
+            <div class="w-full">
+                <h3 class="text-2xl font-bold mb-4 text-center">1. Escolha uma data</h3>
+                <div id="calendar-container" class="mx-auto">
+                    </div>
+            </div>
 
-Como o ID que o JavaScript usa para mostrar o formulário (`formulario-agendamento`) foi mantido, **toda a funcionalidade continuará exatamente a mesma**. Quando o usuário clicar em um horário, a terceira coluna aparecerá na direita, exatamente como no seu desenho.
+            <div class="w-full mt-8 md:mt-0">
+                <h3 class="text-2xl font-bold mb-4 text-center">2. Escolha um horário</h3>
+                <div id="horarios-container" class="min-h-[200px]">
+                    <div id="horarios-disponiveis" class="text-center p-4 rounded-xl bg-accent-color/10 border border-accent-color/20 min-h-[150px] flex items-center justify-center">
+                        <p class="text-gray-400">Selecione uma data para ver os horários.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="formulario-agendamento" class="hidden opacity-0 transition-opacity duration-500 ease-in-out w-full mt-8 md:mt-0 p-6 md:p-8 bg-accent-color/20 border border-accent-color/40 rounded-xl">
+                <h3 class="text-2xl font-bold mb-4 text-center">3. Preencha seus dados</h3>
+                <div class="space-y-4">
+                    <div>
+                        <label for="nome-paciente" class="block text-sm font-medium text-gray-300">Nome Completo</label>
+                        <input type="text" id="nome-paciente" class="mt-1 block w-full bg-gray-800 border-gray-600 rounded-md shadow-sm py-2 px-3 text-white focus:outline-none focus:ring-accent-color focus:border-accent-color" placeholder="Seu nome completo" required>
+                    </div>
+                    <div>
+                        <label for="nascimento-paciente" class="block text-sm font-medium text-gray-300">Data de Nascimento</label>
+                        <input type="date" id="nascimento-paciente" class="mt-1 block w-full bg-gray-800 border-gray-600 rounded-md shadow-sm py-2 px-3 text-white focus:outline-none focus:ring-accent-color focus:border-accent-color" required>
+                    </div>
+                    <div>
+                        <label for="whatsapp-paciente" class="block text-sm font-medium text-gray-300">WhatsApp</label>
+                        <input type="tel" id="whatsapp-paciente" class="mt-1 block w-full bg-gray-800 border-gray-600 rounded-md shadow-sm py-2 px-3 text-white focus:outline-none focus:ring-accent-color focus:border-accent-color" placeholder="(XX) XXXXX-XXXX" required>
+                    </div>
+                    <button id="botao-agendar" class="w-full bg-accent-color text-text-light font-bold text-lg px-8 py-3 rounded-lg shadow-lg hover:bg-accent-hover transition-transform duration-300 transform hover:scale-105">
+                        Confirmar Agendamento
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
 
         <section id="contato" class="py-20 md:py-32 bg-primary-light">
             <div class="container mx-auto px-6">
@@ -1044,15 +1036,20 @@ if (calendarContainer) {
         });
     }
 
-    horariosDisponiveis.addEventListener('click', (event) => {
-        if (event.target.classList.contains('time-slot')) {
-            document.querySelectorAll('.time-slot.selected').forEach(el => el.classList.remove('selected'));
-            const slot = event.target;
-            slot.classList.add('selected');
-            selectedTime = slot.dataset.time;
-            formularioAgendamento.classList.remove('hidden');
-        }
-    });
+horariosDisponiveis.addEventListener('click', (event) => {
+    if (event.target.classList.contains('time-slot')) {
+        document.querySelectorAll('.time-slot.selected').forEach(el => el.classList.remove('selected'));
+        const slot = event.target;
+        slot.classList.add('selected');
+        selectedTime = slot.dataset.time;
+        
+        // CÓDIGO NOVO PARA O FADE-IN
+        formularioAgendamento.classList.remove('hidden');
+        setTimeout(() => {
+            formularioAgendamento.classList.remove('opacity-0');
+        }, 10); // Um pequeno delay para o efeito funcionar
+    }
+});
 
     const botaoAgendar = document.getElementById('botao-agendar');
     if (botaoAgendar) {
