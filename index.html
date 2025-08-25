@@ -132,6 +132,19 @@
             background-color: #122947; /* Cor 'accent-color' */
             color: #f6f1ef; /* Cor 'text-light' */
         }
+/* Correção de cor para a visualização de DÉCADAS */
+.datepicker .decades .decade {
+    color: #06031b; /* Texto PRETO */
+    font-weight: 600;
+    border-radius: 8px;
+}
+.datepicker .decades .decade:hover {
+    background-color: #e2e8f0;
+}
+.datepicker .decades .decade.selected {
+    background-color: #122947; /* Cor 'accent-color' */
+    color: #f6f1ef; /* Cor 'text-light' */
+}
 
         /* Estilos para os botões de horário no agendamento */
         .time-slot {
@@ -957,13 +970,33 @@
 // CÓDIGO NOVO E FINAL
 const calendarElement = document.getElementById('calendar-container');
 
+// CÓDIGO NOVO E FINAL
+// Primeiro, definimos nossa tradução customizada para os dias da semana
+const ptBR_custom = {
+    days: ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"],
+    daysShort: ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb"],
+    daysMin: ["D", "S", "T", "Q", "Q", "S", "S"], // <-- SUAS INICIAIS AQUI
+    months: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"],
+    monthsShort: ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"],
+    today: "Hoje",
+    clear: "Limpar",
+    format: "dd/mm/yyyy",
+    titleFormat: "MM yyyy",
+    weekStart: 0
+};
+
+// Agora, inicializamos o Datepicker com as novas opções
 const datepicker = new Datepicker(calendarElement, {
     language: 'pt-BR',
+    // Usamos nossa tradução customizada
+    locale: ptBR_custom,
     todayHighlight: true,
     monthsToShow: 1,
     showDaysOfWeek: true,
+    // Opção para esconder os dias de outros meses
+    showDaysInNextAndPreviousMonths: false,
     daysOfWeekDisabled: [0, 2, 3, 4, 6]
-}); 
+});
 
 // Para o calendário inline, o evento é 'changeDate' no próprio elemento
 calendarElement.addEventListener('changeDate', function (e) {
