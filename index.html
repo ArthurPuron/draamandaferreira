@@ -67,77 +67,72 @@
             text-align: justify;
         }
         
-        /* ESTILOS PARA O NOVO CALENDÁRIO (VANILLA JS DATEPICKER) */
-/* CSS FINAL E CORRIGIDO PARA O CALENDÁRIO */
-.datepicker-picker {
-    background-color: #f6f1ef; /* Fundo do calendário */
-    border-radius: 8px;
-    border: none;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-.datepicker-header .datepicker-title,
-.datepicker-controls .button {
-    color: #122947; /* Cor 'accent-color' para o título do mês */
-    font-weight: bold;
-}
-/* Dias normais e disponíveis */
-.datepicker-main .days .day:not(.disabled):not(.selected) {
-    color: #06031b; /* Texto PRETO como você pediu */
-    font-weight: 600;
-}
-/* Dias indisponíveis (passados e desabilitados) */
-.datepicker-main .days .day.disabled, 
-.datepicker-main .days .day.prev, 
-.datepicker-main .days .day.next {
-    color: #b0b0b0; /* Texto CINZA como você pediu */
-    font-weight: 400;
-}
-/* Dia selecionado */
-.datepicker-main .days .day.selected, 
-.datepicker-main .days .day.selected:hover {
-    background-color: #122947; /* Fundo 'accent-color' */
-    color: #f6f1ef; /* Texto claro */
-    border-radius: 50%;
-}
-/* Dia de hoje */
-.datepicker-main .days .day.today {
-    background-color: #e2e8f0; /* Fundo cinza claro para o dia de hoje */
-    border-radius: 50%;
-}
-.datepicker-main .days .day.focused,
-.datepicker-main .days .day:hover {
-    background-color: #e2e8f0; /* Fundo cinza claro ao passar o mouse */
-    border-radius: 50%;
-}
-.datepicker-main .days .day.disabled {
-    color: #cccccc;
-}
-        .calendar-header {
-            text-align: center;
-            margin-bottom: 10px;
+        /* ========================================================== */
+        /* ESTILOS FINAIS PARA O CALENDÁRIO (VANILLA JS DATEPICKER) */
+        /* ========================================================== */
+        .datepicker-picker {
+            background-color: #f6f1ef; /* Fundo do calendário */
+            border-radius: 8px;
+            border: none;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
-        .calendar-header span {
-            font-size: 1.5em;
+        .datepicker-header .datepicker-title,
+        .datepicker-controls .button {
+            color: #122947; /* Cor 'accent-color' para o título do mês e setas */
             font-weight: bold;
-            color: #122947; /* Cor 'accent-color' do seu site */
         }
-        .calendar .calendar-header table th,
-        .calendar table.month th,
-        .calendar table.month td {
-            color: #333; /* Cor escura para o texto */
-            opacity: 1; /* Garante que não fiquem transparentes */
+        /* Dias da semana (S, T, Q, etc.) */
+        .datepicker-main .days-of-week .dow {
+            color: #122947; /* Cor 'accent-color' */
+            font-weight: 600;
         }
-        .calendar table.month td.day.selected {
+        /* Dias normais e disponíveis */
+        .datepicker-main .days .day:not(.disabled):not(.selected) {
+            color: #06031b; /* Texto PRETO */
+            font-weight: 600;
+        }
+        /* Dias indisponíveis (passados e de outros meses) */
+        .datepicker-main .days .day.disabled, 
+        .datepicker-main .days .day.prev, 
+        .datepicker-main .days .day.next {
+            color: #b0b0b0; /* Texto CINZA */
+            font-weight: 400;
+        }
+        /* Dia selecionado pelo usuário */
+        .datepicker-main .days .day.selected, 
+        .datepicker-main .days .day.selected:hover {
+            background-color: #122947; /* Fundo 'accent-color' */
+            color: #f6f1ef; /* Texto claro */
+            border-radius: 50%;
+        }
+        /* Dia de hoje */
+        .datepicker-main .days .day.today:not(.selected) {
+            background-color: #e2e8f0; /* Fundo cinza claro para o dia de hoje */
+            border-radius: 50%;
+        }
+        /* Efeito ao passar o mouse sobre um dia */
+        .datepicker-main .days .day:not(.selected):not(.disabled):hover {
+            background-color: #e2e8f0; /* Fundo cinza claro ao passar o mouse */
+            border-radius: 50%;
+        }
+
+        /* --- Correção para visualização de Mês e Ano --- */
+        .datepicker .months .month,
+        .datepicker .years .year {
+            color: #06031b; /* Texto PRETO */
+            font-weight: 600;
+            border-radius: 8px;
+        }
+        .datepicker .months .month:hover,
+        .datepicker .years .year:hover {
+            background-color: #e2e8f0;
+        }
+        .datepicker .months .month.selected,
+        .datepicker .years .year.selected {
             background-color: #122947; /* Cor 'accent-color' */
             color: #f6f1ef; /* Cor 'text-light' */
-            border-radius: 50%;
-            font-weight: bold;
         }
-        .calendar table.month td.day.today {
-            background-color: #d1d5db; /* Um cinza claro para diferenciar */
-            border-radius: 50%;
-        }
-        
+
         /* Estilos para os botões de horário no agendamento */
         .time-slot {
             display: inline-block;
@@ -966,6 +961,7 @@ const datepicker = new Datepicker(calendarElement, {
     language: 'pt-BR',
     todayHighlight: true,
     monthsToShow: 1,
+    showDaysOfWeek: true,
     daysOfWeekDisabled: [0, 2, 3, 4, 6]
 }); 
 
