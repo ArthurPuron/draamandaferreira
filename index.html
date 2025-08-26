@@ -221,37 +221,50 @@
 @media (max-width: 767px) {
     #service-modal {
         /* Garante que o modal use a tela toda e permita rolagem se necessário */
-        align-items: flex-start;
+        align-items: flex-start; /* Alinha o modal no topo da tela */
         overflow-y: auto;
+        padding: 1rem; /* Um pouco de padding para não colar nas bordas */
     }
 
     #modal-box {
-        /* Muda o layout para vertical: imagem em cima, texto embaixo */
+        /* Altera para layout de coluna no mobile */
         flex-direction: column;
         /* Remove a altura máxima para o conteúdo poder crescer */
-        max-h-full;
-        /* Adiciona uma margem no topo para não colar na barra de status */
-        margin-top: 2rem;
-        margin-bottom: 2rem;
+        max-height: none; /* Permite que o modal cresça conforme o conteúdo */
+        max-width: 100%; /* Garante que ele ocupe a largura total */
+        width: 100%; /* Ocupa a largura total da tela, com o padding do #service-modal */
+        margin-top: 1rem;
+        margin-bottom: 1rem;
     }
 
     #modal-box > div:first-child { /* O contêiner da imagem */
-        width: 100%;
-        /* Define uma altura fixa para a imagem não ficar gigante */
-        height: 250px; 
+        width: 100%; /* Garante que a div da imagem ocupe 100% da largura do modal */
+        height: 250px; /* Define uma altura fixa para a div da imagem */
+        /* Garante que a imagem dentro se ajuste corretamente */
+        display: flex; /* Transforma em flex container para centralizar/ajustar a imagem */
+        justify-content: center;
+        align-items: center;
+    }
+
+    #modal-image { /* A tag <img> real */
+        width: 100%; /* Faz a imagem ocupar 100% da largura de sua div-pai */
+        height: 100%; /* Faz a imagem ocupar 100% da altura de sua div-pai */
+        object-fit: cover; /* ESSENCIAL: Garante que a imagem cubra toda a área sem distorcer */
+        border-radius: 8px 8px 0 0; /* Ajusta borda para topo, se quiser */
     }
 
     #modal-box > div:last-child { /* O contêiner do texto */
-        width: 100%;
+        width: 100%; /* Garante que a div do texto ocupe 100% da largura do modal */
         height: auto; /* A altura se ajusta ao conteúdo */
-        max-h-full; /* Remove qualquer restrição de altura */
+        max-height: none; /* Remove qualquer restrição de altura */
+        border-radius: 0 0 8px 8px; /* Ajusta borda para base, se quiser */
     }
     
     #modal-content {
-        max-h-full; /* Garante que o conteúdo de texto não seja cortado */
+        max-height: none; /* Garante que o conteúdo de texto não seja cortado */
+        overflow-y: auto; /* Permite rolagem apenas no conteúdo se for muito longo */
     }
 }
-
     </style>
     
     <script>
