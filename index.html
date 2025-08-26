@@ -214,6 +214,44 @@
                 background-image: url('https://i.imgur.com/ZltwQyg.png');
             }
         }
+
+/* ========================================================== */
+/* AJUSTES DO MODAL PARA VERSÃO MOBILE */
+/* ========================================================== */
+@media (max-width: 767px) {
+    #service-modal {
+        /* Garante que o modal use a tela toda e permita rolagem se necessário */
+        align-items: flex-start;
+        overflow-y: auto;
+    }
+
+    #modal-box {
+        /* Muda o layout para vertical: imagem em cima, texto embaixo */
+        flex-direction: column;
+        /* Remove a altura máxima para o conteúdo poder crescer */
+        max-h-full;
+        /* Adiciona uma margem no topo para não colar na barra de status */
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    #modal-box > div:first-child { /* O contêiner da imagem */
+        width: 100%;
+        /* Define uma altura fixa para a imagem não ficar gigante */
+        height: 250px; 
+    }
+
+    #modal-box > div:last-child { /* O contêiner do texto */
+        width: 100%;
+        height: auto; /* A altura se ajusta ao conteúdo */
+        max-h-full; /* Remove qualquer restrição de altura */
+    }
+    
+    #modal-content {
+        max-h-full; /* Garante que o conteúdo de texto não seja cortado */
+    }
+}
+
     </style>
     
     <script>
