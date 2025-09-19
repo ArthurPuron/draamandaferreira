@@ -1126,6 +1126,24 @@ horariosDisponiveis.addEventListener('click', (event) => {
         });
     }
 }
+// ==========================================================
+// LÓGICA PARA ABRIR MODAL VIA URL
+// ==========================================================
+const hash = window.location.hash;
+if (hash) {
+    // Remove o '#' do início (ex: '#clinica-geral' vira 'clinica-geral')
+    const serviceIdFromUrl = hash.substring(1); 
+    
+    // Procura o card de serviço que corresponde ao ID da URL
+    const cardToClick = document.querySelector(`.service-card[data-service-id="${serviceIdFromUrl}"]`);
+
+    // Se encontrar o card, simula um clique nele para abrir o modal
+    if (cardToClick) {
+        setTimeout(() => { // Adiciona um pequeno delay para a página carregar visualmente
+            cardToClick.click();
+        }, 500); // Meio segundo de espera
+    }
+}
 });
 </script>
 </body>
